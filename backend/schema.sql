@@ -14,7 +14,7 @@ CREATE TABLE `back_test` (
 DROP TABLE IF EXISTS `back_diary`;
 
 CREATE TABLE `back_diary` (
-                              `diary_id`	VARCHAR(20)	NOT NULL,
+                              `diary_id`	INT UNSIGNED AUTO_INCREMENT	NOT NULL,
                               `diary_writter`	VARCHAR(20) NOT	NULL,
                               `diary_content`	VARCHAR(500) NOT NULL,
                               `diary_like`	INT	NOT NULL DEFAULT 0,
@@ -25,13 +25,27 @@ CREATE TABLE `back_diary` (
 DROP TABLE IF EXISTS `back_diary_check`;
 
 CREATE TABLE `back_diary_check` (
-                                    `diary_id`	VARCHAR(20)	NOT NULL,
+                                    `diary_id`	INT UNSIGNED NOT NULL,
+                                    `check_diary`	INT UNSIGNED AUTO_INCREMENT	NOT NULL,
                                     `diary_checked`	VARCHAR(2)	NOT NULL,
                                     `diary_name`	VARCHAR(10)	NULL,
                                     `diary_phone`	VARCHAR(20)	NULL,
                                     FOREIGN KEY (diary_id) REFERENCES back_diary (diary_id) ON DELETE RESTRICT,
-                                    PRIMARY KEY (diary_id)
+                                    PRIMARY KEY (check_diary)
 
+);
+
+DROP TABLE IF EXISTS `back_diary_like`;
+
+CREATE TABLE `back_diary_like` (
+                                   `dlike_id`	INT UNSIGNED AUTO_INCREMENT	NOT NULL,
+                                   `diary_id`	INT UNSIGNED NOT NULL,
+                                   `dlike_name`	VARCHAR(20)	NULL,
+                                   `dlike_ip`	VARCHAR(20)	NOT NULL,
+                                   `dlike_date`	DATE	NULL,
+                                   `dlike_browser`	VARCHAR(20)	NOT NULL,
+                                   FOREIGN KEY (diary_id) REFERENCES back_diary (diary_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+                                   PRIMARY KEY (dlike_id)
 );
 
 DROP TABLE IF EXISTS `back_item`;
@@ -45,14 +59,47 @@ CREATE TABLE `back_item` (
                              PRIMARY KEY (item_id)
 );
 
+DROP TABLE IF EXISTS `back_item_vote`;
+
+CREATE TABLE `back_item_vote` (
+                                  `bvote_id`	INT UNSIGNED AUTO_INCREMENT	NOT NULL,
+                                  `item_id`	VARCHAR(20)	NOT NULL,
+                                  `bvote_name`	VARCHAR(20)	NULL,
+                                  `bvote_ip`	VARCHAR(20)	NOT NULL,
+                                  `bvote_date`	DATE NOT	NULL,
+                                  `bvote_browser`	VARCHAR(20) NOT	NULL,
+                                  FOREIGN KEY (item_id) REFERENCES back_item (item_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+                                  PRIMARY KEY (bvote_id)
+);
+
+DROP TABLE IF EXISTS `back_balance`;
+
 CREATE TABLE `back_balance` (
-                                `balance_id`	VARCHAR(20)	NOT NULL,
+                                `balance_id`	INT UNSIGNED AUTO_INCREMENT	NOT NULL,
                                 `balance_content`	VARCHAR(200) NOT NULL,
                                 `balance_date`	DATE NOT NULL,
                                 `balance_like`	INT	NOT NULL DEFAULT 0,
                                 `balance_type`	VARCHAR(2)	NOT NULL,
                                 PRIMARY KEY (balance_id)
 );
+
+DROP TABLE IF EXISTS `back_balance_like`;
+
+CREATE TABLE `back_balance_like` (
+                                     `blike_id`	INT UNSIGNED AUTO_INCREMENT	NOT NULL,
+                                     `balance_id`	INT UNSIGNED NOT NULL,
+                                     `blike_name`	VARCHAR(20)	NULL,
+                                     `blike_ip`	VARCHAR(20)	NOT NULL,
+                                     `blike_date`	DATE	NOT NULL,
+                                     `blike_browser`	VARCHAR(20)	NOT NULL,
+                                     FOREIGN KEY (balance_id) REFERENCES back_balance (balance_id) ON DELETE RESTRICT,
+                                     PRIMARY KEY (blike_id)
+);
+
+
+
+
 show tables;
+
 
 

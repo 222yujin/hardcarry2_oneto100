@@ -2,7 +2,8 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('back_diary', {
     diary_id: {
-      type: DataTypes.STRING(20),
+      autoIncrement: true,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
@@ -20,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 0
     },
     diary_date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false
     }
   }, {
