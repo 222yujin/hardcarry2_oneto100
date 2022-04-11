@@ -3,9 +3,10 @@ DROP TABLE IF EXISTS `back_test`;
 CREATE TABLE `back_test` (
                              `type_id`	VARCHAR(20)	NOT NULL,
                              `type_name`	VARCHAR(50)	NOT NULL,
-                             `type_desc`	VARCHAR(200) NOT NULL,
+                             `type_desc`	VARCHAR(500) NOT NULL,
                              `type_img`	VARCHAR(50) NOT	NULL,
                              `type_like`	VARCHAR(20) NOT	NULL,
+                             `type_hashtag` VARCHAR(20) NOT	NULL,
                              `type_dislike`	VARCHAR(20) NOT	NULL,
                              `type_attend`	INT	NOT NULL DEFAULT 0,
                              PRIMARY KEY (type_id)
@@ -97,7 +98,20 @@ CREATE TABLE `back_balance_like` (
 );
 
 
+ALTER TABLE `oneto100`.`back_item_vote`
+    CHANGE COLUMN `bvote_date` `bvote_date` DATETIME NOT NULL ;
 
+ALTER TABLE `oneto100`.`back_balance_like`
+    CHANGE COLUMN `blike_date` `blike_date` DATETIME NOT NULL ;
+
+ALTER TABLE `oneto100`.`back_balance`
+    CHANGE COLUMN `balance_date` `balance_date` DATETIME NOT NULL ;
+
+ALTER TABLE `oneto100`.`back_diary_like`
+    CHANGE COLUMN `dlike_date` `dlike_date` DATETIME NOT NULL ;
+
+ALTER TABLE `oneto100`.`back_diary`
+    CHANGE COLUMN `diary_date` `diary_date` DATETIME NOT NULL ;
 
 show tables;
 

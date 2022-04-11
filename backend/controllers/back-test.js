@@ -82,24 +82,21 @@ const postTestResult = async (req, res) => {
     }
 
     //결과 db에서 찾아오고, 해당타입 참여수 +1 해준다
-
-    testdb.findOne({
-        where: {type_id: max_name}
-    }).then(type => {
-        if (type) {
-            type.increment({type_attend: 1}).then(function (result) {
-                return cwr.createWebResp(res, header, 200, {
-                    message: "testing is completed, sending testResult!",
-                    result: result.dataValues,
-                });
-            }).catch(e => {
-                return cwr.errorWebResp(res, header, 500,
-                    'test failed', e.message || e);
-            });
-        }
+    let testResult = await testdb.findOne({where: {type_id: max_name}});
+    console.log(testResult.dataValues.type_id)
+    let resultLike = await testdb.findOne({where: {type_id: testResult.dataValues.type_like}});
+    let resultDislike = await testdb.findOne({where: {type_id: testResult.dataValues.type_dislike}});
+    testdb.increment({type_attend: 1}, {where: {type_id: testResult.dataValues.type_id}}).then(function (result) {
+        return cwr.createWebResp(res, header, 200, {
+            message: "testing is completed, sending testResult!",
+            testResult: testResult,
+            resultLike: resultLike,
+            resultDislike: resultDislike
+        });
+    }).catch(e => {
+        return cwr.errorWebResp(res, header, 500,
+            'test failed', e.message || e);
     });
-
-
 }
 
 module.exports = {postTestResult}
