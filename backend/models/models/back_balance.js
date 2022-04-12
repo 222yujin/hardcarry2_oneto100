@@ -7,12 +7,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
+    balance_name: {
+      type: DataTypes.STRING(20),
+      allowNull: false
+    },
     balance_content: {
       type: DataTypes.STRING(200),
       allowNull: false
     },
     balance_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false
     },
     balance_like: {
@@ -22,6 +26,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     balance_type: {
       type: DataTypes.STRING(2),
+      allowNull: false
+    },
+    balance_ip: {
+      type: DataTypes.STRING(20),
+      allowNull: false
+    },
+    balance_browser: {
+      type: DataTypes.STRING(20),
       allowNull: false
     }
   }, {

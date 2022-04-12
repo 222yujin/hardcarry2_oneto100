@@ -24,11 +24,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     blike_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false
     },
     blike_browser: {
       type: DataTypes.STRING(20),
+      allowNull: false
+    },
+    blike_use: {
+      type: DataTypes.STRING(2),
       allowNull: false
     }
   }, {

@@ -1,5 +1,6 @@
 var DataTypes = require("sequelize").DataTypes;
 var _back_balance = require("./back_balance");
+var _back_balance_count = require("./back_balance_count");
 var _back_balance_like = require("./back_balance_like");
 var _back_diary = require("./back_diary");
 var _back_diary_check = require("./back_diary_check");
@@ -10,6 +11,7 @@ var _back_test = require("./back_test");
 
 function initModels(sequelize) {
   var back_balance = _back_balance(sequelize, DataTypes);
+  var back_balance_count = _back_balance_count(sequelize, DataTypes);
   var back_balance_like = _back_balance_like(sequelize, DataTypes);
   var back_diary = _back_diary(sequelize, DataTypes);
   var back_diary_check = _back_diary_check(sequelize, DataTypes);
@@ -29,6 +31,7 @@ function initModels(sequelize) {
 
   return {
     back_balance,
+    back_balance_count,
     back_balance_like,
     back_diary,
     back_diary_check,

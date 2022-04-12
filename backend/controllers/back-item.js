@@ -25,15 +25,14 @@ const voteItems = async (req, res) => {
     const userAgent = req.get('User-Agent');
     const browser = getBrowserInfo(userAgent);
     const itemNum = req.query.itemNum;
-    const name = req.cookies["nickname"]
 
-    console.log(ip, browser, itemNum, name)
+    console.log(ip, browser, itemNum)
     const item = await itemdb.findOne({where: {item_id: itemNum}})
     itemdb.increment({item_voted: 1}, {where: {item_id: item.dataValues.item_id}});
     itemdb.increment({item_voted: 1}, {where: {item_id: 0}});
 
     votedb.create({
-        item_id: itemNum, bvote_name: name,
+        item_id: itemNum, bvote_name: null,
         bvote_ip: ip, bvote_date: new Date(), bvote_browser: browser
     }).then(function (result) {
         res.cookie('voted', itemNum);
@@ -58,9 +57,8 @@ const voteResult = async (req, res) => {
     const total = await itemdb.findOne({where: {item_id: 0}, raw: true, attributes: ['item_voted']})
     let voteResult = [];
     for (let i = 0; i < result.length; i++) {
-        voteResult.push(result[i], result[i].item_voted / total.item_voted * 100);
+        voteResult.push(result[i], (result[i].item_voted / total.item_voted * 100).toFixed(2));
     }
-    console.log(voteResult)
 
     return cwr.createWebResp(res, header, 200, {
         message: `vote result sending`,

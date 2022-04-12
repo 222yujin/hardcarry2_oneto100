@@ -45,6 +45,7 @@ CREATE TABLE `back_diary_like` (
                                    `dlike_ip`	VARCHAR(20)	NOT NULL,
                                    `dlike_date`	DATE	NULL,
                                    `dlike_browser`	VARCHAR(20)	NOT NULL,
+                                   `dlike_use` VARCHAR(2) NOT NULL,
                                    FOREIGN KEY (diary_id) REFERENCES back_diary (diary_id) ON DELETE RESTRICT ON UPDATE RESTRICT,
                                    PRIMARY KEY (dlike_id)
 );
@@ -77,10 +78,13 @@ DROP TABLE IF EXISTS `back_balance`;
 
 CREATE TABLE `back_balance` (
                                 `balance_id`	INT UNSIGNED AUTO_INCREMENT	NOT NULL,
+                                `balance_name`	VARCHAR(20)	NOT NULL,
                                 `balance_content`	VARCHAR(200) NOT NULL,
                                 `balance_date`	DATE NOT NULL,
                                 `balance_like`	INT	NOT NULL DEFAULT 0,
                                 `balance_type`	VARCHAR(2)	NOT NULL,
+                                `balance_ip`	VARCHAR(20)	NOT NULL,
+                                `balance_browser`	VARCHAR(20) NOT	NULL,
                                 PRIMARY KEY (balance_id)
 );
 
@@ -93,10 +97,18 @@ CREATE TABLE `back_balance_like` (
                                      `blike_ip`	VARCHAR(20)	NOT NULL,
                                      `blike_date`	DATE	NOT NULL,
                                      `blike_browser`	VARCHAR(20)	NOT NULL,
+                                     `blike_use`  VARCHAR(2) NOT NULL,
                                      FOREIGN KEY (balance_id) REFERENCES back_balance (balance_id) ON DELETE RESTRICT,
                                      PRIMARY KEY (blike_id)
 );
 
+DROP TABLE IF EXISTS `back_balance_count`;
+
+CREATE TABLE `back_balance_count` (
+                                      `balance_type`	VARCHAR(2)	NOT NULL,
+                                      `balance_selected` INT UNSIGNED NOT NULL DEFAULT 0,
+                                      PRIMARY KEY (balance_type)
+);
 
 ALTER TABLE `oneto100`.`back_item_vote`
     CHANGE COLUMN `bvote_date` `bvote_date` DATETIME NOT NULL ;

@@ -21,7 +21,15 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 0
     },
     diary_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
+      allowNull: false
+    },
+    diary_ip: {
+      type: DataTypes.STRING(20),
+      allowNull: false
+    },
+    diary_browser: {
+      type: DataTypes.STRING(20),
       allowNull: false
     }
   }, {

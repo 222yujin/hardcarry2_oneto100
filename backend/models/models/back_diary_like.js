@@ -24,11 +24,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     dlike_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: true
     },
     dlike_browser: {
       type: DataTypes.STRING(20),
+      allowNull: false
+    },
+    dlike_use: {
+      type: DataTypes.STRING(2),
       allowNull: false
     }
   }, {
