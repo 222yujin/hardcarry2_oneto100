@@ -2,9 +2,14 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('back_balance', {
     balance_id: {
-      type: DataTypes.STRING(20),
+      autoIncrement: true,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true
+    },
+    balance_name: {
+      type: DataTypes.STRING(20),
+      allowNull: false
     },
     balance_content: {
       type: DataTypes.STRING(200),
@@ -21,6 +26,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     balance_type: {
       type: DataTypes.STRING(2),
+      allowNull: false
+    },
+    balance_ip: {
+      type: DataTypes.STRING(20),
+      allowNull: false
+    },
+    balance_browser: {
+      type: DataTypes.STRING(20),
       allowNull: false
     }
   }, {

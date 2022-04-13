@@ -2,13 +2,18 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('back_diary_check', {
     diary_id: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true,
       references: {
         model: 'back_diary',
         key: 'diary_id'
       }
+    },
+    check_diary: {
+      autoIncrement: true,
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+      primaryKey: true
     },
     diary_checked: {
       type: DataTypes.STRING(2),
@@ -30,6 +35,13 @@ module.exports = function(sequelize, DataTypes) {
       {
         name: "PRIMARY",
         unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "check_diary" },
+        ]
+      },
+      {
+        name: "diary_id",
         using: "BTREE",
         fields: [
           { name: "diary_id" },

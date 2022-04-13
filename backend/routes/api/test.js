@@ -7,4 +7,6 @@ router.get('/', function(req, res, next) {
   res.send('respond with a test');
 });
 
+router.post('/postTestArray',testController.postTestResult);
+
 module.exports = router;

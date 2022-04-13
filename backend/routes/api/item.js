@@ -8,5 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/getItems',itemController.getItems);
+router.get('/voteItems',itemController.voteItems);
+router.get('/voteResult',itemController.voteResult)
 
 module.exports = router;

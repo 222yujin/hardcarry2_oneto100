@@ -1,45 +1,55 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('back_diary', {
-    diary_id: {
+  return sequelize.define('back_diary_like', {
+    dlike_id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    diary_writter: {
-      type: DataTypes.STRING(20),
-      allowNull: false
-    },
-    diary_content: {
-      type: DataTypes.STRING(500),
-      allowNull: false
-    },
-    diary_like: {
-      type: DataTypes.INTEGER,
+    diary_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      defaultValue: 0
+      references: {
+        model: 'back_diary',
+        key: 'diary_id'
+      }
     },
-    diary_date: {
+    dlike_name: {
+      type: DataTypes.STRING(20),
+      allowNull: true
+    },
+    dlike_ip: {
+      type: DataTypes.STRING(20),
+      allowNull: false
+    },
+    dlike_date: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: true
     },
-    diary_ip: {
+    dlike_browser: {
       type: DataTypes.STRING(20),
       allowNull: false
     },
-    diary_browser: {
-      type: DataTypes.STRING(20),
+    dlike_use: {
+      type: DataTypes.STRING(2),
       allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'back_diary',
+    tableName: 'back_diary_like',
     timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
         unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "dlike_id" },
+        ]
+      },
+      {
+        name: "diary_id",
         using: "BTREE",
         fields: [
           { name: "diary_id" },
