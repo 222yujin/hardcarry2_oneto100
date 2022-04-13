@@ -1,5 +1,6 @@
 import "./SideBar.css";
 import React from "react";
+import titlebutton from "../../assets/titlebutton.png";
 
 export const SideBar = ({ width, height, children }) => {
   const [xPosition, setX] = React.useState(-width);
@@ -17,22 +18,30 @@ export const SideBar = ({ width, height, children }) => {
   }, []);
   return (
     <React.Fragment>
-      <div
-        className="sidebar"
-        style={{
-          transform: `translatex(${xPosition}px)`,
-          width: width,
-          minHeight: height,
-        }}
-      >
-        <button
-          onClick={() => toggleMenu()}
-          className="toggle-menu"
-          style={{
-            transform: `translate(${width}px, 20vh)`,
-          }}
-        ></button>
-        <div className="content">{children}</div>
+      <div>
+        {" "}
+        <div className="sidebar_layout">
+          <button
+            onClick={() => toggleMenu()}
+            className="toggle-menu"
+            // style={{
+            //   transform: `translate(${width}px)`,
+            // }}
+          >
+            <img src={titlebutton} className="side" />
+          </button>
+
+          <div
+            className="sidebar"
+            style={{
+              transform: `translatex(${xPosition - 3}em)`,
+
+              // minHeight: height,
+            }}
+          >
+            <div className="content">{children}</div>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );
