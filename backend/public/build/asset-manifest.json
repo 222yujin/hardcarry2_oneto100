@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1ce21580.css",
+    "main.js": "/static/js/main.666c93de.js",
+    "static/media/20220330_120315_2.png": "/static/media/20220330_120315_2.3588f8c21bc378cbc8a1.png",
+    "static/media/막내클럽_19.png": "/static/media/막내클럽_19.04ef05c8ded3965330cd.png",
+    "index.html": "/index.html",
+    "static/media/warn.svg": "/static/media/warn.71fb9b7feae9cafaeff3d46bbd9ded9e.svg",
+    "main.1ce21580.css.map": "/static/css/main.1ce21580.css.map",
+    "main.666c93de.js.map": "/static/js/main.666c93de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ce21580.css",
+    "static/js/main.666c93de.js"
+  ]
+}

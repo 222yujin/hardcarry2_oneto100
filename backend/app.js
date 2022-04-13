@@ -24,7 +24,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/build')));
+//app.use 해서 bulid folder를 static만들어야하고
 app.use(cors());
 
 //db 연결
@@ -36,8 +38,13 @@ models.sequelize.sync().then( () => {
   console.log(err);
 })
 
+app.get("/", (req, res) => {
+  console.log(__dirname);
+  // index.html 파일 응답
+  res.sendFile(path.join(__dirname, "./public/build", "index.html"));
+});
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/item', itemRouter);
 app.use('/balance', balanceRouter);
 app.use('/test', testRouter);
