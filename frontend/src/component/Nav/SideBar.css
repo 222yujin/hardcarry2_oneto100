@@ -1,7 +1,7 @@
-.sidebar_layout {
+/* .sidebar_layout {
     width: 50rem;
     margin: 0 auto;
-}
+} */
 
 .sidebar {
     position: absolute;
@@ -23,13 +23,12 @@
 }
 
 .toggle-menu {
-    position: absolute;
     top: 0.5rem;
-    left: 30%;
-    transform: translateX(-30%);
+    /* left: 30%; */
+    /* transform: translateX(-30%); */
     height: 3.5rem;
     width: 3rem;
-    position: absolute;
+    /* position: absolute; */
     background-color: #f89c;
     border-color: #f89c;
     justify-content: flex-start;

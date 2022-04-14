@@ -1,5 +1,4 @@
 import React from "react";
-import Rating from "./Rating";
 import "./ReviewList.css";
 function formatDate(value) {
   const date = new Date(value);

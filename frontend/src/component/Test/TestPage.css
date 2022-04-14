@@ -1,11 +1,15 @@
 .test_layout {
-    width: 500px;
+    max-width: 500px;
+    height: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* flex-wrap: nowrap; */
 }
 
 .test_page {
     width: 100%;
-    margin-top: 4rem;
     position: relative;
     background: black;
     /* background: #ffffff; */
@@ -19,7 +23,11 @@
     margin-top: 7rem;
 }
 
-.test_maintitle {}
+
+/* .test_maintitle {
+  margin: auto;
+  width: 50%;
+} */
 
 .test_maintext {
     text-align: center;
@@ -65,6 +73,10 @@
     font-size: 17px;
 }
 
+div[className="test_maincontent"] {
+    border: none;
+}
+
 .test_maincontent {
     display: flex;
     flex-direction: column;
@@ -72,22 +84,17 @@
     align-content: center;
 }
 
-.test_grayimg {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10rem;
+.test_button {
+    border: none;
+    background: none;
 }
 
 .test_buttonimg {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 35rem;
+    margin-top: 5rem;
 }
 
 .test_footermargin {
     display: block;
     height: 3rem;
-    margin-top: 50rem;
+    margin-top: 25rem;
 }

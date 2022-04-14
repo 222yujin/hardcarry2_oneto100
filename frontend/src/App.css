@@ -1,28 +1,31 @@
-.center_app {
-    width: 500px;
+.Main_center_app {
+    max-width: 500px;
+    height: 100%;
     margin: 0 auto;
+    /* overflow-y: auto; */
 }
 
 .App_header {
-    position: absolute;
-    width: 550px;
-    height: 4rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 3rem;
     background-color: #f89cc5;
-    top: 0.05rem;
-    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.App_text {
+    margin: auto;
+    width: 50%;
 }
 
 .App_titletext {
-    font-size: 1.5em;
     font-style: normal;
     color: #f8f9fa;
     text-align: center;
-    margin-bottom: 1rem;
     font-weight: bolder;
+}
+
+.Main_center_app .Main_App_menu {
+    width: 100%;
 }

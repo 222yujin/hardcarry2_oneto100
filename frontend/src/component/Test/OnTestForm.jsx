@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./OnTest.css";
 import Q1 from "../../images/questionNum/Q1.png";
 import Q2 from "../../images/questionNum/Q2.png";
 import Q3 from "../../images/questionNum/Q3.png";
@@ -23,8 +23,6 @@ import q9 from "../../images/question/qw9.png";
 import q10 from "../../images/question/qw10.png";
 
 import ProgressBar from "../Progress/Progress";
-
-import "./OnTest.css";
 
 var select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const OnTestForm = (props) => {

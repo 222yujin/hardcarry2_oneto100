@@ -1,13 +1,13 @@
 import React, { Component, useEffect, useState } from "react";
 import votebutton from "../../assets/votebutton.png";
 import ProductList from "./ProductList";
-
 import "./ProductVoteForm.css";
+
 const ProductVoteForm = () => {
   const [items, setItems] = useState([]);
 
   return (
-    <div className="layout">
+    <div className="Product_vote_layout">
       <div className="ProductVoteForm">
         <div className="product_title">
           <p className="product_titletext">백수도 템빨</p>
@@ -16,9 +16,7 @@ const ProductVoteForm = () => {
             <p className="product_subtitletext12"> 백수의 아이템 모음zip</p>
           </div>
         </div>
-        <div className="product_map">
-          <ProductList items={items} />
-        </div>
+        <div className="product_map">{/* <ProductList items={items} /> */}</div>
         <div className="product_button">
           <img src={votebutton} alt="votebutton" />{" "}
         </div>

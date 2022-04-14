@@ -2,7 +2,7 @@ import "./SideBar.css";
 import React from "react";
 import titlebutton from "../../assets/titlebutton.png";
 
-export const SideBar = ({ width, height, children }) => {
+export const Toggle = ({ width, height, children }) => {
   const [xPosition, setX] = React.useState(-width);
 
   const toggleMenu = () => {
@@ -30,7 +30,7 @@ export const SideBar = ({ width, height, children }) => {
         </button>
 
         <div
-          className="sidebar"
+          className="Toggle"
           style={{
             transform: `translatex(${xPosition - 3}em)`,
 

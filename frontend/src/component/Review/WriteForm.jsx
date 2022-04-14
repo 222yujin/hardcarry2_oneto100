@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import FileInput from "./FileInput";
 import "./ReviewForm.css";
-import RatingInput from "./RatingInput";
 import createReviews from "./api";
 import button from "../../assets/button3.png";
-
 const INITIAL_VALIES = {
   nickname: "",
   rating: 0,

@@ -23,27 +23,22 @@ const TestPage = () => {
             <p className="test_subtext1">영화속 백수 캐릭터로 살펴 본</p>
             <p className="test_subtext2">나의 백수 성향은? </p>
           </div>
-          <div className="test_explaintitle">
-            {/* <p className="test_explaintext"> 가이드 텍스트 들어갈 공간</p>
-            <p className="test_explaintext1"> 가이드 텍스트 들어갈 공간</p>
-            <p className="test_explaintext1"> 가이드 텍스트 들어갈 공간</p> */}
-          </div>
+          <div className="test_explaintitle"></div>
         </div>
-        <div className="test_maincontent">
-          <div className="test_graybox">
-            <img src={dino1} className="test_grayimg" alt="altimg" />
-          </div>
-          <div className="test_button">
-            <button>
-              <img
-                src={testbutton}
-                className="test_buttonimg"
-                alt="button"
-                onClick={handleNext}
-              />
-            </button>
-          </div>
-        </div>{" "}
+        <div className="test_graybox">
+          <img src={dino1} className="test_grayimg" alt="altimg" />
+        </div>
+        <div className="test_button">
+          <button className="test_button">
+            <img
+              src={testbutton}
+              className="test_buttonimg"
+              alt="button"
+              onClick={handleNext}
+            />
+          </button>
+        </div>
+        <div className="footermargin"></div>
       </div>
     </div>
   );

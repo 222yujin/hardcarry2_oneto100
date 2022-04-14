@@ -53,7 +53,7 @@ const WaitForm = () => {
   //   }
 
   return (
-    <div className="layout">
+    <div className="wait_layout">
       <div className="WaitForm">
         <div className="h3Container">
           <img className="resultimg" src={waiting} alt="img" />

@@ -3,8 +3,7 @@ import React, { Component, useEffect, useState, useContext } from "react";
 import HomePage from "./page/HomePage";
 import NotFoundPage from "./page/NotFoundPage";
 import Mainpage from "./page/Mainpage";
-import Navmain from "./component/Nav/Navmain";
-import HeaderNav from "./component/Layout/HeaderNav";
+
 import TestPage from "./page/TestPage";
 import OnTestPage from "./page/OnTestPage";
 import ResultPage from "./page/ResultPage";
@@ -19,24 +18,25 @@ import "./App.css";
 
 function Main() {
   return (
-    <div className="center_app">
+    <div className="Main_center_app">
       <BrowserRouter>
+        {" "}
+        {/* <Navmain /> */}
         <div className="App_header">
           <div className="App_text">
             <p className="App_titletext">일당백 프로젝트</p>
           </div>
-          {/* <HeaderNav /> */}
         </div>
         <Routes>
           <Route path="/" element={<Mainpage />} />
-
           <Route path="/mains" element={<Mainpage />} />
-          <Route path="/story" element={<HomePage />} />
-          <Route path="/write" element={<Write />} />
-
           <Route path="/test" element={<TestPage />} />
           <Route path="/ontest" element={<OnTestPage />} />
           <Route path="/result" element={<ResultPage />} />
+
+          <Route path="/story" element={<HomePage />} />
+          <Route path="/write" element={<Write />} />
+
           <Route path="/wait" element={<WaitPage />} />
           <Route path="/products" element={<ProductVotePage />} />
           <Route path="/productsample" element={<ProductListSample />} />
@@ -44,7 +44,6 @@ function Main() {
           <Route path="/result" element={<Result />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        <Navmain />
       </BrowserRouter>
     </div>
   );
