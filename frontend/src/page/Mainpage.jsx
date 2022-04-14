@@ -10,41 +10,41 @@ function MainPage() {
     <div className="Main_layout">
       <div className="Main_background">
         <div className="Main_grayboxarray">
-          <div class="Main_content">
-            <div class="col">
-              <div class="box">
+          <div className="Main_content">
+            <div className="col">
+              <div className="box">
                 {" "}
                 <Link to="/mains">
                   <img src={graybox} className="graybox" />
                 </Link>
               </div>
-              <div class="box">
+              <div className="box">
                 {" "}
                 <Link to="/story">
                   <img src={graybox} className="graybox" />
                 </Link>
               </div>
-              <div class="box">
+              <div className="box">
                 {" "}
                 <Link to="/write">
                   <img src={graybox} className="graybox" />
                 </Link>
               </div>
             </div>
-            <div class="col">
-              <div class="box">
+            <div className="col">
+              <div className="box">
                 {" "}
                 <Link to="/test">
                   <img src={graybox} className="graybox" />
                 </Link>
               </div>
-              <div class="box">
+              <div className="box">
                 {" "}
-                <Link to="/product">
+                <Link to="/products">
                   <img src={graybox} className="graybox" />
                 </Link>
               </div>
-              <div class="box">
+              <div className="box">
                 {" "}
                 <a href={"http://www.youtheroom.kr/"}>
                   <img src={graybox} className="graybox" />

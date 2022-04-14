@@ -16,7 +16,9 @@ const ProductVoteForm = () => {
             <p className="product_subtitletext12"> 백수의 아이템 모음zip</p>
           </div>
         </div>
-        <div className="product_map">{/* <ProductList items={items} /> */}</div>
+        <div className="product_map">
+          <ProductList items={items} />
+        </div>
         <div className="product_button">
           <img src={votebutton} alt="votebutton" />{" "}
         </div>

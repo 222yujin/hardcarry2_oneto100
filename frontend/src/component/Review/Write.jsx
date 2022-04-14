@@ -23,7 +23,7 @@ const Review = () => {
   };
   return (
     <>
-      <div className="layout">
+      <div className="write_layout">
         <div className="write">
           <div className="write_title">
             <div className="write_maintitle">
@@ -74,9 +74,9 @@ const Review = () => {
             <h3>백수들의 일기장 훔쳐보기</h3>
           </div>
           <div className="write_list">
-            <div className="writelist_item">
+            {/* <div className="writelist_item">
               <WriteList reviews={reviews} onDelete={handledelete} />
-            </div>
+            </div> */}
           </div>{" "}
         </div>
       </div>

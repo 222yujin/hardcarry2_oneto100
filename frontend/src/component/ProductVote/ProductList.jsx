@@ -12,7 +12,7 @@ function ProductListItem({ item }) {
   };
   return (
     <div>
-      <div className="layout">
+      <div className="productlist_layout">
         <div className="item-nav">
           <a href={item.Url}>
             <div>
@@ -111,7 +111,7 @@ const ProductList = ({ onDelete }) => {
                 <div className="product_checkbox">
                   <input
                     type="radio"
-                    name={item.id}
+                    name="product_name"
                     value={item.id}
                     id={item.title}
                     onClick={() => {

@@ -4,7 +4,7 @@ import "../component/Home/Home.css";
 
 const HomePage = () => {
   return (
-    <div className="layout">
+    <div className="Home_layout">
       <div className="map">
         <StartingPageContent />
       </div>

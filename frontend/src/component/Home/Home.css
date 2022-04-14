@@ -1,4 +1,7 @@
-.layout {
-    width: 400px;
+.Home_layout {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
+    text-align: center;
 }

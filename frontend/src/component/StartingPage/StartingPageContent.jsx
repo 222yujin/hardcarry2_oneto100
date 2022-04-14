@@ -4,8 +4,9 @@ const StartingPageContent = () => {
   return (
     <div>
       <section className={classes.starting}>
-        <h1>디노백수클럽</h1>
-        <h1> 스토리</h1>
+        <h1>일당백</h1>
+        <h1>디노</h1>
+        <h1>스토리</h1>
       </section>
     </div>
   );
