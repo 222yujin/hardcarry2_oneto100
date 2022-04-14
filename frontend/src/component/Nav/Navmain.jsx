@@ -12,7 +12,7 @@ const Navmain = () => {
         {MenuItems.map((item, index) => {
           return (
             <ul key={index}>
-              <li>
+              <li className="Navmaintag">
                 <a
                   className={item.cName}
                   href={item.url}

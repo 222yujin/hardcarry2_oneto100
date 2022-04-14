@@ -11,7 +11,7 @@
 .test_page {
     width: 100%;
     position: relative;
-    background: black;
+    background: turquoise;
     /* background: #ffffff; */
     display: flex;
     flex-direction: column;

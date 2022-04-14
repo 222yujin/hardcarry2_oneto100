@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-a {
+a.Navmaintag {
     text-decoration: none;
 }
 
@@ -24,7 +24,7 @@ a:visited {
     display: inline-block;
 }
 
-a:hover {
+a:hover.Navmaintag {
     background-color: salmon;
 }
 

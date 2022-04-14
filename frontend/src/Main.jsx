@@ -15,6 +15,7 @@ import Write from "./component/Review/Write";
 import Share_SNS from "./component/Share/Share_SNS";
 import Result from "./component/Share/Result";
 import "./App.css";
+import ResultForm from "./component/Result/ResultForm";
 
 function Main() {
   return (
@@ -32,11 +33,9 @@ function Main() {
           <Route path="/mains" element={<Mainpage />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/ontest" element={<OnTestPage />} />
-          <Route path="/result" element={<ResultPage />} />
-
+          <Route path="/result" element={<ResultForm />} />
           <Route path="/story" element={<HomePage />} />
           <Route path="/write" element={<Write />} />
-
           <Route path="/wait" element={<WaitPage />} />
           <Route path="/products" element={<ProductVotePage />} />
           <Route path="/productsample" element={<ProductListSample />} />

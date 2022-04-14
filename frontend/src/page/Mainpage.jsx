@@ -55,7 +55,9 @@ function MainPage() {
         </div>
 
         <div className="footer">
-          <p className="footertext">디노 캐릭터를 클릭 해보세요.</p>
+          <p className="footertext">
+            디노를 클릭하면 백수들의 파티가 시작된다!
+          </p>
           <div className="footermargin"></div>
         </div>
       </div>

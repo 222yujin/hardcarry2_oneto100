@@ -118,6 +118,14 @@ const OnTestForm = (props) => {
             >
               {answerNo[step]}
             </button>
+            {/* <button
+              className="preview"
+              onClick={(onClick) => {
+                on;
+              }}
+            >
+              ⇠ 이전 질문으로{" "}
+            </button> */}
           </div>
         )}
         <div className="footermargin"></div>

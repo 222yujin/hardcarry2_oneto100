@@ -51,7 +51,7 @@ const copyToClipboard = (val) => {
 };
 
 const copy = (func) => {
-  copyToClipboard("https://bit.ly/캐취업");
+  copyToClipboard("https://www.naver.com/");
   func("complete");
 };
 
@@ -69,7 +69,7 @@ const subtitlesize = [
   [284, 47],
   [204, 43],
 ];
-const Result = (props) => {
+const ResultForm = (props) => {
   const navigate = useNavigate();
   const [isShowAll, setIsShowAll] = React.useState(false);
   const [ToastStatus, setToastStatus] = React.useState(false);
@@ -215,4 +215,4 @@ const Result = (props) => {
   );
 };
 
-export default Result;
+export default ResultForm;
