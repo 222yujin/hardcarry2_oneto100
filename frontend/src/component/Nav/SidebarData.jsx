@@ -1,41 +1,42 @@
 import React from "react";
-import * as BsIcons from "react-icons/bs";
+import * as AiIcons from "react-icons/ai";
+
 export const SidebarData = [
   {
     title: "일당백프로젝트",
     path: "/mains",
-    icon: <BsIcons.BsFillHouseDoorFill />,
+    icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },
   {
     title: "디노스토리",
     path: "/story",
-    icon: <BsIcons.BsFillInfoCircleFill />,
+    icon: <AiIcons.AiFillAliwangwang />,
     cName: "nav-text",
   },
 
   {
     title: "백수삶의현장",
     path: "/test",
-    icon: <BsIcons.BsPersonBoundingBox />,
+    icon: <AiIcons.AiFillCrown />,
     cName: "nav-text",
   },
   {
     title: "백수의일기장",
     path: "/write",
-    icon: <BsIcons.BsFillHouseDoorFill />,
+    icon: <AiIcons.AiFillEdit />,
     cName: "nav-text",
   },
   {
     title: "백런스게임",
     path: "/game",
-    icon: <BsIcons.BsFillInfoCircleFill />,
+    icon: <AiIcons.AiFillCaretRight />,
     cName: "nav-text",
   },
   {
     title: "백수도템빨",
     path: "/products",
-    icon: <BsIcons.BsEnvelopeFill />,
+    icon: <AiIcons.AiFillGift />,
     cName: "nav-text",
   },
 ];
