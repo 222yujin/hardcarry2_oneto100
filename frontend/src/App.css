@@ -16,6 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+    margin: 0 auto;
 }
 
 .App_text {
@@ -33,3 +34,16 @@ body {
 .Main_center_app .Main_App_menu {
     width: 100%;
 }
+
+
+/* @media only screen and (min-width: 600px) {
+    .App_Main_Nav {
+        width: 25%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .App_Main_Nav {
+        width: 25%;
+    }
+} */
