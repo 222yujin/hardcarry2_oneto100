@@ -91,11 +91,6 @@ const OnTestForm = (props) => {
         </div>
         {time && (
           <div className="test">
-            <img
-              className="testQuestionNum"
-              src={questionNum[step]}
-              alt="img"
-            ></img>
             <div className="testQuestionContainer">
               <h3 className="testQuestionlist">{questionlist[step]}</h3>
             </div>

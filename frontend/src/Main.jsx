@@ -6,23 +6,21 @@ import Mainpage from "./page/Mainpage";
 
 import TestPage from "./page/TestPage";
 import OnTestPage from "./page/OnTestPage";
-import ResultPage from "./page/ResultPage";
 import WaitPage from "./page/WaitPage";
 import ProductVotePage from "./page/ProductVotePage";
 
 import ProductListSample from "./component/ProductVote/ProductListSample";
 import Write from "./component/Review/Write";
-import Share_SNS from "./component/Share/Share_SNS";
 import Result from "./component/Share/Result";
 import "./App.css";
 import ResultForm from "./component/Result/ResultForm";
 import Navmain from "./component/Nav/Navmain";
-
+import Slider from "./elements/Slide/Slider";
+import ClipboardCopy from "./elements/Clipboard/ClipboardCopy";
+import KakaoShare from "./elements/Kakaoshare/Kakaoshare";
+import ShareSNS from "./component/Share/ShareSNS";
+import Modalmain from "./elements/Modal/Modalmain";
 function Main() {
-  // const sidebar = document.getElementById("sidebar");
-  //       document.getElementById("menu-btn").addEventListener("click", (event) => {
-  //           sidebar.classList.toggle("active");
-  //       });
   return (
     <div className="Main_center_app">
       <BrowserRouter>
@@ -43,9 +41,12 @@ function Main() {
             <Route path="/wait" element={<WaitPage />} />
             <Route path="/products" element={<ProductVotePage />} />
             <Route path="/productsample" element={<ProductListSample />} />
-            <Route path="/share" element={<Share_SNS />} />
+            <Route path="/share" element={<ShareSNS />} />
             <Route path="/result" element={<Result />} />
-
+            <Route path="/slide" element={<Slider />} />
+            <Route path="/clip" element={<ClipboardCopy />} />
+            <Route path="/kakao" element={<KakaoShare />} />
+            <Route path="/modal" element={<Modalmain />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

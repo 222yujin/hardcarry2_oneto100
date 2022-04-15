@@ -1,0 +1,9 @@
+.Slider_layout {
+    display: flex;
+    justify-content: center;
+}
+
+.Slider_container {
+    display: flex;
+    flex-direction: row;
+}

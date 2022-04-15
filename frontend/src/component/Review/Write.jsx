@@ -13,6 +13,7 @@ import twitter from "../../assets/share_twitter.png";
 import link from "../../assets/share_link.png";
 
 import "./Write.css";
+import ShareSNS from "../Share/ShareSNS";
 
 const Review = () => {
   const [reviews, setReviews] = useState(mockReviews);
@@ -60,23 +61,21 @@ const Review = () => {
           </div>
           <div className="SNS_share">
             <div className="SNS_title">
-              <h3>친구들에게 공유하면</h3>
-              <h1> 당첨확률 UP</h1>
+              <h2>친구들에게 공유하면 당첨확률 UP</h2>
             </div>
             <div className="SNS">
-              <img src={kakao} alt="kakao" className="kakao" />
-              {/* <img src={facebook} alt="facebook" className="facebook" />
-              <img src={twitter} alt="twitter" className="twitter" /> */}
-              <img src={link} alt="link" className="link" />
+              <div className="SNS">
+                <ShareSNS className="snscomponent" />
+              </div>
             </div>
           </div>{" "}
           <div className="writelist_title">
-            <h3>백수들의 일기장 훔쳐보기</h3>
+            <h1>백수들의 일기장 훔쳐보기</h1>
           </div>
           <div className="write_list">
-            {/* <div className="writelist_item">
+            <div className="writelist_item">
               <WriteList reviews={reviews} onDelete={handledelete} />
-            </div> */}
+            </div>
           </div>{" "}
         </div>
       </div>

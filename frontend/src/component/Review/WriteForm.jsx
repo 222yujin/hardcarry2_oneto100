@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./ReviewForm.css";
 import createReviews from "./api";
 import button from "../../assets/button3.png";
+import Modalmain from "../../elements/Modal/Modalmain";
+
 const INITIAL_VALIES = {
   nickname: "",
   rating: 0,
@@ -37,17 +39,20 @@ function WriteForm() {
   };
 
   return (
-    <div className="layout">
+    <div className="write_layout">
       <div className="writeform">
         <form className="Form" onSubmit={handleSubmit}>
-          닉네임
-          <input
-            className="write_name"
-            name="nickname"
-            value={values.nickname}
-            onChange={handleInputChange}
-            placeholder="닉네임을 입력해 주세요. (최대 8글자)"
-          />
+          <div className="nickname_scope">
+            닉네임{" "}
+            <input
+              id="1"
+              className="write_nameandphone"
+              name="nickname"
+              value={values.nickname}
+              onChange={handleInputChange}
+              placeholder="닉네임을 입력해 주세요. (최대 8글자)"
+            />
+          </div>
           <textarea
             className="write_textarea"
             name="content"
@@ -55,30 +60,48 @@ function WriteForm() {
             onChange={handleInputChange}
             placeholder="&#13;&#10;해당 작성 내용은 삭제나 수정이 불가하오니 &#13;&#10;신중하게 작성 부탁드립니다."
           />
-          <input
-            className="write_choiceradio"
-            name="choice"
-            value={values.choice}
-            type="radio"
-            onChange={handleInputChange}
-            placeholder="(선택) 연락처 적고 경품 받기"
-          />
-          (선택) 연락처 적고 경품 받기
-          <input
-            className="write_name"
-            name="nickname"
-            value={values.nickname}
-            onChange={handleInputChange}
-            placeholder="연락처를 입력해 주세요."
-          />
-          <button type="submit" disabled={isSubmitting}>
-            <img
-              src={button}
-              className="submit_button"
-              alt="submit_button"
-              onClick={handleSubmit}
+          <div className="choise_scope">
+            <input
+              id="2"
+              className="write_choiceradio"
+              name="choice"
+              value={values.choice}
+              type="radio"
+              onChange={handleInputChange}
+              placeholder="(선택) 연락처 적고 경품 받기"
             />
+            (선택) 연락처 적고 경품 받기
+          </div>
+          <div className="phone_scope">
+            연락처{" "}
+            <input
+              id="3"
+              className="write_nameandphone"
+              name="phone"
+              value={values.phone}
+              onChange={handleInputChange}
+              placeholder="010-0000-0000"
+            />
+          </div>
+          <button
+            className="submit_button"
+            alt="submit_button"
+            onClick={handleSubmit}
+            type="submit"
+            disabled={isSubmitting}
+          >
+            <Modalmain />
           </button>
+          {/* 
+          <img
+            src={button}
+            className="submit_button"
+            alt="submit_button"
+            onClick={handleSubmit}
+            type="submit"
+            disabled={isSubmitting}
+          /> */}
+
           {submittingError?.message && <div>{submittingError.message}</div>}
         </form>
       </div>

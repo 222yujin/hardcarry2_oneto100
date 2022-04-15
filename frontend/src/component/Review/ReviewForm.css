@@ -1,3 +1,9 @@
+.write_layout {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .writeform {
     display: flex;
     flex-direction: column;
@@ -8,25 +14,28 @@
 .Form {
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
+    font-weight: bolder;
 }
 
 .Form> :not(:last-child) {
     margin-bottom: 20px;
 }
 
-.write_name {
+.write_nameandphone {
     resize: none;
-    width: 15rem;
-    height: 2rem;
-    text-align: center;
-    align-items: flex-start;
+    width: 17rem;
+    height: 2.5rem;
+    padding-left: 1rem;
+    border: 2px solid #adb5bd;
+    border-radius: 3rem;
 }
 
 .write_textarea {
     resize: none;
     width: 20rem;
     height: 10rem;
-    text-align: center;
+    padding-left: 1rem;
     align-items: center;
+    border: 2px solid #adb5bd;
+    border-radius: 2rem;
 }

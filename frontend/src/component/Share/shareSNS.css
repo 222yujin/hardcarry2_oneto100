@@ -1,0 +1,16 @@
+.kakaoandclipboard {
+    width: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.kakao {
+    display: flex;
+    flex-direction: row;
+}
+
+.clipboard {
+    display: flex;
+    flex-direction: row;
+}

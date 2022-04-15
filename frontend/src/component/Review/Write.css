@@ -81,8 +81,14 @@
 
 .SNS {
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
+    justify-content: space-around;
+}
+
+.snscomponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .SNS_share {
@@ -94,11 +100,13 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     color: #ff7eb8;
+    font-weight: bolder;
 }
 
 .writelist_title {
+    display: flex;
+    justify-content: flex-start;
     font-weight: bolder;
-    text-align: left;
     color: #ff7eb8;
     margin-bottom: 2rem;
 }
