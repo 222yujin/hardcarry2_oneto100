@@ -1,5 +1,5 @@
 import React from "react";
-import "./ReviewList.css";
+import "./WriteList.css";
 function formatDate(value) {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
@@ -14,7 +14,7 @@ function WriteListItem({ review, onDelete }) {
             <div className="writelist_namesection">
               <p className="writelist_name">닉네임 {review.nickname}</p>
             </div>
-            <p className="writelist_date">{formatDate(review.createdAt)}</p>
+            {/* <p className="writelist_date">{formatDate(review.createdAt)}</p> */}
 
             <p className="writelist_content"> {review.content}</p>
           </div>
@@ -33,17 +33,19 @@ function WriteList({ reviews, onDelete }) {
           {" "}
           {reviews.map((review) => {
             return (
-              <div className="writelist">
+              <div className="writelist_map">
                 <ul className="writelist_style">
-                  <li key={review.id}>
-                    {
-                      <WriteListItem
-                        className="writelist_style_item"
-                        review={review}
-                        onDelete={onDelete}
-                      />
-                    }
-                  </li>
+                  <div>
+                    <li key={review.id}>
+                      <div className="writelist_style_item">
+                        <WriteListItem
+                          className="writelist_style_item"
+                          review={review}
+                          onDelete={onDelete}
+                        />
+                      </div>
+                    </li>
+                  </div>
                 </ul>
               </div>
             );

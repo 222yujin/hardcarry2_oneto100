@@ -108,5 +108,8 @@
     justify-content: flex-start;
     font-weight: bolder;
     color: #ff7eb8;
-    margin-bottom: 2rem;
+}
+
+.writelist_texttilte {
+    margin-left: 3rem;
 }

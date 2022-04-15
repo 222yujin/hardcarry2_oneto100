@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
-
+import "./Modalmain.css";
 import button from "../../assets/button3.png";
 
 function Modalmain(props) {
@@ -16,7 +16,7 @@ function Modalmain(props) {
 
   return (
     <React.Fragment>
-      <button onClick={openModal}>
+      <button className="btton_Modalmain" onClick={openModal}>
         {" "}
         <img src={button} className="submit_button" alt="submit_button" />
       </button>

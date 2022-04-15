@@ -70,7 +70,7 @@ const Review = () => {
             </div>
           </div>{" "}
           <div className="writelist_title">
-            <h1>백수들의 일기장 훔쳐보기</h1>
+            <h2 className="writelist_texttilte">백수들의 일기장 훔쳐보기</h2>
           </div>
           <div className="write_list">
             <div className="writelist_item">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ReviewForm.css";
+import "./WriteForm.css";
 import createReviews from "./api";
 import button from "../../assets/button3.png";
 import Modalmain from "../../elements/Modal/Modalmain";
@@ -105,7 +105,7 @@ function WriteForm() {
             type="submit"
             disabled={isSubmitting}
           >
-            <Modalmain />
+            <Modalmain className="btton_Modalmain" />
           </button>
           {/* 
           <img

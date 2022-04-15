@@ -1,0 +1,55 @@
+.write_layout {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.writeform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+    margin-left: 2rem;
+}
+
+.Form> :not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.write_nameandphone {
+    resize: none;
+    width: 17rem;
+    height: 2.5rem;
+    padding-left: 1rem;
+    border: 2px solid #adb5bd;
+    border-radius: 3rem;
+}
+
+.write_textarea {
+    resize: none;
+    width: 20rem;
+    height: 10rem;
+    align-items: center;
+    border: 2px solid #adb5bd;
+    border-radius: 2rem;
+}
+
+.writeform_inform {
+    margin: 0 auto;
+}
+
+.submit_button {
+    border: none;
+    background: none;
+}
+
+.btton_Modalmain {
+    border: none;
+    background: none;
+}
