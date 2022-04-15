@@ -34,9 +34,15 @@ function WriteList({ reviews, onDelete }) {
           {reviews.map((review) => {
             return (
               <div className="writelist">
-                <ul>
+                <ul className="writelist_style">
                   <li key={review.id}>
-                    {<WriteListItem review={review} onDelete={onDelete} />}
+                    {
+                      <WriteListItem
+                        className="writelist_style_item"
+                        review={review}
+                        onDelete={onDelete}
+                      />
+                    }
                   </li>
                 </ul>
               </div>

@@ -9,6 +9,8 @@ const INITIAL_VALIES = {
   rating: 0,
   content: "",
   imgUrl: null,
+  choice: true,
+  inform: true,
 };
 function WriteForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,6 +36,7 @@ function WriteForm() {
     formData.append("nickname", values.nickname);
     formData.append("rating", values.rating);
     formData.append("choice", values.choice);
+    formData.append("inform", values.inform);
     await createReviews(formData);
     setValues(INITIAL_VALIES);
   };
@@ -45,7 +48,6 @@ function WriteForm() {
           <div className="nickname_scope">
             닉네임{" "}
             <input
-              id="1"
               className="write_nameandphone"
               name="nickname"
               value={values.nickname}
@@ -62,11 +64,10 @@ function WriteForm() {
           />
           <div className="choise_scope">
             <input
-              id="2"
               className="write_choiceradio"
               name="choice"
               value={values.choice}
-              type="radio"
+              type="checkbox"
               onChange={handleInputChange}
               placeholder="(선택) 연락처 적고 경품 받기"
             />
@@ -82,6 +83,20 @@ function WriteForm() {
               onChange={handleInputChange}
               placeholder="010-0000-0000"
             />
+            <p className="writeform_inform">
+              {" "}
+              <p>* 연락처 미 입력시 , 게시글 작성은 가능하나</p>
+              <p>경품 수령은 어려워요!</p>
+            </p>{" "}
+            <input
+              className="write_choiceradio"
+              name="choice"
+              value={values.inform}
+              type="checkbox"
+              onChange={handleInputChange}
+              placeholder=" 개인정보 활용동의"
+            />
+            개인정보 활용동의
           </div>
           <button
             className="submit_button"

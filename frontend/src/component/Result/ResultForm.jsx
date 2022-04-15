@@ -92,11 +92,11 @@ const ResultForm = (props) => {
               alt="testmainbox"
               className="result_testmainbox"
             />{" "}
-            <img
+            {/* <img
               src={result_main_imgurl[resultstep]}
               alt="testmainbox"
               className="result_testmainbox"
-            />
+            /> */}
           </div>
           <div className="testresult_maincontent">
             <h2>결과에 대한 내용 큰 주제 제목</h2>

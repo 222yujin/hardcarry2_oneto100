@@ -8,49 +8,53 @@ const WaitForm = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
-  //   useEffect(() => {
-  //     const fetchItems = async () => {
-  //       const response = await fetch("API주소").then((res) => {
-  //         sessionStorage.setItem("data", JSON.stringify(res.data.data));
-  //         setTimeout(() => {
-  //           navigate("/result");
-  //         }, 4000);
-  //       });
+  setTimeout(() => {
+    navigate("/result");
+  }, 4000);
 
-  //       if (!response.ok) {
-  //         throw new Error("기능에 이상이 있습니다 !");
-  //       }
-  //       const responseData = await response.json();
+  useEffect(() => {
+    const fetchItems = async () => {
+      const response = await fetch("API주소").then((res) => {
+        sessionStorage.setItem("data", JSON.stringify(res.data.data));
+        setTimeout(() => {
+          navigate("/result");
+        }, 4000);
+      });
 
-  //       const loadedItems = [];
-  //       for (const key in responseData) {
-  //         loadedItems.push({
-  //           id: key,
-  //         });
-  //       }
-  //       setItems(loadedItems);
-  //       setIsLoading(false);
-  //     };
-  //     fetchItems().catch((error) => {
-  //       setIsLoading(false);
-  //       setHttpError(error.message);
-  //     });
-  //   }, []);
+      if (!response.ok) {
+        throw new Error("기능에 이상이 있습니다 !");
+      }
+      const responseData = await response.json();
 
-  //   if (isLoading) {
-  //     return (
-  //       <section className="ItemsLoading">
-  //         <h1> Loading..</h1>
-  //       </section>
-  //     );
-  //   }
-  //   if (httpError) {
-  //     return (
-  //       <section className="ItemsError">
-  //         <h1>{httpError}</h1>
-  //       </section>
-  //     );
-  //   }
+      const loadedItems = [];
+      for (const key in responseData) {
+        loadedItems.push({
+          id: key,
+        });
+      }
+      setItems(loadedItems);
+      setIsLoading(false);
+    };
+    fetchItems().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className="ItemsLoading">
+        <h1> Loading..</h1>
+      </section>
+    );
+  }
+  if (httpError) {
+    return (
+      <section className="ItemsError">
+        <h1>{httpError}</h1>
+      </section>
+    );
+  }
 
   return (
     <div className="wait_layout">

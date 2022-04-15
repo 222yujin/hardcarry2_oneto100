@@ -20,15 +20,10 @@ body {
 }
 
 .App_text {
-    margin: auto;
-    width: 50%;
-}
-
-.App_titletext {
-    font-style: normal;
-    color: #f8f9fa;
-    text-align: center;
-    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
 }
 
 .Main_center_app .Main_App_menu {

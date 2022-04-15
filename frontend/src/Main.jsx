@@ -19,14 +19,14 @@ import Slider from "./elements/Slide/Slider";
 import ClipboardCopy from "./elements/Clipboard/ClipboardCopy";
 import KakaoShare from "./elements/Kakaoshare/Kakaoshare";
 import ShareSNS from "./component/Share/ShareSNS";
-import Modalmain from "./elements/Modal/Modalmain";
+import titlelogo from "./assets/titlelogo.png";
 function Main() {
   return (
     <div className="Main_center_app">
       <BrowserRouter>
         <div className="App_header">
           <div className="App_text">
-            <p className="App_titletext">일당백 프로젝트</p>
+            <img src={titlelogo} alt="titlelogo" className="App_titletext" />
           </div>
         </div>
         <div className="App_Main_Component">
@@ -46,7 +46,6 @@ function Main() {
             <Route path="/slide" element={<Slider />} />
             <Route path="/clip" element={<ClipboardCopy />} />
             <Route path="/kakao" element={<KakaoShare />} />
-            <Route path="/modal" element={<Modalmain />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
