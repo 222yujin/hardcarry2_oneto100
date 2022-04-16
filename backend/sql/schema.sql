@@ -1,16 +1,21 @@
 DROP TABLE IF EXISTS `back_test`;
 
-CREATE TABLE `back_test` (
-                             `type_id`	VARCHAR(20)	NOT NULL,
-                             `type_name`	VARCHAR(50)	NOT NULL,
-                             `type_desc`	VARCHAR(500) NOT NULL,
-                             `type_img`	VARCHAR(50) NOT	NULL,
-                             `type_like`	VARCHAR(20) NOT	NULL,
-                             `type_hashtag` VARCHAR(20) NOT	NULL,
-                             `type_dislike`	VARCHAR(20) NOT	NULL,
-                             `type_attend`	INT	NOT NULL DEFAULT 0,
-                             PRIMARY KEY (type_id)
+CREATE TABLE `oneto100`.`back_test` (
+                                        `type_id`	VARCHAR(20)	NOT NULL,
+                                        `type_name`	VARCHAR(50)	NOT NULL,
+                                        `type_from` 	VARCHAR(50)	NOT NULL,
+                                        `type_desc`	VARCHAR(500) NOT NULL,
+                                        `type_program`	VARCHAR(500) NOT NULL,
+                                        `type_img`	VARCHAR(5000) NOT	NULL,
+                                        `type_program_img`	VARCHAR(5000) NOT	NULL,
+                                        `type_like`	VARCHAR(20) NOT	NULL,
+                                        `type_like_sub`	VARCHAR(100) NOT	NULL,
+                                        `type_dislike`	VARCHAR(20) NOT	NULL,
+                                        `type_dislike_sub`	VARCHAR(100) NOT	NULL,
+                                        `type_attend`	INT	NOT NULL DEFAULT 0,
+                                        PRIMARY KEY (type_id)
 );
+
 
 DROP TABLE IF EXISTS `back_diary`;
 

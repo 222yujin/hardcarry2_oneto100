@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 0
     },
     diary_date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false
     },
     diary_ip: {

@@ -3,9 +3,9 @@ const router = express.Router();
 const testController = require('../../controllers/back-test')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a test');
-});
+// router.get('/', function(req, res, next) {
+//   res.send('respond with a test');
+// });
 
 router.post('/postTestArray',testController.postTestResult);
 
