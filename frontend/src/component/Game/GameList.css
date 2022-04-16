@@ -1,0 +1,59 @@
+.game_layout {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.gamelist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.gamelist_name {
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.gamelist_map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+}
+
+.gamelist_style {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+    text-align: left;
+}
+
+.gamelist_style_item {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+    background-color: #f8f9fa;
+    border-radius: 1rem;
+    box-shadow: 10px 10px #ced4da;
+}
+
+.gamelist_questionchoice {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    font-weight: bolder;
+}
+
+.gamelist_name {
+    padding-left: 1rem;
+}
+
+.gamelist_content {
+    padding: 1rem;
+    text-align: left;
+}

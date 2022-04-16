@@ -1,11 +1,21 @@
-import React from "react";
-import GameList from "../Game/GameList";
+import React, { useState } from "react";
+import GameList from "./GameList";
+import mockReviews from "../Review/mockReview.json";
 
 import gamedino from "../../assets/gamedino.png";
 import ShareSNS from "../Share/ShareSNS";
 import WriteForm from "../Review/WriteForm";
-import WriteList from "../Review/WriteList";
+// import WriteList from "../Review/WriteList";
+import GameForm from "./GameForm";
+import "./GameResult.css";
+
 const GameResult = () => {
+  const [reviews, setReviews] = useState(mockReviews);
+
+  const handledelete = (id) => {
+    const nextReviews = reviews.filter((review) => review.id !== id);
+    setReviews(nextReviews);
+  };
   return (
     <div className="game_layout">
       <div className="game">
@@ -19,9 +29,13 @@ const GameResult = () => {
           </div>{" "}
           <div></div>
         </div>
-        <ShareSNS />
-        <WriteForm />
-        <GameList />
+        <div className="Game_SNS">
+          <ShareSNS className="Game_snscomponent" />
+        </div>
+        <GameForm />
+      </div>{" "}
+      <div className="game_list">
+        <GameList reviews={reviews} onDelete={handledelete} />
       </div>{" "}
     </div>
   );

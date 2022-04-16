@@ -24,7 +24,7 @@ import q10 from "../../images/question/qw10.png";
 
 import ProgressBar from "../Progress/Progress";
 
-var select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const OnTestForm = (props) => {
   const navigate = useNavigate();
 

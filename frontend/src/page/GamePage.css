@@ -35,34 +35,9 @@
     color: #ff7eb8;
 }
 
-.present_text {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    font-weight: bolder;
-    text-align: center;
-    color: #ff7eb8;
-}
-
-.present_subtext {
-    font-weight: bolder;
-    text-align: center;
-    color: black;
-}
-
-.present {
-    margin-top: 2rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.game_small_graybox {
-    position: relative;
+.gamedinoimg {
     width: 20rem;
     height: 20rem;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .game_footer {
@@ -72,35 +47,18 @@
     text-align: center;
 }
 
-.present_numbertext {
-    margin-top: 2rem;
-    font-weight: bolder;
-    text-align: center;
-    color: black;
-}
-
-.SNS {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.snscomponent {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.SNS_share {
-    margin-top: 1rem;
+.Game_SNS {
+    margin-top: 3rem;
     margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.SNS_title {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    color: #ff7eb8;
-    font-weight: bolder;
+.Game_snscomponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .gamelist_title {
@@ -112,4 +70,34 @@
 
 .gamelist_texttilte {
     margin-left: 3rem;
+}
+
+.Choice_button {
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    justify-content: space-around;
+    font-weight: bolder;
+}
+
+.Choice_A,
+.Choice_B {
+    border: 0.1rem solid #ff7eb8;
+    background-color: white;
+    width: 15rem;
+    height: 5rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.Choice_A:hover,
+.Choice_B:hover {
+    background-color: #ff7eb8;
+    color: white;
 }

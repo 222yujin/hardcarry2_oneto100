@@ -22,6 +22,7 @@ import ShareSNS from "./component/Share/ShareSNS";
 import titlelogo from "./assets/titlelogo.png";
 import Gamepage from "./page/GamePage";
 import GameResult from "./component/Game/GameResult";
+import ProductVoteResult from "./component/ProductVote/ProductVoteResult";
 function Main() {
   return (
     <div className="Main_center_app">
@@ -43,6 +44,7 @@ function Main() {
             <Route path="/wait" element={<WaitPage />} />
             <Route path="/products" element={<ProductVotePage />} />
             <Route path="/productsample" element={<ProductListSample />} />
+            <Route path="/voteresult" element={<ProductVoteResult />} />
             <Route path="/share" element={<ShareSNS />} />
             <Route path="/result" element={<Result />} />
             <Route path="/slide" element={<Slider />} />

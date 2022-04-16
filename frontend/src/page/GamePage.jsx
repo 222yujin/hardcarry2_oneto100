@@ -24,14 +24,16 @@ const Gamepage = () => {
             <p>단 한번의 최선의 선책, 차악의 선택 골라보자</p>
           </div>{" "}
           <div className="game_img">
-            <img src={gamedino} alt="gamedino" />
+            <img src={gamedino} alt="gamedino" className="gamedinoimg" />
           </div>
-          <button onClick={handleGameClick} className="Choice_A">
-            A 선택안 내용
-          </button>
-          <button onClick={handleGameClick} className="Choice_B">
-            B 선택안 내용
-          </button>
+          <div className="Choice_button">
+            <button onClick={handleGameClick} className="Choice_A">
+              A 선택안 내용
+            </button>
+            <button onClick={handleGameClick} className="Choice_B">
+              B 선택안 내용
+            </button>
+          </div>
         </div>
       </div>
     </div>

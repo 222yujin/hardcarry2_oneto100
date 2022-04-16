@@ -4,7 +4,6 @@ import matebox from "../../assets/matebox.png";
 import sharebox from "../../assets/sharebox.png";
 import testmainbox from "../../assets/testmainbox.png";
 import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router";
 
 var select = [0, 0, 0, 0, 0, 0];
 const ResultForm = (props) => {
@@ -16,7 +15,6 @@ const ResultForm = (props) => {
   const testResult = state.result.testResult;
   const resultDislike = state.result.resultDislike;
   const resultLike = state.result.resultLike;
-
   const movieName = [
     " 은밀하게 위대하게",
     "오징어게임",
@@ -107,6 +105,10 @@ const ResultForm = (props) => {
             <h2>결과에 대한 내용 큰 주제 제목</h2>
             <h2>{movieName[resultstep]}</h2>
             <p>{testResult.type_desc}</p>
+            <p>{resultName[resultstep]}</p>
+            <p>본문 내용들어가는 곳</p>
+            <p>본문 내용들어가는 곳</p>
+            <p>본문 내용들어가는 곳</p>
             <p>{resultName[resultstep]}</p>
           </div>
           <div className="testresult_mate">
