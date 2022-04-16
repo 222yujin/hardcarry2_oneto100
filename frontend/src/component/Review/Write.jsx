@@ -15,7 +15,7 @@ import link from "../../assets/share_link.png";
 import "./Write.css";
 import ShareSNS from "../Share/ShareSNS";
 
-const Review = () => {
+const Write = () => {
   const [reviews, setReviews] = useState(mockReviews);
 
   const handledelete = (id) => {
@@ -83,4 +83,4 @@ const Review = () => {
   );
 };
 
-export default Review;
+export default Write;
