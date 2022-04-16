@@ -4,6 +4,7 @@ import matebox from "../../assets/matebox.png";
 import sharebox from "../../assets/sharebox.png";
 import testmainbox from "../../assets/testmainbox.png";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
 
 var select = [0, 0, 0, 0, 0, 0];
 const ResultForm = (props) => {
@@ -11,6 +12,10 @@ const ResultForm = (props) => {
 
   const [resultstep, setResultStep] = React.useState(0);
   const [resulttime, setResultTime] = React.useState(false);
+  const { state } = useLocation();
+  const testResult = state.result.testResult;
+  const resultDislike = state.result.resultDislike;
+  const resultLike = state.result.resultLike;
 
   const movieName = [
     " 은밀하게 위대하게",
@@ -79,9 +84,9 @@ const ResultForm = (props) => {
     <div className="testresult_layout">
       <div className="testreuslt_background">
         <div className="testresult_title">
-          <h1>결과 나온 이름 보이는 곳</h1>
+          <h1>{testResult.type_name}</h1>
           <div className="testresult_subtitle">
-            <h3>소제목</h3>
+            <h3>{testResult.type_hashtag}</h3>
           </div>
         </div>
         <div className="testresult_scope">
@@ -101,11 +106,7 @@ const ResultForm = (props) => {
           <div className="testresult_maincontent">
             <h2>결과에 대한 내용 큰 주제 제목</h2>
             <h2>{movieName[resultstep]}</h2>
-            <p>본문 내용들어가는 곳</p>
-            <p>본문 내용들어가는 곳</p>
-            <p>본문 내용들어가는 곳</p>
-            <p>본문 내용들어가는 곳</p>
-            <p>본문 내용들어가는 곳</p>
+            <p>{testResult.type_desc}</p>
             <p>{resultName[resultstep]}</p>
           </div>
           <div className="testresult_mate">
@@ -119,10 +120,10 @@ const ResultForm = (props) => {
                   className="result_matebox"
                 />
                 <div className="goodmate_scopetext">
-                  <p>부연설명(~~하는)</p>
+                  <p>{resultLike.type_desc}</p>
                   <p>{goodmate_text[resultstep]}</p>
                   <h3>이름</h3>
-                  <h3>{goodmate_subtitle[resultstep]}</h3>
+                  <h3>{resultLike.type_name}</h3>
                 </div>
               </div>
             </div>
@@ -139,7 +140,7 @@ const ResultForm = (props) => {
                   <p>부연설명(~~하는)</p>
                   <p>{badmate_text[resultstep]}</p>
                   <h3>이름</h3>
-                  <h3>{badmate_subtitle[resultstep]}</h3>
+                  <h3>{resultDislike.type_name}</h3>
                 </div>
               </div>
             </div>
