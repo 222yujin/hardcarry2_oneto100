@@ -20,6 +20,8 @@ import ClipboardCopy from "./elements/Clipboard/ClipboardCopy";
 import KakaoShare from "./elements/Kakaoshare/Kakaoshare";
 import ShareSNS from "./component/Share/ShareSNS";
 import titlelogo from "./assets/titlelogo.png";
+import Gamepage from "./page/GamePage";
+import GameResult from "./component/Game/GameResult";
 function Main() {
   return (
     <div className="Main_center_app">
@@ -46,6 +48,8 @@ function Main() {
             <Route path="/slide" element={<Slider />} />
             <Route path="/clip" element={<ClipboardCopy />} />
             <Route path="/kakao" element={<KakaoShare />} />
+            <Route path="/game" element={<Gamepage />} />
+            <Route path="/gameresult" element={<GameResult />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

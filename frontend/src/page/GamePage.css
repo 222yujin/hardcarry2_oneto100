@@ -1,0 +1,115 @@
+.game_layout {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+.game {
+    margin-top: 3rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game_title {
+    display: flex;
+    margin-top: 3rem;
+    color: #ff7eb8;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game_maintitle {
+    margin-bottom: 2rem;
+    color: #ff7eb8;
+}
+
+.game_subtitle {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #ff7eb8;
+}
+
+.present_text {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: bolder;
+    text-align: center;
+    color: #ff7eb8;
+}
+
+.present_subtext {
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+}
+
+.present {
+    margin-top: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.game_small_graybox {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.game_footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.present_numbertext {
+    margin-top: 2rem;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+}
+
+.SNS {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.snscomponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.SNS_share {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.SNS_title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #ff7eb8;
+    font-weight: bolder;
+}
+
+.gamelist_title {
+    display: flex;
+    justify-content: flex-start;
+    font-weight: bolder;
+    color: #ff7eb8;
+}
+
+.gamelist_texttilte {
+    margin-left: 3rem;
+}
