@@ -4,7 +4,7 @@ import matebox from "../../assets/matebox.png";
 import sharebox from "../../assets/sharebox.png";
 import testmainbox from "../../assets/testmainbox.png";
 import { useNavigate } from "react-router-dom";
-
+import { useLocation } from 'react-router-dom';
 var select = [0, 0, 0, 0, 0, 0];
 const ResultForm = (props) => {
   const navigate = useNavigate();
