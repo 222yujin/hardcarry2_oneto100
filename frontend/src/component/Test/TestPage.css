@@ -11,7 +11,7 @@
 .test_page {
     width: 100%;
     position: relative;
-    background: turquoise;
+    background: #ffffff;
     /* background: #ffffff; */
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@
     font-style: normal;
     font-weight: bold;
     font-size: 17px;
-    color: #00bcb4;
+    color: #ff7eb8;
 }
 
 .test_subtext2 {
@@ -55,7 +55,7 @@
     font-style: normal;
     font-weight: bold;
     font-size: 17px;
-    color: #00bcb4;
+    color: #ff7eb8;
 }
 
 .test_explaintext {
