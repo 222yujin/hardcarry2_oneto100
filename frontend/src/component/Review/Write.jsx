@@ -11,6 +11,7 @@ import facebook from "../../assets/share_facebook.png";
 import kakao from "../../assets/share_kakao.png";
 import twitter from "../../assets/share_twitter.png";
 import link from "../../assets/share_link.png";
+import Slider from "../../elements/Slide/Slider";
 
 import "./Write.css";
 import ShareSNS from "../Share/ShareSNS";
@@ -31,7 +32,10 @@ const Write = () => {
               <h1 className="write_maintitle">백수의 일기장</h1>
             </div>
             <div className="write_img">
-              <img src={large_graybox} alt="graybox" />
+              <div className="slide">
+                <Slider />
+              </div>
+              {/* <img src={large_graybox} alt="graybox" /> */}
             </div>
             <div className="write_subtitle">
               <p>여러분도 디노처럼 일기를 써보세요! </p>

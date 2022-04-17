@@ -1,19 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slide from "./Slide";
 import styled from "styled-components";
-import img1 from "../../assets/GrayRectangle.png";
-import img2 from "../../assets/GrayRectangle.png";
-import img3 from "../../assets/GrayRectangle.png";
-import img4 from "../../assets/GrayRectangle.png";
-import "./Slider.css";
+import img1 from "../../assets/minidino1.png";
+import img2 from "../../assets/minidino2.png";
+import img3 from "../../assets/minidino3.png";
+import img4 from "../../assets/minidino4.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
+import "./Slider.css";
 const Container = styled.div`
-  width: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   overflow: hidden;
 `;
 const Button = styled.button`
   all: unset;
+
   border: 1px solid coral;
   color: pink;
   border-radius: 10px;
@@ -25,8 +29,10 @@ const Button = styled.button`
 `;
 
 const SliderContainer = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 const TOTAL_SLIDES = 3;
@@ -57,26 +63,18 @@ const Slider = () => {
       {" "}
       <Container>
         {currentSlide}{" "}
-        <div className="Slider_container">
-          <div>
-            <Button onClick={prevSlide}>
-              <IoIosArrowBack />
-            </Button>
-          </div>
-          <div>
-            <SliderContainer ref={slideRef}>
-              <Slide img={img1} />
-              <Slide img={img2} />
-              <Slide img={img3} />
-              <Slide img={img4} />
-            </SliderContainer>
-          </div>
-          <div>
-            <Button onClick={nextSlide}>
-              <IoIosArrowForward />
-            </Button>
-          </div>
-        </div>
+        <Button onClick={prevSlide}>
+          <IoIosArrowBack />
+        </Button>
+        <SliderContainer ref={slideRef}>
+          <Slide img={img1} />
+          <Slide img={img2} />
+          <Slide img={img3} />
+          <Slide img={img4} />
+        </SliderContainer>
+        <Button onClick={nextSlide}>
+          <IoIosArrowForward />
+        </Button>
       </Container>
     </div>
   );

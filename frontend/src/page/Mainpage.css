@@ -7,7 +7,7 @@
 }
 
 .Main_background {
-    background: #18928c;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,5 +47,5 @@
 
 .footermargin {
     margin-top: 6rem;
-    background: #18928c;
+    background: #ffffff;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import waiting from "../../images/waiting.gif";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./WaitForm.css";
 
 const WaitForm = () => {
