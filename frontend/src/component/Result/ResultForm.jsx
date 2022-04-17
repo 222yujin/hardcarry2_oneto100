@@ -3,8 +3,13 @@ import "./ResultForm.css";
 import matebox from "../../assets/matebox.png";
 import sharebox from "../../assets/sharebox.png";
 import testmainbox from "../../assets/testmainbox.png";
+<<<<<<< HEAD
 import { useLocation, useNavigate } from "react-router-dom";
 
+=======
+import { useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+>>>>>>> f6bfae21b352a67d2145a02b81e459a1675b03e2
 var select = [0, 0, 0, 0, 0, 0];
 const ResultForm = (props) => {
   const navigate = useNavigate();
