@@ -6,12 +6,13 @@
 
 .OnTest {
     width: 100%;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: greenyellow;
-    /* background: #ffffff; */
+    /* background: greenyellow; */
+    background: #ffffff;
 }
 
 .progressbar {
@@ -84,5 +85,24 @@
 
 .footermargin {
     height: 10rem;
-    background: greenyellow;
+    background: #ffffff;
+}
+
+.previewbutton {
+    margin-top: 3rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.preview {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    font-size: large;
+}
+
+.logo_scope {
+    margin-top: 5rem;
 }

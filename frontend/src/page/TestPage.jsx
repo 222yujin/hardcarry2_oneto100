@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import testbutton from "../assets/testbutton.png";
 import graybox from "../assets/LargeGrayRectangle.png";
-import dino1 from "../assets/dino_2.png";
+import testdino from "../assets/test_dino.png";
 
 import "../component/Test/TestPage.css";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +26,7 @@ const TestPage = () => {
           <div className="test_explaintitle"></div>
         </div>
         <div className="test_graybox">
-          <img src={dino1} className="test_grayimg" alt="altimg" />
+          <img src={testdino} className="test_grayimg" alt="altimg" />
         </div>
         <div className="test_button">
           <button className="test_button">

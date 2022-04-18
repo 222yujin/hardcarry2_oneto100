@@ -1,6 +1,10 @@
 import React from "react";
-
-import graybox from "../assets/GrayRectangle.png";
+import minidino1 from "../assets/minidino1.png";
+import minidino2 from "../assets/minidino2.png";
+import minidino3 from "../assets/minidino3.png";
+import minidino4 from "../assets/minidino4.png";
+import minidino5 from "../assets/minidino5.png";
+import minidino6 from "../assets/minidino6.png";
 
 import "./Mainpage.css";
 import { Link } from "react-router-dom";
@@ -15,19 +19,19 @@ function MainPage() {
               <div className="box">
                 {" "}
                 <Link to="/mains">
-                  <img src={graybox} className="graybox" />
+                  <img src={minidino1} className="graybox" />
                 </Link>
               </div>
               <div className="box">
                 {" "}
                 <Link to="/story">
-                  <img src={graybox} className="graybox" />
+                  <img src={minidino2} className="graybox" />
                 </Link>
               </div>
               <div className="box">
                 {" "}
                 <Link to="/write">
-                  <img src={graybox} className="graybox" />
+                  <img src={minidino3} className="graybox" />
                 </Link>
               </div>
             </div>
@@ -35,19 +39,19 @@ function MainPage() {
               <div className="box">
                 {" "}
                 <Link to="/test">
-                  <img src={graybox} className="graybox" />
+                  <img src={minidino4} className="graybox" />
                 </Link>
               </div>
               <div className="box">
                 {" "}
                 <Link to="/products">
-                  <img src={graybox} className="graybox" />
+                  <img src={minidino5} className="graybox" />
                 </Link>
               </div>
               <div className="box">
                 {" "}
                 <a href={"http://www.youtheroom.kr/"}>
-                  <img src={graybox} className="graybox" />
+                  <img src={minidino6} className="graybox" />
                 </a>
               </div>
             </div>
@@ -55,9 +59,7 @@ function MainPage() {
         </div>
 
         <div className="footer">
-          <p className="footertext">
-            디노를 클릭하면 백수들의 파티가 시작된다!
-          </p>
+          <p className="footertext">디노를 눌러 백수 생활 엿보기</p>
           <div className="footermargin"></div>
         </div>
       </div>
