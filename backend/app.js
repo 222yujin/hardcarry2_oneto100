@@ -32,7 +32,8 @@ app.use(cors());
 //db 연결
 const models = require("./models");
 
-models.sequelize.sync().then( () => {
+models.sequelize.sync({force: true}).then( (res) => {
+  console.log(res)
   console.log("DB connected successful");
 }).catch(err => {
   console.log(err);

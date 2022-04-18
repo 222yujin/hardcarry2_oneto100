@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import waiting from "../../images/waiting.gif";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./WaitForm.css";
-import { useLocation } from 'react-router-dom';
+
+
 const WaitForm = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
