@@ -94,16 +94,29 @@ img {
     flex-wrap: nowrap;
 }
 
-.activea {
+.div.activea {
     text-decoration: none;
 }
 
-.activea:link,
-:visited,
+a[type="s"]:visited,
+hover,
+active {
+    color: #ffffff;
+}
+
+
+/* 
+a[href="/test",],
+a[href="/write"],
+a[href="/story"],
+a[href="/write"],
+a[href="/endstory"],
+a[href="https://www.instagram.com/dino33/"],
+a[href="https://instagram.com/youtheroom?igshid=YmMyMTA2M2Y="]:visited,
 :hover,
 :active {
     color: #ffffff;
-}
+} */
 
 .sidelogo {
     margin-top: 42px;
@@ -137,6 +150,7 @@ img {
 }
 
 .sideinstagramscope {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     padding-bottom: 18px;
@@ -151,11 +165,17 @@ img {
 
 .head1,
 .head2,
-.head3 {
+.head3,
+.head4 {
     width: 72px;
     height: 23px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.dinoinstagram,
+.euiruminstagram {
+    width: 184px;
 }
