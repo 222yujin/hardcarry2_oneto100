@@ -94,16 +94,29 @@ img {
     flex-wrap: nowrap;
 }
 
-.activea {
+.div.activea {
     text-decoration: none;
 }
 
-.activea:link,
-:visited,
+a[type="s"]:visited,
+hover,
+active {
+    color: #ffffff;
+}
+
+
+/* 
+a[href="/test",],
+a[href="/write"],
+a[href="/story"],
+a[href="/write"],
+a[href="/endstory"],
+a[href="https://www.instagram.com/dino33/"],
+a[href="https://instagram.com/youtheroom?igshid=YmMyMTA2M2Y="]:visited,
 :hover,
 :active {
     color: #ffffff;
-}
+} */
 
 .sidelogo {
     margin-top: 42px;
