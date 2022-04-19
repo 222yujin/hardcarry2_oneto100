@@ -23,7 +23,7 @@ const Home = () => {
                 />
               </div>
             </a>{" "}
-            <a href="/write">
+            <a href="/test">
               <div className={styles.box} id="diary">
                 <img
                   src={minidino3}
@@ -32,32 +32,33 @@ const Home = () => {
                 />
               </div>
             </a>
-            <div className={styles.box}>
-              <img
-                src={minidino5}
-                alt="minidino3"
-                className={styles.minidino3}
-              />
-            </div>
-          </div>
-          <div className={styles.col} id="test">
-            <a href="/test">
-              {" "}
+            <a href="/write">
               <div className={styles.box}>
                 <img
-                  src={minidino2}
-                  alt="minidino4"
-                  className={styles.minidino4}
+                  src={minidino5}
+                  alt="minidino3"
+                  className={styles.minidino3}
                 />
               </div>
             </a>
+          </div>
+          <div className={styles.col} id="test">
+            {" "}
             <div className={styles.box}>
               <img
-                src={minidino4}
-                alt="minidino5"
-                className={styles.minidino5}
+                src={minidino2}
+                alt="minidino4"
+                className={styles.minidino4}
               />
-              <a href="/story">
+            </div>
+            <a href="/endstory">
+              <div className={styles.box}>
+                <img
+                  src={minidino4}
+                  alt="minidino5"
+                  className={styles.minidino5}
+                />
+                {/* <a href="/story">
                 <div className={styles.box}>
                   <img
                     src={minidino6}
@@ -65,14 +66,13 @@ const Home = () => {
                     className={styles.minidino6}
                   />
                 </div>
-              </a>
-            </div>
+              </a> */}
+              </div>{" "}
+            </a>
           </div>
         </div>{" "}
-        <div>
-          <p className={styles.footermargin}>디노를 눌러 백수 생활 엿보기</p>
-        </div>
-      </div>
+        <p className={styles.footermargin}>디노를 눌러 백수 생활 엿보기</p>
+      </div>{" "}
     </div>
   );
 };

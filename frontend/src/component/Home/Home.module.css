@@ -3,14 +3,15 @@
     background-color: rgba(255, 241, 241, 1);
     /* background: #ffffff; */
     display: flex;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .homeline {
-    padding-top: var(--navbar-height);
     background-image: url("../../assets/background.png");
     background-size: 100%;
+    height: 100%;
 }
 
 .dinoscope {
@@ -25,28 +26,26 @@
 }
 
 .minidino1 {
-    margin-top: 9%;
+    margin-top: 50px;
 }
 
 .minidino4 {
-    margin-top: 25%;
+    margin-top: 165px;
 }
 
 .minidino2,
 .minidino3,
-.minidino4,
-.minidino5,
-.minidino6 {
-    padding-bottom: 14%;
+.minidino5 {
+    margin-top: 90px;
 }
 
 .footermargin {
+    padding-top: 30px;
     text-align: center;
     font-size: 14px;
     font-weight: 700;
     font: NanumSquareRound;
     color: #f89cc5;
-    padding-bottom: var(--navbar-height);
 }
 
 .minidino1,

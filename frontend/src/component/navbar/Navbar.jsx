@@ -10,12 +10,11 @@ import treenav from "../../assets/treenav.png";
 import fournav from "../../assets/fournav.png";
 import fivenav from "../../assets/fivenav.png";
 import header from "../../assets/headertext.png";
-import header2 from "../../assets/headertext2.png";
 import title2 from "../../assets/title2.png";
 import dinostory from "../../assets/dinostory.png";
 
 const Navbar = () => {
-  const [isSideMenuActive, setSideMenuActive] = useState(true);
+  const [isSideMenuActive, setSideMenuActive] = useState(false);
   return (
     <div className={styles.navbar}>
       {" "}
@@ -29,7 +28,7 @@ const Navbar = () => {
         </button>{" "}
       </div>{" "}
       <div className={styles.headeflex2}>
-        <img src={header2} className={styles.headerimg} alt="menuimg" />
+        <img src={header} className={styles.headerimg} alt="menuimg" />
       </div>
       <div
         className={
@@ -82,7 +81,11 @@ const Navbar = () => {
               className={styles.activea}
               type="s"
             >
-              <img src={dinoinstagram} alt="dinoinstagram" />
+              <img
+                src={dinoinstagram}
+                alt="dinoinstagram"
+                className={styles.dinoinstagram}
+              />
             </a>
           </div>
           <div className={styles.sideinstagramscope} id="youthroom_insta">
@@ -91,7 +94,11 @@ const Navbar = () => {
               className={styles.activea}
               type="s"
             >
-              <img src={euiruminstagram} alt="dinoinstagram" />
+              <img
+                src={euiruminstagram}
+                className={styles.euiruminstagram}
+                alt="dinoinstagram"
+              />
             </a>
           </div>{" "}
         </div>{" "}

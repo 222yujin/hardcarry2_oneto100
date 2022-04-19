@@ -174,3 +174,8 @@ a[href="https://instagram.com/youtheroom?igshid=YmMyMTA2M2Y="]:visited,
     justify-content: center;
     align-items: center;
 }
+
+.dinoinstagram,
+.euiruminstagram {
+    width: 184px;
+}
