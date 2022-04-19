@@ -98,12 +98,13 @@ export const OnTest = () => {
                   onClick={() => {
                     onClick(1);
                   }}
+                  id="question_up"
                 >
                   {answerYes[step]}
                 </button>{" "}
               </div>
               <div className={styles.betweenbutton}></div>
-              <div className={styles.button2}>
+              <div className={styles.button2} id="question_down">
                 {" "}
                 <button
                   className={styles.choicebutton2}
@@ -122,6 +123,7 @@ export const OnTest = () => {
               onClick={() => {
                 previewOnClick();
               }}
+              id="question_down"
             >
               <img src={preview} alt="preview" className={styles.preview} />
             </button>

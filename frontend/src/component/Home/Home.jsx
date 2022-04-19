@@ -15,7 +15,7 @@ const Home = () => {
           <div className={styles.col}>
             <a href="/story">
               {" "}
-              <div className={styles.box}>
+              <div className={styles.box} id="story">
                 <img
                   src={minidino1}
                   alt="minidino1"
@@ -24,7 +24,7 @@ const Home = () => {
               </div>
             </a>{" "}
             <a href="/write">
-              <div className={styles.box}>
+              <div className={styles.box} id="diary">
                 <img
                   src={minidino3}
                   alt="minidino3"
@@ -40,7 +40,7 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className={styles.col}>
+          <div className={styles.col} id="test">
             <a href="/test">
               {" "}
               <div className={styles.box}>

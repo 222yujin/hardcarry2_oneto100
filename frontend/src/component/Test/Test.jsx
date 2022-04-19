@@ -16,7 +16,7 @@ const Test = () => {
         <div className={styles.testdino}>
           <img src={dinotest} alt="dino1" className={styles.testdinoimg} />{" "}
         </div>
-        <div className={styles.testbutton}>
+        <div className={styles.testbutton} id="test_start">
           <Link to="/ontest">
             {" "}
             <img

@@ -82,7 +82,9 @@ const postTestResult = async (req, res) => {
     }
 
     //결과 db에서 찾아오고, 해당타입 참여수 +1 해준다
+
     let testResult = await testdb.findOne({where: {type_id: max_name}});
+    console.log(testResult)
     console.log(testResult.dataValues.type_id)
     let resultLike = await testdb.findOne({where: {type_id: testResult.dataValues.type_like}});
     let resultDislike = await testdb.findOne({where: {type_id: testResult.dataValues.type_dislike}});

@@ -87,7 +87,7 @@ const ShareSNS = () => {
   return (
     <div className="sharesnscomponent">
       <div className="kakaoandclipboard">
-        <div className="kakao">
+        <div className="kakao" id="test_kakao">
           <img
             className="shareIcon"
             src={kakao}
@@ -97,7 +97,7 @@ const ShareSNS = () => {
             onClick={shareKakao}
           />
         </div>
-        <div className="clipboard">
+        <div className="clipboard" id="test_link">
           <img src={link} onClick={() => doCopy("복사할텍스트입니다!")} />
         </div>
       </div>

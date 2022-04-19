@@ -1,16 +1,33 @@
 {
   "files": {
-    "main.css": "/static/css/main.1ce21580.css",
-    "main.js": "/static/js/main.666c93de.js",
-    "static/media/20220330_120315_2.png": "/static/media/20220330_120315_2.3588f8c21bc378cbc8a1.png",
-    "static/media/막내클럽_19.png": "/static/media/막내클럽_19.04ef05c8ded3965330cd.png",
+    "main.css": "/static/css/main.619996be.css",
+    "main.js": "/static/js/main.8fbf6562.js",
+    "static/media/dino1.png": "/static/media/dino1.6e4b768cba2e056597a5.png",
+    "static/media/waiting.gif": "/static/media/waiting.8450d6426bb6325b2c26.gif",
+    "static/media/dino2.png": "/static/media/dino2.40d262b90f8de2b41def.png",
+    "static/media/dino4.png": "/static/media/dino4.97626df59b7c63aeea08.png",
+    "static/media/dino3.png": "/static/media/dino3.3542fcb9edaf41f62518.png",
+    "static/media/subtitle3.png": "/static/media/subtitle3.5fe3ed2d77354575d474.png",
+    "static/media/kakao.png": "/static/media/kakao.6af80cbc763b5bf1f6ff.png",
+    "static/media/subtitle1.png": "/static/media/subtitle1.538153a9b04c030c9928.png",
+    "static/media/test_dino.png": "/static/media/test_dino.df00c5589aae97ccaf14.png",
+    "static/media/subtitle2.png": "/static/media/subtitle2.051d35a334f402068bce.png",
+    "static/media/subtitle4.png": "/static/media/subtitle4.de25a0d5ae0aa2b8e94f.png",
+    "static/media/twitter.png": "/static/media/twitter.28b4dce41e4e33858919.png",
+    "static/media/title3.png": "/static/media/title3.5fa5c52df1f3eafa0b2f.png",
+    "static/media/title1.png": "/static/media/title1.b65f5ea751ce5c6456ec.png",
+    "static/media/minidino5.png": "/static/media/minidino5.1819c0b1e9ce3e5b1f69.png",
+    "static/media/title2.png": "/static/media/title2.0ea3e2fdabd38fd0ed93.png",
+    "static/media/gamedino.png": "/static/media/gamedino.73da03e5a2912ecafc42.png",
+    "static/media/minidino4.png": "/static/media/minidino4.73da03e5a2912ecafc42.png",
+    "static/media/facebook.png": "/static/media/facebook.4f037d961598aff2a0a4.png",
     "index.html": "/index.html",
     "static/media/warn.svg": "/static/media/warn.71fb9b7feae9cafaeff3d46bbd9ded9e.svg",
-    "main.1ce21580.css.map": "/static/css/main.1ce21580.css.map",
-    "main.666c93de.js.map": "/static/js/main.666c93de.js.map"
+    "main.619996be.css.map": "/static/css/main.619996be.css.map",
+    "main.8fbf6562.js.map": "/static/js/main.8fbf6562.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ce21580.css",
-    "static/js/main.666c93de.js"
+    "static/css/main.619996be.css",
+    "static/js/main.8fbf6562.js"
   ]
 }

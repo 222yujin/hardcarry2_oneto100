@@ -10,24 +10,40 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(50),
       allowNull: false
     },
+    type_from: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    },
     type_desc: {
       type: DataTypes.STRING(500),
       allowNull: false
     },
-    type_hashtag: {
-      type: DataTypes.STRING(200),
+    type_program: {
+      type: DataTypes.STRING(500),
       allowNull: false
     },
     type_img: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(5000),
+      allowNull: false
+    },
+    type_program_img: {
+      type: DataTypes.STRING(5000),
       allowNull: false
     },
     type_like: {
       type: DataTypes.STRING(20),
       allowNull: false
     },
+    type_like_sub: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    },
     type_dislike: {
       type: DataTypes.STRING(20),
+      allowNull: false
+    },
+    type_dislike_sub: {
+      type: DataTypes.STRING(100),
       allowNull: false
     },
     type_attend: {

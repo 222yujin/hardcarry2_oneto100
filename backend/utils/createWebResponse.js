@@ -1,4 +1,4 @@
-const webResponse = require('./WebResponse')
+const webResponse = require('./webResponse')
 
 const createWebResp = (res, header, statusCode, data) => {
     const response = new webResponse();
