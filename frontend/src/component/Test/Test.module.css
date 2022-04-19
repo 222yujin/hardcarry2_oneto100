@@ -13,7 +13,10 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+}
+
+.testline {
+    height: 100%;
 }
 
 .testheader {
@@ -24,7 +27,6 @@ img {
 }
 
 .header1 {
-    margin-top: 14%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +39,6 @@ img {
 }
 
 .header2_1 {
-    margin-top: 3%;
     font-family: CookieRun-Regular;
     font-style: normal;
     font-weight: 400;
@@ -66,4 +67,5 @@ img {
 .testbutton {
     width: 310px;
     height: 40px;
+    margin-bottom: 30px;
 }
