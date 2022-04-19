@@ -27,6 +27,9 @@ const Navbar = () => {
         >
           <img src={menu} className={styles.sidemenuimg} alt="menuimg" />
         </button>{" "}
+      </div>{" "}
+      <div className={styles.headeflex2}>
+        <img src={header2} className={styles.headerimg} alt="menuimg" />
       </div>
       <div
         className={
@@ -62,6 +65,14 @@ const Navbar = () => {
                 <p>백수의 일기장</p>
                 {/* <img src={treenav} alt="백수의일기장" className="treenav" /> */}
               </div>
+            </a>{" "}
+            <hr className={styles.headline} />
+            <a href="/endstory" className={styles.activea}>
+              <div className={styles.head4}>
+                {" "}
+                <p>마스코트 디노</p>
+                {/* <img src={treenav} alt="백수의일기장" className="treenav" /> */}
+              </div>
             </a>
             <hr className={styles.headline} />
           </div>{" "}
@@ -82,9 +93,6 @@ const Navbar = () => {
             </a>
           </div>{" "}
         </div>{" "}
-        <div className={styles.headeflex2}>
-          <img src={header2} className={styles.headerimg} alt="menuimg" />
-        </div>
       </div>
     </div>
   );

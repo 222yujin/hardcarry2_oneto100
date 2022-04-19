@@ -10,8 +10,7 @@ import Test from "./component/Test/Test";
 import { OnTest } from "./component/OnTest/OnTest";
 import Result from "./component/Result/Result";
 import Wait from "./component/Wait/Wait";
-import ShareSNS from "./component/Share/ShareSNS";
-
+import Story from "./component/Story/Story";
 // import Write from "./component/Review/Write";
 // import Result from "./component/Share/Result";
 
@@ -20,7 +19,7 @@ import ShareSNS from "./component/Share/ShareSNS";
 // import ProductVoteResult from "./component/ProductVote/ProductVoteResult";
 // import ProductVotePage from "./page/ProductVotePage";
 // import ProductListSample from "./component/ProductVote/ProductListSample";
-
+import EndingStory from "./component/EndStory/EndingStory";
 const tagManagerArgs = {
   gtmId: "GTM-M2FPFM8",
 };
@@ -38,7 +37,8 @@ function Main() {
           <Route path="/ontest" element={<OnTest />} />
           <Route path="/result" element={<Result />} />
           <Route path="/wait" element={<Wait />} />
-
+          <Route path="/story" element={<Story />} />
+          <Route path="/endstory" element={<EndingStory />} />
           {/* <Route path="/write" element={<Write />} />
           <Route path="/products" element={<ProductVotePage />} />
           <Route path="/productsample" element={<ProductListSample />} />

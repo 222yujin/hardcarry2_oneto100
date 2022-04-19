@@ -8,23 +8,25 @@ const Test = () => {
   return (
     <div className={styles.test_layout}>
       <div className={styles.testheader}>
-        <p className={styles.header1}>백수 삶의 현장</p>
-        <p className={styles.header2_1}>영화속 백수 캐릭터로 살펴 본 </p>
-        <p className={styles.header2_2}>나의 백수 성향은?</p>
-      </div>
-      <div>
-        <div className={styles.testdino}>
-          <img src={dinotest} alt="dino1" className={styles.testdinoimg} />{" "}
+        <div className={styles.testline}>
+          <p className={styles.header1}>백수 삶의 현장</p>
+          <p className={styles.header2_1}>영화속 백수 캐릭터로 살펴 본 </p>
+          <p className={styles.header2_2}>나의 백수 성향은?</p>
         </div>
-        <div className={styles.testbutton} id="test_start">
-          <Link to="/ontest">
-            {" "}
-            <img
-              src={testbutton}
-              alt="testbutton"
-              className={styles.testbuttonimg}
-            />
-          </Link>
+        <div>
+          <div className={styles.testdino}>
+            <img src={dinotest} alt="dino1" className={styles.testdinoimg} />{" "}
+          </div>
+          <div className={styles.testbutton} id="test_start">
+            <Link to="/ontest">
+              {" "}
+              <img
+                src={testbutton}
+                alt="testbutton"
+                className={styles.testbuttonimg}
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

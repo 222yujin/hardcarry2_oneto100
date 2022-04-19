@@ -137,6 +137,7 @@ img {
 }
 
 .sideinstagramscope {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     padding-bottom: 18px;
@@ -151,7 +152,8 @@ img {
 
 .head1,
 .head2,
-.head3 {
+.head3,
+.head4 {
     width: 72px;
     height: 23px;
     display: flex;
