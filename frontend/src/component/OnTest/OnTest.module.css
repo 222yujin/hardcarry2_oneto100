@@ -1,0 +1,131 @@
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.Ontest_layout {
+    background-color: #ffffff;
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+}
+
+.question {
+    padding-top: 20px;
+}
+
+.question_scope {
+    display: flex;
+    height: 23px;
+    flex-direction: column;
+    justify-content: center;
+    font-family: CookieRun-Regular;
+    color: black;
+}
+
+.question_num {
+    padding-top: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center;
+}
+
+.question_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.chociebutton_scope {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35vh;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: CookieRun-Regular;
+    align-items: center;
+}
+
+.choicebutton1,
+.choicebutton2 {
+    border: none;
+    list-style: none;
+    background: none;
+    white-space: pre-line;
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    color: #ff7eb8;
+    border: 1px solid #ff7eb8;
+    box-sizing: border-box;
+    border-radius: 100px;
+    padding: 10px 43px;
+    margin-bottom: 16ox;
+}
+
+.choicebutton2:active,
+.choicebutton1:active {
+    background: #ff7eb8;
+    color: #fffef5;
+    border-radius: 32.5px;
+    border: 2px solid #ff7eb8;
+    border: 1px solid #ff7eb8;
+    box-sizing: border-box;
+    border-radius: 100px;
+    padding: 10px 43px;
+}
+
+.betweenbutton {
+    margin-top: 16px;
+}
+
+.preview_scope {
+    margin-top: 10vh;
+    margin-left: 5vh;
+}
+
+.previewbutton {
+    border: none;
+    list-style: none;
+    background: none;
+}
+
+.preview {
+    width: 104px;
+    height: 24px;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+.logo_scope {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.gurologo,
+.euiroomlogo {
+    width: 98px;
+    height: 38px;
+    margin-left: 26px;
+}
