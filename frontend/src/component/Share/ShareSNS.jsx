@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import ClipboardCopy from "../../elements/Clipboard/ClipboardCopy";
-import KakaoShare from "../../elements/Kakaoshare/Kakaoshare";
+
 import "./shareSNS.css";
-import kakao from "../../assets/share_kakao.png";
-import link from "../../assets/share_link.png";
+import kakao from "../../assets/kakaoshare.png";
+
+import link from "../../assets/linkshare.png";
 
 const ShareSNS = () => {
   const url = window.location.href; //현재 url가져오기
@@ -16,8 +16,8 @@ const ShareSNS = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
       if (!kakao.isInitialized()) {
-        // kakao.init("13ce2c4185e1fe0707553109dcf25bb2");
-        kakao.init("process.env.REACT_APP_KAKAO_TOKEN");
+        kakao.init("13ce2c4185e1fe0707553109dcf25bb2");
+        // kakao.init("process.env.REACT_APP_KAKAO_TOKEN");
       }
     }
   };
@@ -87,7 +87,6 @@ const ShareSNS = () => {
   return (
     <div className="sharesnscomponent">
       <div className="kakaoandclipboard">
-        {" "}
         <div className="kakao">
           <img
             className="shareIcon"
@@ -99,7 +98,7 @@ const ShareSNS = () => {
           />
         </div>
         <div className="clipboard">
-          <img src={link} onClick={() => doCopy("복사할텍스트입니다!")} />;{" "}
+          <img src={link} onClick={() => doCopy("복사할텍스트입니다!")} />
         </div>
       </div>
     </div>

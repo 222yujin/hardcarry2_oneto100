@@ -1,64 +1,52 @@
+import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Component, useEffect, useState, useContext } from "react";
-import HomePage from "./page/HomePage";
+import TagManager from "react-gtm-module";
+
 import NotFoundPage from "./page/NotFoundPage";
-import Mainpage from "./page/Mainpage";
-
-import TestPage from "./page/TestPage";
-import OnTestPage from "./page/OnTestPage";
-import WaitPage from "./page/WaitPage";
-import ProductVotePage from "./page/ProductVotePage";
-
-import ProductListSample from "./component/ProductVote/ProductListSample";
-import Write from "./component/Review/Write";
-import Result from "./component/Share/Result";
-import "./App.css";
-import ResultForm from "./component/Result/ResultForm";
-import Navmain from "./component/Nav/Navmain";
-import Slider from "./elements/Slide/Slider";
-import ClipboardCopy from "./elements/Clipboard/ClipboardCopy";
-import KakaoShare from "./elements/Kakaoshare/Kakaoshare";
+import Navbar from "./component/navbar/Navbar";
+import Home from "./component/Home/Home";
+import Test from "./component/Test/Test";
+import { OnTest } from "./component/OnTest/OnTest";
+import Result from "./component/Result/Result";
+import Wait from "./component/Wait/Wait";
 import ShareSNS from "./component/Share/ShareSNS";
-import titlelogo from "./assets/titlelogo.png";
-import Gamepage from "./page/GamePage";
-import GameResult from "./component/Game/GameResult";
-import ProductVoteResult from "./component/ProductVote/ProductVoteResult";
+
+// import Write from "./component/Review/Write";
+// import Result from "./component/Share/Result";
+
+// import Gamepage from "./page/GamePage";
+// import GameResult from "./component/Game/GameResult";
+// import ProductVoteResult from "./component/ProductVote/ProductVoteResult";
+// import ProductVotePage from "./page/ProductVotePage";
+// import ProductListSample from "./component/ProductVote/ProductListSample";
+
+const tagManagerArgs = {
+  gtmId: "GTM-M2FPFM8",
+};
+
+TagManager.initialize(tagManagerArgs);
 function Main() {
   return (
-    <div className="Main_center_app">
+    <div className="main">
+      {" "}
+      <Navbar />
       <BrowserRouter>
-        <div className="App_header">
-          <div className="App_text">
-            <img src={titlelogo} alt="titlelogo" className="App_titletext" />
-          </div>
-        </div>
-        <div className="App_Main_Component">
-          <Routes>
-            <Route path="/" element={<Mainpage />} />
-            <Route path="/mains" element={<Mainpage />} />
-            <Route path="/test" element={<TestPage />} />
-            <Route path="/ontest" element={<OnTestPage />} />
-            <Route path="/result" element={<ResultForm />} />
-            <Route path="/story" element={<HomePage />} />
-            <Route path="/write" element={<Write />} />
-            <Route path="/wait" element={<WaitPage />} />
-            <Route path="/products" element={<ProductVotePage />} />
-            <Route path="/productsample" element={<ProductListSample />} />
-            <Route path="/voteresult" element={<ProductVoteResult />} />
-            <Route path="/share" element={<ShareSNS />} />
-            <Route path="/result" element={<Result />} />
-            <Route path="/slide" element={<Slider />} />
-            <Route path="/clip" element={<ClipboardCopy />} />
-            <Route path="/kakao" element={<KakaoShare />} />
-            <Route path="/game" element={<Gamepage />} />
-            <Route path="/gameresult" element={<GameResult />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </div>
-        <aside className="App_Main_Nav">
-          {" "}
-          <Navmain className="App_Main_Nav" />
-        </aside>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/ontest" element={<OnTest />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/wait" element={<Wait />} />
+
+          {/* <Route path="/write" element={<Write />} />
+          <Route path="/products" element={<ProductVotePage />} />
+          <Route path="/productsample" element={<ProductListSample />} />
+          <Route path="/voteresult" element={<ProductVoteResult />} />
+          <Route path="/game" element={<Gamepage />} />
+          <Route path="/gameresult" element={<GameResult />} /> */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

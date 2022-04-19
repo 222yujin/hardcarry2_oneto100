@@ -1,8 +1,9 @@
 .kakaoandclipboard {
-    width: 10rem;
+    width: 172px;
+    height: 48px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .kakao {

@@ -1,0 +1,69 @@
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.test_layout {
+    padding-top: var(--navbar-height);
+    background-color: #ffffff;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.testheader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: CookieRun-Regular;
+}
+
+.header1 {
+    margin-top: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 46px;
+    text-align: center;
+    color: #ff7eb8;
+}
+
+.header2_1 {
+    margin-top: 3%;
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center;
+    color: #ff7eb8;
+}
+
+.header2_2 {
+    margin-top: 0px;
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    line-height: 23px;
+    color: #ff7eb8;
+}
+
+.testdino {
+    width: 300px;
+    height: 300px;
+}
+
+.testbutton {
+    width: 310px;
+    height: 40px;
+}
