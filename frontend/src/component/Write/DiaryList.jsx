@@ -3,12 +3,46 @@ import styles from "./DiaryList.module.css";
 import fulllove from "../../assets/fulllove.png";
 import emptylove from "../../assets/emptylove.png";
 import axios from "axios";
+
 const HeartButton = ({ onClick }) => {
   // const HeartButton = ({ like, onClick }) => {
+  const fillHeart = () => {
+    return <img src={fulllove} />;
+  };
+  const emptyHeart = () => {
+    return <img src={emptylove} />;
+  };
+  let [likenum, setLikenum] = useState(0);
 
   const [like, setLike] = useState(false);
+  const toggleHeart = ({ like }) => {
+    setLike((like) => !like);
+    fillHeart();
+    setLikenum(likenum + 1);
+  };
 
-  return <img src={like ? fulllove : emptylove} onClick={onClick} />;
+  const untoggleHeart = ({ like }) => {
+    setLike((like) => like);
+    emptyHeart();
+    setLikenum(likenum - 1);
+  };
+  return (
+    <div>
+      <img
+        src={like ? fulllove : emptylove}
+        onClick={like ? toggleHeart : untoggleHeart}
+      />
+      {likenum}{" "}
+      <img
+        src={like ? fulllove : emptylove}
+        like={like}
+        onClick={() => {
+          setLikenum(likenum + 1);
+          setLike(!like);
+        }}
+      />{" "}
+    </div>
+  );
 };
 
 function formatDate(value) {
@@ -16,22 +50,24 @@ function formatDate(value) {
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 function DiaryList() {
-  const [like, setLike] = useState(false);
+  const fillHeart = () => {
+    return <img src={fulllove} />;
+  };
+  const emptyHeart = () => {
+    return <img src={emptylove} />;
+  };
   let [likenum, setLikenum] = useState(0);
+  const [unlikenum, setUnLikenum] = useState(1);
+  const [like, setLike] = useState(false);
+  const toggleHeart = ({ like }) => {
+    if (setLike((like) => !like)) setLikenum(likenum + 1);
+  };
 
-  // useEffect(async () => {
-  //   const fetchData = async () => {
-  //     const res = await axios.get();
-  //     if (res.data.type === "liked") setLike(true);
-  //   };
-  //   fetchData();
-  // }, []);
-  // const toggleLike = async (e) => {
-  //   const res = await axios.post();
-  //   setLike(!like);
-  // };
-
-  // [POST] 사용자가 좋아요를 누름 -> DB 갱신 setLike(!like) }
+  const untoggleHeart = ({ like }) => {
+    setLike((like) => like);
+    emptyHeart();
+    setLikenum(likenum - 1);
+  };
 
   const [diarystep, setDiaryStep] = useState(0);
   const diarycontent = [
@@ -61,30 +97,24 @@ function DiaryList() {
         <div className={styles.diarycontent}>{diarycontent[diarystep]}</div>
         <div className={styles.heart_layout}>
           <div className={styles.heart}>
-            {likenum}{" "}
+            {" "}
+            {/* <img
+              like={like}
+              src={like ? fulllove : emptylove}
+              onClick={like ? toggleHeart({ like }) : untoggleHeart({ like })}
+            /> */}{" "}
             <img
               src={like ? fulllove : emptylove}
               like={like}
+              // else setLike(like);
+              // setUnLikenum(likenum - 1);
               onClick={() => {
-                setLikenum(likenum + 1);
-                setLike(!like);
+                toggleHeart(like);
               }}
             />{" "}
-            {/* <HeartButton like={like} onClick={setLike} /> */}
           </div>{" "}
         </div>
       </div>{" "}
-      <h3>
-        {" "}
-        {/* <img
-          src={fulllove}
-          onClick={() => {
-            setLikenum(likenum + 1);
-          }}
-        />{" "}
-        {likenum}{" "} */}
-      </h3>
-      <div>{/* <HeartButton like={like} onClick={toggleLike} /> */}</div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import story1 from "../../assets/story1.png";
 import story2 from "../../assets/story2.png";
 import story3 from "../../assets/story3.png";
 import story4 from "../../assets/story4.png";
-
+import styles from "./Slider.module.css";
 const Container = styled.div`
   width: 60%;
   overflow: hidden; // 선을 넘어간 이미지들은 보이지 않도록 처리합니다.
@@ -60,8 +60,12 @@ const Slider = () => {
         <Slide img={img2} />
         <Slide img={img3} />
       </SliderContainer>
-      <Button onClick={prevSlide}>Previous Slide</Button>
-      <Button onClick={nextSlide}>Next Slide</Button>
+      <Button onClick={prevSlide} className={styles.sliderprebutton}>
+        Previous Slide
+      </Button>
+      <Button onClick={nextSlide} className={styles.slidernextbutton}>
+        Next Slide
+      </Button>
     </Container>
   );
 };

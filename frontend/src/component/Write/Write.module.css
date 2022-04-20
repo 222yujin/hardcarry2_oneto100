@@ -275,12 +275,9 @@
     margin-bottom: 28px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-}
-
-.searchoptipn {
-    padding-right: 15px;
+    margin-left: 30px;
 }
 
 .searchinput {
@@ -299,20 +296,12 @@
     color: #adb5bd;
 }
 
-.container_1 {
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 300px;
-    height: 50px;
-    background: #ffffff;
-    border: #2b303b;
-    font-size: 10pt;
-    float: left;
-    padding-left: 45px;
-    border-radius: 25px;
+.searchoption {
+    margin-left: 8px;
 }
 
 .searchoptionstyle {
+    margin-left: 10px;
     width: 90px;
     height: 37px;
     border: 1px solid #ced4da;

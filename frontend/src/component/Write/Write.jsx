@@ -214,20 +214,22 @@ function WriteForm(props) {
           <img src={search} className={styles.searchpng} />
         </span>
         <div className={styles.search}>
-          <div className={styles.box}>
-            <div className={styles.container_1}>
-              <input
-                className={styles.searchinput}
-                type="search"
-                id="search"
-                placeholder="내용검색"
-              />
-            </div>
+          <div className={styles.serarch_inputline}>
+            <input
+              className={styles.searchinput}
+              type="search"
+              id="search"
+              placeholder="내용검색"
+            />
           </div>
           <div className={styles.searchoptipn}>
             <select name="search" className={styles.searchoptionstyle}>
-              <option value="최신순">최신순</option>
-              <option value="공감순">공감순</option>
+              <option value="최신순" className={styles.searchoptionstyle}>
+                최신순
+              </option>
+              <option value="공감순" className={styles.searchoptionstyle}>
+                공감순
+              </option>
             </select>
           </div>
         </div>

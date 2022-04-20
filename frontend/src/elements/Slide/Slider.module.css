@@ -34,6 +34,9 @@ Slider_layout {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: none;
+    list-style: none;
+    background: none;
 }
 
 .img1,
