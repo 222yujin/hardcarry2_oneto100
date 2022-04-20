@@ -28,6 +28,8 @@ function WriteForm(props) {
   const [submittingError, setSubmittingError] = useState(null);
   const [values, setValues] = useState(INITIAL_VALIES);
   const [modalOpen, setModalOpen] = useState(false);
+  const [choice, setChoice] = useState(false);
+  const [person, setPerson] = useState(false);
 
   const openModal = () => {
     setModalOpen(true);
@@ -52,8 +54,8 @@ function WriteForm(props) {
     const formData = new FormData();
     formData.append("content", values.content);
     formData.append("nickname", values.nickname);
-    formData.append("name", values.nickname);
-    formData.append("phone", values.nickname);
+    formData.append("name", values.name);
+    formData.append("phone", values.phone);
     formData.append("private", values.private);
     formData.append("rating", values.rating);
     formData.append("choice", values.choice);
@@ -99,7 +101,7 @@ function WriteForm(props) {
                   <input
                     className={styles.write_choiceradio}
                     name="choice"
-                    value={values.choice}
+                    value={setChoice(!choice)}
                     type="checkbox"
                     onChange={handleInputChange}
                     placeholder="(선택) 연락처 적고 경품 받기"
@@ -134,7 +136,7 @@ function WriteForm(props) {
                   <input
                     className={styles.write_privateeradio}
                     name="private"
-                    value={values.private}
+                    value={setPerson(!person)}
                     type="radio"
                     onChange={handleInputChange}
                     placeholder="(선택) 연락처 적고 경품 받기"
