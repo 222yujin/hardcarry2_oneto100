@@ -33,7 +33,7 @@ function Main() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/dinotest" element={<Test />} />
           <Route path="/ontest" element={<OnTest />} />
           <Route path="/result" element={<Result />} />
           <Route path="/wait" element={<Wait />} />
