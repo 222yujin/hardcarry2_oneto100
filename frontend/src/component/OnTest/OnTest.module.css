@@ -62,36 +62,51 @@ img {
     align-items: center;
 }
 
+.button1,
+.button2 {
+    border: 1px solid #ff7eb8;
+    text-align: center;
+    width: 310px;
+    height: 67px;
+    border-radius: 100px;
+    padding: 10 40;
+}
+
 .choicebutton1,
 .choicebutton2 {
-    border: none;
-    list-style: none;
+    color: #ff7eb8;
     background: none;
-    white-space: pre-line;
+    white-space: pre-wrap;
     font-family: CookieRun-Regular;
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 20px;
     text-align: center;
-    color: #ff7eb8;
-    border: 1px solid #ff7eb8;
-    box-sizing: border-box;
-    border-radius: 100px;
-    padding: 10px 43px;
-    margin-bottom: 16ox;
+    border: none;
+    list-style: none;
+    width: 310px;
+    height: 67px;
+    padding: 10 40;
 }
 
 .choicebutton2:active,
 .choicebutton1:active {
+    color: white;
     background: #ff7eb8;
-    color: #fffef5;
-    border-radius: 32.5px;
-    border: 2px solid #ff7eb8;
-    border: 1px solid #ff7eb8;
-    box-sizing: border-box;
+    white-space: pre-wrap;
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    border: none;
+    list-style: none;
+    width: 310px;
+    height: 67px;
     border-radius: 100px;
-    padding: 10px 43px;
+    padding: 10 40;
 }
 
 .betweenbutton {

@@ -33,6 +33,8 @@ const Result = (props) => {
   const result = state.result.testResult;
   const like = state.result.resultLike;
   const dislike = state.result.resultDislike;
+  console.log(result);
+
   const movieName = [
     " 은밀하게 위대하게",
     "오징어게임",
@@ -112,6 +114,9 @@ const Result = (props) => {
   const goodmate = [mate1, mate2, mate4, mate5, mate6, mate3];
   const badmate = [mate2, mate3, mate5, mate3, mate2, mate4];
   const progam = [program1, program2, program3, program4, program5, program6];
+
+  console.log(result.type_program_img);
+  console.log(result.type_img);
   return (
     <div className={styles.testresult_layout}>
       <div className={styles.testreuslt_background}>
@@ -120,19 +125,26 @@ const Result = (props) => {
             {" "}
             <h3> {result.type_from}</h3>
             <div className={styles.testresult_subtitle}>
-              <h3>{resultName[resultstep]}</h3>
+              <h3>{result.type_name}</h3>
             </div>
           </div>
           <div className={styles.testresult_scope}>
             <div className={styles.resultdino}>
+              {/* 더미이미지  */}
               <img
                 src={result_main[resultstep]}
                 alt="testmainbox"
                 className={styles.result_testmainbox}
               />
+              {/* <img
+                src={result.type_img}
+                alt="testmainbox"
+                className={styles.result_testmainbox}
+              /> */}
             </div>
             <div className={styles.testresult_maincontent}>
-              {resultcontent[resultstep]}
+              {/* {resultcontent[resultstep]} */}
+              {result.type_desc}
             </div>
             <div className={styles.testresult_mate}>
               <div className={styles.testreult_goodmate}>
@@ -145,10 +157,12 @@ const Result = (props) => {
                   />
                   <div className={styles.goodmate_scopetext}>
                     <p className={styles.goodmatetext}>
-                      {goodmate_text[resultstep]}
+                      {result.type_like}
+                      {/* {goodmate_text[resultstep]} */}
                     </p>
                     <p className={styles.goodmatesubtitle}>
-                      {goodmate_subtitle[resultstep]}
+                      {/* {goodmate_subtitle[resultstep]} */}
+                      {result.type_like_sub}
                     </p>
                   </div>
                 </div>
@@ -163,10 +177,12 @@ const Result = (props) => {
                   />
                   <div className={styles.badmate_scopetext}>
                     <p className={styles.badmatetext}>
-                      {badmate_text[resultstep]}
+                      {/* {badmate_text[resultstep]} */}
+                      {result.type_dislike}
                     </p>{" "}
                     <p className={styles.badmatesubtitle}>
-                      {badmate_subtitle[resultstep]}
+                      {/* {badmate_subtitle[resultstep]} */}
+                      {result.type_dislike_sub}
                     </p>
                   </div>
                 </div>
@@ -194,6 +210,12 @@ const Result = (props) => {
                   나에게 딱 맞는 백수탈출 프로그램은?{" "}
                 </h3>
                 <div className={styles.programline}>
+                  {/* <img
+                    src={result.type_program_img}
+                    className={styles.programimg}
+                    alt="programalt"
+                  /> */}
+                  {/* 더미데이터                   */}
                   <img
                     src={progam[resultstep]}
                     className={styles.programimg}
@@ -201,7 +223,8 @@ const Result = (props) => {
                   />
                 </div>
                 <p className={styles.programsubtitle}>
-                  {program_subtitle[resultstep]}
+                  {/* {program_subtitle[resultstep]} */}
+                  {result.type_program}
                 </p>
               </div>{" "}
             </div>

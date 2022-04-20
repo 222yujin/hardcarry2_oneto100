@@ -4,14 +4,7 @@ import sidelogo from "../../assets/sidebarlogo.png";
 import dinoinstagram from "../../assets/dinoinstagram.png";
 import euiruminstagram from "../../assets/euiruminstagram.png";
 import menu from "../../assets/menu.png";
-import onenav from "../../assets/onenav.png";
-import twonav from "../../assets/twonav.png";
-import treenav from "../../assets/treenav.png";
-import fournav from "../../assets/fournav.png";
-import fivenav from "../../assets/fivenav.png";
 import header from "../../assets/headertext.png";
-import title2 from "../../assets/title2.png";
-import dinostory from "../../assets/dinostory.png";
 
 const Navbar = () => {
   const [isSideMenuActive, setSideMenuActive] = useState(false);
@@ -27,9 +20,11 @@ const Navbar = () => {
           <img src={menu} className={styles.sidemenuimg} alt="menuimg" />
         </button>{" "}
       </div>{" "}
-      <div className={styles.headeflex2}>
-        <img src={header} className={styles.headerimg} alt="menuimg" />
-      </div>
+      <a href="/">
+        <div className={styles.headeflex2}>
+          <img src={header} className={styles.headerimg} alt="menuimg" />
+        </div>
+      </a>
       <div
         className={
           styles.sidemenu + (isSideMenuActive ? styles.sidemenu.active : "")

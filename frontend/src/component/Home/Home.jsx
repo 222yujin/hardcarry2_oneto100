@@ -69,7 +69,7 @@ const Home = () => {
               </a> */}
               </div>{" "}
             </a>
-          </div>
+          </div>{" "}
         </div>{" "}
         <p className={styles.footermargin}>디노를 눌러 백수 생활 엿보기</p>
       </div>{" "}
