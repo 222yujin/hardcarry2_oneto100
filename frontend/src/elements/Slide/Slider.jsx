@@ -1,35 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slide from "./Slide";
 import styled from "styled-components";
-import img1 from "../../assets/minidino1.png";
-import img2 from "../../assets/minidino2.png";
-import img3 from "../../assets/minidino3.png";
-import img4 from "../../assets/minidino4.png";
+import img1 from "../../assets/diary1.png";
+import img2 from "../../assets/diary2.png";
+import img3 from "../../assets/diary3.png";
+import img4 from "../../assets/diary4.png";
+import beforebutton from "../../assets/before.png";
+import nextbutton from "../../assets/next.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import "./Slider.css";
+import styles from "./Slider.module.css";
+
 const Container = styled.div`
-  width: 100%;
+  zwidth: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   overflow: hidden;
 `;
-const Button = styled.button`
-  all: unset;
-
-  border: 1px solid coral;
-  color: pink;
-  border-radius: 10px;
-  &:hover {
-    transition: all 0.3s ease-in-out;
-    background-color: coral;
-    color: #fff;
-  }
-`;
+const Button = styled.button``;
 
 const SliderContainer = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -59,23 +51,30 @@ const Slider = () => {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
   return (
-    <div className="Slider_layout">
+    <div className={styles.Slider_layout}>
       {" "}
-      <Container>
-        {currentSlide}{" "}
-        <Button onClick={prevSlide}>
-          <IoIosArrowBack />
-        </Button>
-        <SliderContainer ref={slideRef}>
-          <Slide img={img1} />
-          <Slide img={img2} />
-          <Slide img={img3} />
-          <Slide img={img4} />
-        </SliderContainer>
-        <Button onClick={nextSlide}>
-          <IoIosArrowForward />
-        </Button>
-      </Container>
+      <div className={styles.slide_containerlayout}>
+        <div className={styles.button_layout}>
+          <Button onClick={prevSlide} className={styles.buttoneffect}>
+            <IoIosArrowBack />
+            {/* <img src={beforebutton} alt="beforbutton" />{" "} */}
+          </Button>
+          <Container>
+            <div className={styles.slide_layout}>
+              <SliderContainer ref={slideRef}>
+                <Slide img={img1} className={styles.img1} />
+                <Slide img={img2} className={styles.img2} />
+                <Slide img={img3} className={styles.img3} />
+                <Slide img={img4} className={styles.img4} />
+              </SliderContainer>{" "}
+            </div>
+            <div className={styles.slidenextbutton_layout}> </div>
+          </Container>{" "}
+          <Button onClick={nextSlide} className={styles.buttoneffect}>
+            <IoIosArrowForward />
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

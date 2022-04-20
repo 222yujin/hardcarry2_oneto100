@@ -115,8 +115,8 @@ const Result = (props) => {
   const badmate = [mate2, mate3, mate5, mate3, mate2, mate4];
   const progam = [program1, program2, program3, program4, program5, program6];
 
-  console.log(result.type_program_img);
-  console.log(result.type_img);
+  // console.log(result.type_program_img);
+  // console.log(result.type_img);
   return (
     <div className={styles.testresult_layout}>
       <div className={styles.testreuslt_background}>
@@ -131,16 +131,16 @@ const Result = (props) => {
           <div className={styles.testresult_scope}>
             <div className={styles.resultdino}>
               {/* 더미이미지  */}
-              <img
+              {/* <img
                 src={result_main[resultstep]}
                 alt="testmainbox"
                 className={styles.result_testmainbox}
-              />
-              {/* <img
+              /> */}
+              <img
                 src={result.type_img}
                 alt="testmainbox"
                 className={styles.result_testmainbox}
-              /> */}
+              />
             </div>
             <div className={styles.testresult_maincontent}>
               {/* {resultcontent[resultstep]} */}
@@ -210,17 +210,17 @@ const Result = (props) => {
                   나에게 딱 맞는 백수탈출 프로그램은?{" "}
                 </h3>
                 <div className={styles.programline}>
-                  {/* <img
+                  <img
                     src={result.type_program_img}
                     className={styles.programimg}
                     alt="programalt"
-                  /> */}
+                  />
                   {/* 더미데이터                   */}
-                  <img
+                  {/* <img
                     src={progam[resultstep]}
                     className={styles.programimg}
                     alt="programalt"
-                  />
+                  /> */}
                 </div>
                 <p className={styles.programsubtitle}>
                   {/* {program_subtitle[resultstep]} */}
@@ -229,7 +229,7 @@ const Result = (props) => {
               </div>{" "}
             </div>
             <div className={styles.submitline}>
-              <a href="http://www.youtheroom.kr/">
+              <a href="http://www.youtheroom.kr/" target="_blank">
                 <img
                   src={submit}
                   alt="submitbutton"

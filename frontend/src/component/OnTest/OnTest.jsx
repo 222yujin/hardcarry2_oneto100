@@ -5,9 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import euiroomlogo from "../../assets/guroeuiroom.png";
 import gurologo from "../../assets/smartguro.png";
 
-var select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var noselect = 1;
+var yesselect = 0;
 
 export const OnTest = () => {
+  console.log(select);
   const navigate = useNavigate();
 
   //   const history = useHistory();
@@ -72,7 +75,6 @@ export const OnTest = () => {
     }
     select[step] = num;
   };
-
   const previewOnClick = (num) => {
     setTime(false);
     if (step < 9) {
@@ -96,7 +98,7 @@ export const OnTest = () => {
                 <button
                   className={styles.choicebutton1}
                   onClick={() => {
-                    onClick(1);
+                    onClick(yesselect);
                   }}
                   id="question_up"
                 >
@@ -109,7 +111,7 @@ export const OnTest = () => {
                 <button
                   className={styles.choicebutton2}
                   onClick={() => {
-                    onClick(0);
+                    onClick(noselect);
                   }}
                 >
                   {answerNo[step]}

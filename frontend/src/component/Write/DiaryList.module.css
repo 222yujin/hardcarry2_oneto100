@@ -1,0 +1,63 @@
+.diarylayout {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.writelist_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 358px;
+    height: 136px;
+    padding: 14px;
+    background: #f8f9fa;
+    box-shadow: 0px 0px 6px #ced4da;
+    border-radius: 16px;
+    font-family: "NanumSquareRound";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    /* Gray 7 */
+    color: #343a40;
+    margin-bottom: 16px;
+}
+
+.writenickname {
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #343a40;
+}
+
+.heart_layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "NanumSquareRound";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+    /* Gray 7 */
+    color: #343a40;
+}
+
+.heart {
+    display: flex;
+    flex-direction: row;
+    width: 24px;
+    margin-left: 280px;
+}

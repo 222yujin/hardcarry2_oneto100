@@ -3,40 +3,43 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./Wait.module.css";
 import loading from "../../assets/loading.png";
 
-const Wait = () => {
+const Wait = (props) => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
 
-  const { state } = useLocation();
+  const { state } = useLocation(props);
 
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch("http://localhost:5000/api/test/postTestArray", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          result: {
-            1: state.select[0],
-            2: state.select[1],
-            3: state.select[2],
-            4: state.select[3],
-            5: state.select[4],
-            6: state.select[5],
-            7: state.select[6],
-            8: state.select[7],
-            9: state.select[8],
-            10: state.select[9],
+      const response = await fetch(
+        "http://localhost:5000/api/test/postTestArray",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        }),
-      })
+          body: JSON.stringify({
+            result: {
+              1: state.select[0],
+              2: state.select[1],
+              3: state.select[2],
+              4: state.select[3],
+              5: state.select[4],
+              6: state.select[5],
+              7: state.select[6],
+              8: state.select[7],
+              9: state.select[8],
+              10: state.select[9],
+            },
+          }),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           setTimeout(() => {
-           navigate("/result", { state: { result: data.data } });
+            navigate("/result", { state: { result: data.data } });
           }, 4000);
         });
 

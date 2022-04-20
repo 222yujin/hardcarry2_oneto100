@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Component, useEffect, useState, useContext } from "react";
 import TagManager from "react-gtm-module";
 
-import NotFoundPage from "./page/NotFoundPage";
+import NotFoundPage from "./NotFoundPage";
 import Navbar from "./component/navbar/Navbar";
 import Home from "./component/Home/Home";
 import Test from "./component/Test/Test";
@@ -11,8 +11,7 @@ import { OnTest } from "./component/OnTest/OnTest";
 import Result from "./component/Result/Result";
 import Wait from "./component/Wait/Wait";
 import Story from "./component/Story/Story";
-// import Write from "./component/Review/Write";
-// import Result from "./component/Share/Result";
+import Write from "./component/Write/Write";
 
 // import Gamepage from "./page/GamePage";
 // import GameResult from "./component/Game/GameResult";
@@ -37,6 +36,8 @@ function Main() {
           <Route path="/ontest" element={<OnTest />} />
           <Route path="/result" element={<Result />} />
           <Route path="/wait" element={<Wait />} />
+          <Route path="/write" element={<Write />} />
+
           <Route path="/story" element={<Story />} />
           <Route path="/endstory" element={<EndingStory />} />
           {/* <Route path="/write" element={<Write />} />

@@ -75,6 +75,7 @@ const Navbar = () => {
               href="https://www.instagram.com/dino33/"
               className={styles.activea}
               type="s"
+              target="_blank"
             >
               <img
                 src={dinoinstagram}
@@ -88,6 +89,7 @@ const Navbar = () => {
               href={"https://instagram.com/youtheroom?igshid=YmMyMTA2M2Y="}
               className={styles.activea}
               type="s"
+              target="_blank"
             >
               <img
                 src={euiruminstagram}

@@ -1,0 +1,371 @@
+.write_layout {
+    padding-top: var(--navbar-height);
+    background-color: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.writelinenoslider {
+    margin-top: 10px;
+}
+
+.writeline {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.writeheader_layout {
+    height: 46px;
+    font-family: CookieRun-Regular;
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ff7eb8;
+}
+
+.writecontent_layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: CookieRun-Regular;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ff7eb8;
+    background-color: #ffffff;
+}
+
+.diaryscope {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.submitdiaryscope {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.writenickname {
+    margin-top: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21px;
+    color: #495057;
+    font-family: CookieRun-Regular;
+}
+
+.write_nickname {
+    margin-left: 5px;
+    width: 310px;
+    height: 32px;
+    border: 1px solid #adb5bd;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+
+.write_text {
+    margin-top: 10px;
+}
+
+.write_textarea {
+    width: 310px;
+    height: 200px;
+    border: 1px solid #adb5bd;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+.write_choice {
+    font-family: CookieRun-Regular;
+    margin-top: 20px;
+    margin-right: 170px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #495057;
+}
+
+.write_choiceradio {
+    margin: 0 auto;
+}
+
+.write_name {
+    margin-left: 5px;
+    width: 310px;
+    height: 32px;
+    border: 1px solid #adb5bd;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+
+.write_phone {
+    margin-left: 5px;
+    width: 310px;
+    height: 32px;
+    border: 1px solid #adb5bd;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+
+.write_inform {
+    margin-top: 8px;
+    margin-right: 80px;
+    justify-content: flex-start;
+    font-family: NanumSquareRound;
+    font-size: 10px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #868e96;
+}
+
+.write_private {
+    font-family: CookieRun-Regular;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    margin-right: 250px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #495057;
+}
+
+.writesubmitbutton {
+    width: 310px;
+    height: 41px;
+    margin-bottom: 32px;
+}
+
+.issubmit {
+    border: none;
+    background: none;
+    border-radius: 100px;
+}
+
+.present_layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.present_header {
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    color: #ff7eb8;
+}
+
+.present_inform {
+    margin-top: 16px;
+    font-family: "NanumSquareRound";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #495057;
+}
+
+.presentline {
+    margin-top: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentimg_header {
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    /* Gray 8 */
+    color: #212529;
+}
+
+.present_informimg {
+    margin-top: 8px;
+    margin-left: 3px;
+    text-align: center;
+    font-family: "NanumSquareRound";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    color: #212529;
+}
+
+.SNS_layout {
+    margin-top: 32px;
+    font-family: CookieRun-Regular;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.SNS_header {
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    /* identical to box height */
+    text-align: center;
+    /* Point 1 */
+    color: #ff7eb8;
+    margin-bottom: 16px;
+}
+
+.writeliststart {
+    width: 390px;
+    height: 1px;
+    background: #e9ecef;
+}
+
+.diarylistline {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #ffffff;
+    padding-bottom: 16px;
+}
+
+.diarylistheader {
+    margin-left: 16px;
+    font-family: CookieRun-Regular;
+    margin-top: 19px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: #ff7eb8;
+}
+
+.search {
+    margin-top: 28px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.searchoptipn {
+    padding-right: 15px;
+}
+
+.searchinput {
+    width: 260px;
+    height: 40px;
+    border: 1px solid #adb5bd;
+    box-sizing: border-box;
+    border-radius: 25px;
+    text-align: center;
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    /* Gray 3 */
+    color: #adb5bd;
+}
+
+.container_1 {
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 300px;
+    height: 50px;
+    background: #ffffff;
+    border: #2b303b;
+    font-size: 10pt;
+    float: left;
+    padding-left: 45px;
+    border-radius: 25px;
+}
+
+.searchoptionstyle {
+    width: 90px;
+    height: 37px;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+    border-radius: 26px;
+}
+
+.searchpng {
+    width: 24px;
+}
+
+.footer {
+    width: 162px;
+}
+
+.modallayout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modaltitle {
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 46px;
+    text-align: center;
+    color: #343a40;
+}
+
+.finisheddiary {
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #343a40;
+}
+
+.result_sharebox {
+    margin-top: 56px;
+    width: 390px;
+    height: 190px;
+    margin-bottom: 24px;
+}
