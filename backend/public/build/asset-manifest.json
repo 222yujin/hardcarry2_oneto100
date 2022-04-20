@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b76a8f45.css",
-    "main.js": "/static/js/main.2f3faaca.js",
+    "main.css": "/static/css/main.7dfa8478.css",
+    "main.js": "/static/js/main.f1b3255c.js",
     "static/media/shareevent.png": "/static/media/shareevent.daaf6f983ddd009e70d5.png",
     "static/media/Endstory1.png": "/static/media/Endstory1.2ca32afd3c4f653b68d3.png",
     "static/media/program1.png": "/static/media/program1.4e309657f27a6c38e4ed.png",
@@ -26,24 +26,28 @@
     "static/media/minidino2.png": "/static/media/minidino2.50c6fc9e52c57ca42720.png",
     "static/media/minidino6.png": "/static/media/minidino6.449c32185eed17048f4f.png",
     "static/media/resultdino3.png": "/static/media/resultdino3.b2b09ddeaecaa11ed757.png",
+    "static/media/diary1.png": "/static/media/diary1.3e75220ab3700c47156d.png",
     "static/media/sidebarlogo.png": "/static/media/sidebarlogo.828f608a3aec33e4f8cf.png",
     "static/media/resultdino2.png": "/static/media/resultdino2.c395a872d9cd2372e8f0.png",
     "static/media/resultdino6.png": "/static/media/resultdino6.2ae1480310e65018932a.png",
     "static/media/headertext.png": "/static/media/headertext.93d72e6bc89dc72a55a1.png",
     "static/media/resultdino1.png": "/static/media/resultdino1.0dd12984f3482d410c9a.png",
+    "static/media/diary3.png": "/static/media/diary3.69c2a9f9bda0b97b119b.png",
     "static/media/resultdino5.png": "/static/media/resultdino5.22c2f1dc464479a4c5d5.png",
     "static/media/resultdino4.png": "/static/media/resultdino4.cccfa8fde355587b6f51.png",
+    "static/media/diary4.png": "/static/media/diary4.c2b29b68b0060eeed8bb.png",
     "static/media/guroeuiroom.png": "/static/media/guroeuiroom.0c0138965e24b1188f55.png",
+    "static/media/diary2.png": "/static/media/diary2.349e10c1138679d9bc69.png",
     "static/media/loading.png": "/static/media/loading.3b5580af7d40f16739fe.png",
     "static/media/smartguro.png": "/static/media/smartguro.f17712ec58e12c49c720.png",
     "static/media/Endstorybutton.png": "/static/media/Endstorybutton.2fa08d9d323c59c633fb.png",
     "index.html": "/index.html",
     "static/media/warn.svg": "/static/media/warn.71fb9b7feae9cafaeff3d46bbd9ded9e.svg",
-    "main.b76a8f45.css.map": "/static/css/main.b76a8f45.css.map",
-    "main.2f3faaca.js.map": "/static/js/main.2f3faaca.js.map"
+    "main.7dfa8478.css.map": "/static/css/main.7dfa8478.css.map",
+    "main.f1b3255c.js.map": "/static/js/main.f1b3255c.js.map"
   },
   "entrypoints": [
-    "static/css/main.b76a8f45.css",
-    "static/js/main.2f3faaca.js"
+    "static/css/main.7dfa8478.css",
+    "static/js/main.f1b3255c.js"
   ]
 }
