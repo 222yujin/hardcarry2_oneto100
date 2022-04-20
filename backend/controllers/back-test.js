@@ -10,6 +10,7 @@ const postTestResult = async (req, res) => {
     const header = res.setHeader('Content-Type', 'application/json');
     const resultArr = req.body.result;
 
+
     let gihun = 0, chulsoo = 0, junha = 0, ryuhwan = 0, yongnam = 0, kwangsoo = 0;
 
     for (let i = 1; i < 11; i++) {
@@ -82,10 +83,9 @@ const postTestResult = async (req, res) => {
     }
 
     //결과 db에서 찾아오고, 해당타입 참여수 +1 해준다
-
     let testResult = await testdb.findOne({where: {type_id: max_name}});
     console.log(testResult)
-    console.log(testResult.dataValues.type_id)
+    //console.log(testResult.dataValues.type_id)
     let resultLike = await testdb.findOne({where: {type_id: testResult.dataValues.type_like}});
     let resultDislike = await testdb.findOne({where: {type_id: testResult.dataValues.type_dislike}});
     testdb.increment({type_attend: 1}, {where: {type_id: testResult.dataValues.type_id}}).then(function (result) {

@@ -30,7 +30,9 @@ const Result = (props) => {
   const [resultstep, setResultStep] = React.useState(0);
   const [resulttime, setResultTime] = React.useState(false);
   const { state } = useLocation();
-  //   const testResult = state.result.testResult;
+  const result = state.result.testResult;
+  const like = state.result.resultLike;
+  const dislike = state.result.resultDislike;
   const movieName = [
     " 은밀하게 위대하게",
     "오징어게임",
@@ -116,7 +118,7 @@ const Result = (props) => {
         <div className={styles.testresultheader}>
           <div className={styles.testresult_title}>
             {" "}
-            <h3> {movieName[resultstep]}</h3>
+            <h3> {result.type_from}</h3>
             <div className={styles.testresult_subtitle}>
               <h3>{resultName[resultstep]}</h3>
             </div>

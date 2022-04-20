@@ -32,23 +32,26 @@ app.use(cors());
 //db 연결
 const models = require("./models");
 
-models.sequelize.sync({force: true}).then( (res) => {
+models.sequelize.sync().then( (res) => {
   console.log("DB connected successful");
 }).catch(err => {
   console.log(err);
 })
 
-app.get("/", (req, res) => {
+
+
+//app.use('/', indexRouter);
+app.use('/api/item', itemRouter);
+app.use('/api/balance', balanceRouter);
+app.use('/api/test', testRouter);
+app.use('/api/diary', diaryRouter);
+
+app.get("/*", (req, res) => {
   console.log(__dirname);
   // index.html 파일 응답
   res.sendFile(path.join(__dirname, "./public/build", "index.html"));
 });
 
-//app.use('/', indexRouter);
-app.use('/item', itemRouter);
-app.use('/balance', balanceRouter);
-app.use('/test', testRouter);
-app.use('/diary', diaryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

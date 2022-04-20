@@ -10,13 +10,10 @@ const Wait = () => {
   const [httpError, setHttpError] = useState();
 
   const { state } = useLocation();
-  setTimeout(() => {
-    navigate("/result");
-  }, 4000);
 
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch("http://localhost:5000/test/postTestArray", {
+      const response = await fetch("http://localhost:5000/api/test/postTestArray", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,13 +26,17 @@ const Wait = () => {
             4: state.select[3],
             5: state.select[4],
             6: state.select[5],
+            7: state.select[6],
+            8: state.select[7],
+            9: state.select[8],
+            10: state.select[9],
           },
         }),
       })
         .then((response) => response.json())
         .then((data) => {
           setTimeout(() => {
-            navigate("/result", { state: { result: data.data } });
+           navigate("/result", { state: { result: data.data } });
           }, 4000);
         });
 
@@ -80,13 +81,13 @@ const Wait = () => {
       </div>
     );
   }
-  if (httpError) {
-    return (
-      <section className="ItemsError">
-        <h1>{httpError}</h1>
-      </section>
-    );
-  }
+  // if (httpError) {
+  //   return (
+  //     <section className="ItemsError">
+  //       <h1>{httpError}</h1>
+  //     </section>
+  //   );
+  // }
 
   return (
     <div className={styles.wait_layout}>
