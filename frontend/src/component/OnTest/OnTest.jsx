@@ -4,6 +4,7 @@ import preview from "../../assets/preview.png";
 import { Link, useNavigate } from "react-router-dom";
 import euiroomlogo from "../../assets/guroeuiroom.png";
 import gurologo from "../../assets/smartguro.png";
+import Progress from "../Progress/Progress";
 
 var select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var noselect = 1;
@@ -130,7 +131,6 @@ export const OnTest = () => {
               <img src={preview} alt="preview" className={styles.preview} />
             </button>
           </div>
-
           <div className={styles.logo_scope}>
             <div className={styles.euiroomlogo}>
               <a href="http://www.youtheroom.kr/">
@@ -151,7 +151,7 @@ export const OnTest = () => {
                   className={styles.gurologoimg}
                 />
               </a>
-            </div>
+            </div>{" "}
           </div>
         </div>
       )}

@@ -24,8 +24,8 @@ const KakaoShare = () => {
     window.Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
-        title: "딸기 치즈 케익",
-        description: "#케익 #딸기 #삼평동 #카페 #분위기 #소개팅",
+        title: "백일당 프로젝트",
+        description: "#백일당프로젝트 #청년이룸 #백테스트 #백일장 ",
         imageUrl:
           "http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
         link: {
