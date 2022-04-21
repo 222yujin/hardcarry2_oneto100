@@ -84,6 +84,7 @@
 }
 
 .write_textarea {
+    font-family: "NanumSquareRound";
     width: 310px;
     height: 200px;
     border: 1px solid #adb5bd;
@@ -137,6 +138,7 @@
     letter-spacing: normal;
     text-align: left;
     color: #868e96;
+    margin-bottom: 10px;
 }
 
 .write_private {
@@ -242,6 +244,17 @@
     /* Point 1 */
     color: #ff7eb8;
     margin-bottom: 16px;
+}
+
+.snsbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.downBtn {
+    margin-left: 20px;
+    width: 48px;
 }
 
 .writeliststart {

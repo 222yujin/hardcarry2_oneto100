@@ -28,34 +28,35 @@ const ShareSNS = () => {
     window.Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
-        title: "백일당 프로젝트",
-        description: "#백일당프로젝트 #청년이룸 #백테스트 #백일장",
-        imageUrl: "https://ibb.co/dkQSVhK",
+        title: "일당백프로젝트",
+        description:
+          "#일당백프로젝트 #청년이룸 #구로청년이룸  #디노 #백수 #일기장 #게임 #스토리 ",
+        imageUrl: "https://ifh.cc/g/KXnbbS.jpg",
         link: {
           mobileWebUrl: url,
           webUrl: url,
         },
       },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845,
-      },
+      // social: {
+      //   likeCount: 286,
+      //   commentCount: 45,
+      //   sharedCount: 845,
+      // },
       buttons: [
         {
-          title: "웹으로 보기",
+          title: "디노와함께 백수탈출",
           link: {
             mobileWebUrl: url,
             webUrl: url,
           },
         },
-        {
-          title: "앱으로 보기",
-          link: {
-            mobileWebUrl: url,
-            webUrl: url,
-          },
-        },
+        // {
+        //   title: "앱으로 보기",
+        //   link: {
+        //     mobileWebUrl: url,
+        //     webUrl: url,
+        //   },
+        // },
       ],
     });
   };

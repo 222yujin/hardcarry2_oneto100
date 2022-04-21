@@ -12,7 +12,6 @@ import Result from "./component/Result/Result";
 import Wait from "./component/Wait/Wait";
 import Story from "./component/Story/Story";
 import Write from "./component/Write/Write";
-import Progress from "./component/Progress/Progress";
 
 // import Gamepage from "./page/GamePage";
 // import GameResult from "./component/Game/GameResult";
@@ -20,6 +19,7 @@ import Progress from "./component/Progress/Progress";
 // import ProductVotePage from "./page/ProductVotePage";
 // import ProductListSample from "./component/ProductVote/ProductListSample";
 import EndingStory from "./component/EndStory/EndingStory";
+import Capture from "./component/Share/Capture";
 const tagManagerArgs = {
   gtmId: "GTM-M2FPFM8",
 };
@@ -41,8 +41,6 @@ function Main() {
 
           <Route path="/story" element={<Story />} />
           <Route path="/endstory" element={<EndingStory />} />
-
-          <Route path="/progress" element={<Progress />} />
           {/* <Route path="/write" element={<Write />} />
           <Route path="/products" element={<ProductVotePage />} />
           <Route path="/productsample" element={<ProductListSample />} />

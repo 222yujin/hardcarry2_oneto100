@@ -1,4 +1,7 @@
 import React from "react";
+import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
+
 import styles from "./Result.module.css";
 import mate1 from "../../assets/mate1.png";
 import mate2 from "../../assets/mate2.png";
@@ -21,6 +24,7 @@ import program3 from "../../assets/program3.png";
 import program4 from "../../assets/program4.png";
 import program5 from "../../assets/program5.png";
 import program6 from "../../assets/program6.png";
+import clipboard from "../../assets/clipboard.png";
 
 import ShareSNS from "../Share/ShareSNS";
 import { useLocation } from "react-router-dom";
@@ -114,131 +118,145 @@ const Result = (props) => {
   const goodmate = [mate1, mate2, mate4, mate5, mate6, mate3];
   const badmate = [mate2, mate3, mate5, mate3, mate2, mate4];
   const progam = [program1, program2, program3, program4, program5, program6];
-
+  const onDownloadBtn = () => {
+    domtoimage.toBlob(document.querySelector(".test")).then((blob) => {
+      saveAs(blob, "result.png");
+    });
+  };
   // console.log(result.type_program_img);
   // console.log(result.type_img);
   return (
     <div className={styles.testresult_layout}>
-      <div className={styles.testreuslt_background}>
-        <div className={styles.testresultheader}>
-          <div className={styles.testresult_title}>
-            {" "}
-            <h3> {result.type_from}</h3>
-            <div className={styles.testresult_subtitle}>
-              <h3>{result.type_name}</h3>
+      <div className="test">
+        <div className={styles.testreuslt_background}>
+          <div className={styles.testresultheader}>
+            <div className={styles.testresult_title}>
+              {" "}
+              <h3> {result.type_from}</h3>
+              <div className={styles.testresult_subtitle}>
+                <h3>{result.type_name}</h3>
+              </div>
             </div>
-          </div>
-          <div className={styles.testresult_scope}>
-            <div className={styles.resultdino}>
-              {/* 더미이미지  */}
-              {/* <img
+            <div className={styles.testresult_scope}>
+              <div className={styles.resultdino}>
+                {/* 더미이미지  */}
+                {/* <img
                 src={result_main[resultstep]}
                 alt="testmainbox"
                 className={styles.result_testmainbox}
               /> */}
-              <img
-                src={result.type_img}
-                alt="testmainbox"
-                className={styles.result_testmainbox}
-              />
-            </div>
-            <div className={styles.testresult_maincontent}>
-              {/* {resultcontent[resultstep]} */}
-              {result.type_desc}
-            </div>
-            <div className={styles.testresult_mate}>
-              <div className={styles.testreult_goodmate}>
-                <h2 className={styles.goodmateline}> 최고 궁합</h2>
-                <div className={styles.goodmate_scope}>
-                  <img
-                    src={goodmate[resultstep]}
-                    alt="matebox"
-                    className="result_matebox"
-                  />
-                  <div className={styles.goodmate_scopetext}>
-                    <p className={styles.goodmatetext}>
-                      {result.type_like}
-                      {/* {goodmate_text[resultstep]} */}
-                    </p>
-                    <p className={styles.goodmatesubtitle}>
-                      {/* {goodmate_subtitle[resultstep]} */}
-                      {result.type_like_sub}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.testreult_badmate}>
-                <h2 className={styles.badmateline}> 최악 궁합</h2>
-                <div className={styles.badmate_scope}>
-                  <img
-                    src={badmate[resultstep]}
-                    alt="matebox"
-                    className="result_matebox"
-                  />
-                  <div className={styles.badmate_scopetext}>
-                    <p className={styles.badmatetext}>
-                      {/* {badmate_text[resultstep]} */}
-                      {result.type_dislike}
-                    </p>{" "}
-                    <p className={styles.badmatesubtitle}>
-                      {/* {badmate_subtitle[resultstep]} */}
-                      {result.type_dislike_sub}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.testreult_share}>
-              <div className={styles.testreult_share_scope}>
-                <h3 className={styles.testresult_share_maintitle}>
-                  친구들에게 <br /> 결과 공유하기
-                </h3>
-                <ShareSNS />
                 <img
-                  src={shareevent}
-                  alt="sharebox"
-                  className={styles.result_sharebox}
-                />{" "}
-                <div className={styles.testreult_share_title}>
-                  <p>#청년이룸 #일당백프로젝트</p>
-                  <p> 해시태그로 인스타에 공유하신 분들께 한하여</p>
-                  <p>추첨을 통해서 선물을 드립니다.</p>
+                  src={result.type_img}
+                  alt="testmainbox"
+                  className={styles.result_testmainbox}
+                />
+              </div>
+              <div className={styles.testresult_maincontent}>
+                {/* {resultcontent[resultstep]} */}
+                {result.type_desc}
+              </div>
+              <div className={styles.testresult_mate}>
+                <div className={styles.testreult_goodmate}>
+                  <h2 className={styles.goodmateline}> 최고 궁합</h2>
+                  <div className={styles.goodmate_scope}>
+                    <img
+                      src={goodmate[resultstep]}
+                      alt="matebox"
+                      className="result_matebox"
+                    />
+                    <div className={styles.goodmate_scopetext}>
+                      <p className={styles.goodmatetext}>
+                        {result.type_like}
+                        {/* {goodmate_text[resultstep]} */}
+                      </p>
+                      <p className={styles.goodmatesubtitle}>
+                        {/* {goodmate_subtitle[resultstep]} */}
+                        {result.type_like_sub}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.testreult_badmate}>
+                  <h2 className={styles.badmateline}> 최악 궁합</h2>
+                  <div className={styles.badmate_scope}>
+                    <img
+                      src={badmate[resultstep]}
+                      alt="matebox"
+                      className="result_matebox"
+                    />
+                    <div className={styles.badmate_scopetext}>
+                      <p className={styles.badmatetext}>
+                        {/* {badmate_text[resultstep]} */}
+                        {result.type_dislike}
+                      </p>{" "}
+                      <p className={styles.badmatesubtitle}>
+                        {/* {badmate_subtitle[resultstep]} */}
+                        {result.type_dislike_sub}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className={styles.yourprogram}>
-                <h3 className={styles.programtitle}>
-                  나에게 딱 맞는 백수탈출 프로그램은?{" "}
-                </h3>
-                <div className={styles.programline}>
+              <div className={styles.testreult_share}>
+                <div className={styles.testreult_share_scope}>
+                  <h3 className={styles.testresult_share_maintitle}>
+                    친구들에게 <br /> 결과 공유하기
+                  </h3>
+                  <div className={styles.snsbutton}>
+                    <ShareSNS />{" "}
+                    {/* <button className="downBtn" onClick={onDownloadBtn}> </button> */}
+                    <img
+                      src={clipboard}
+                      className={styles.downBtn}
+                      onClick={onDownloadBtn}
+                    />
+                  </div>
                   <img
-                    src={result.type_program_img}
-                    className={styles.programimg}
-                    alt="programalt"
-                  />
-                  {/* 더미데이터                   */}
-                  {/* <img
+                    src={shareevent}
+                    alt="sharebox"
+                    className={styles.result_sharebox}
+                  />{" "}
+                  <div className={styles.testreult_share_title}>
+                    <p>#청년이룸 #일당백프로젝트</p>
+                    <p> 해시태그로 인스타에 공유하신 분들께 한하여</p>
+                    <p>추첨을 통해서 선물을 드립니다.</p>
+                  </div>
+                </div>
+                <div className={styles.yourprogram}>
+                  <h3 className={styles.programtitle}>
+                    나에게 딱 맞는 백수탈출 프로그램은?{" "}
+                  </h3>
+                  <div className={styles.programline}>
+                    <img
+                      src={result.type_program_img}
+                      className={styles.programimg}
+                      alt="programalt"
+                    />
+                    {/* 더미데이터                   */}
+                    {/* <img
                     src={progam[resultstep]}
                     className={styles.programimg}
                     alt="programalt"
                   /> */}
-                </div>
-                <p className={styles.programsubtitle}>
-                  {/* {program_subtitle[resultstep]} */}
-                  {result.type_program}
-                </p>
+                  </div>
+                  <p className={styles.programsubtitle}>
+                    {/* {program_subtitle[resultstep]} */}
+                    {result.type_program}
+                  </p>
+                </div>{" "}
+              </div>
+              <div className={styles.submitline}>
+                <a href="http://www.youtheroom.kr/" target="_blank">
+                  <img
+                    src={submit}
+                    alt="submitbutton"
+                    className={styles.ontestsubmit}
+                  />{" "}
+                </a>
               </div>{" "}
             </div>
-            <div className={styles.submitline}>
-              <a href="http://www.youtheroom.kr/" target="_blank">
-                <img
-                  src={submit}
-                  alt="submitbutton"
-                  className={styles.ontestsubmit}
-                />{" "}
-              </a>
-            </div>{" "}
           </div>
-        </div>
+        </div>{" "}
       </div>{" "}
     </div>
   );
