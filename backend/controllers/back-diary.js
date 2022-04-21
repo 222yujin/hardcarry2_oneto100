@@ -8,6 +8,7 @@ const cwr = require('../utils/createWebResponse');
 
 const createDiary = async (req, res) => {
     const header = res.setHeader('Content-Type', 'application/json');
+    res.header("Access-Control-Allow-Origin","*")
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     const userAgent = req.get('User-Agent');
     const browser = getBrowserInfo(userAgent);

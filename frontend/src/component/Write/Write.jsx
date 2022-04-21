@@ -17,11 +17,13 @@ import clipboard from "../../assets/clipboard.png";
 import border from "../../assets/border.png";
 
 const INITIAL_VALIES = {
-  nickname: "",
+  nickname: null,
   rating: 0,
-  content: "",
-  name: "",
-  phone: "",
+  content: null,
+  name: null,
+  phone: null,
+  choice: false,
+  private: false,
 };
 
 // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
@@ -31,9 +33,55 @@ function WriteForm(props) {
   const [submittingError, setSubmittingError] = useState(null);
   const [values, setValues] = useState(INITIAL_VALIES);
   const [modalOpen, setModalOpen] = useState(false);
+  const [checkedButtons, setCheckedButtons] = useState([]);
 
-  const openModal = () => {
-    setModalOpen(true);
+  const changeHandler = (checked, id) => {
+    if (checked) {
+      setCheckedButtons([...checkedButtons, id]);
+      if (id == "choice") values.choice = true;
+      else values.private = true;
+    } else {
+      setCheckedButtons(checkedButtons.filter((button) => button !== id));
+      if (id == "choice") values.choice = false;
+      else values.private = false;
+    }
+  };
+  const openModal = async () => {
+    console.log(values);
+    if (values.choice == true) {
+      //이름 연락처 미 입력시
+      if (values.name == null || values.phone == null) {
+        alert("연락 받으실 정보를 정확히 입력해주세요!");
+        return;
+      }
+      if (
+        values.name != null &&
+        values.phone != null &&
+        values.private == false
+      ) {
+        alert("개인정보 활용 동의하지 않을시에는 이벤트 참여가 불가능합니다");
+        return;
+      }
+    }
+
+    await fetch("http://3.35.152.195/api/diary/createDiary", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        diary_writter: values.nickname,
+        diary_content: values.content,
+        diary_checked: values.choice == true ? "O" : "X",
+        diary_name: values.name,
+        diary_phone: values.phone,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setModalOpen(true);
+        //방금 쓴 거 보이게 해야함
+      });
   };
   const closeModal = () => {
     setModalOpen(false);
@@ -60,15 +108,15 @@ function WriteForm(props) {
     formData.append("private", values.private);
     formData.append("rating", values.rating);
     formData.append("choice", values.choice);
-    await createReviews(formData);
-    setValues(INITIAL_VALIES);
+    //await createReviews(formData);
+    //setValues(INITIAL_VALIES);
   };
   const onDownloadBtn = () => {
     domtoimage.toBlob(document.querySelector(".card")).then((blob) => {
       saveAs(blob, "diary.png");
     });
   };
-  console.log(values);
+
   return (
     <div className={styles.write_layout}>
       <div className={styles.writeheader_layout}>백수의 일기장</div>
@@ -111,7 +159,10 @@ function WriteForm(props) {
                       name="choice"
                       value={values.choice}
                       type="checkbox"
-                      onChange={handleInputChange}
+                      onChange={(e) => {
+                        changeHandler(e.currentTarget.checked, "choice");
+                      }}
+                      checked={checkedButtons.includes("choice") ? true : false}
                       placeholder="(선택) 연락처 적고 경품 받기"
                     />
                     (선택) 연락처 적고 경품 받기
@@ -146,7 +197,12 @@ function WriteForm(props) {
                       name="private"
                       value={values.private}
                       type="checkbox"
-                      onChange={handleInputChange}
+                      onChange={(e) => {
+                        changeHandler(e.currentTarget.checked, "private");
+                      }}
+                      checked={
+                        checkedButtons.includes("private") ? true : false
+                      }
                       placeholder="(선택) 연락처 적고 경품 받기"
                     />
                     개인정보 활용동의
