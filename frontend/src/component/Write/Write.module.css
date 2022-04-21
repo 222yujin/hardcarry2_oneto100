@@ -257,7 +257,7 @@
     justify-content: space-around;
 }
 
-.downBtn {
+.diary_save {
     margin-left: 20px;
     width: 48px;
 }
@@ -265,7 +265,6 @@
 .writeliststart {
     width: 390px;
     height: 1px;
-    background: #e9ecef;
 }
 
 .diarylistline {
@@ -274,7 +273,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     background-color: #ffffff;
-    padding-bottom: 16px;
+    padding-bottom: 42px;
 }
 
 .diarylistheader {
@@ -289,22 +288,34 @@
 }
 
 .search {
-    margin-top: 28px;
-    margin-bottom: 28px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
+}
+
+.searchlayout {
+    margin-top: 16px;
+    /* margin-top: 28px;
+    margin-bottom: 28px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-left: 16px; */
 }
 
 .searchinput {
+    background-image: url(../../assets/search.png);
+    background-repeat: no-repeat;
+    background-position: 16px center;
+    box-sizing: border-box;
     width: 260px;
     height: 40px;
     border: 1px solid #adb5bd;
-    box-sizing: border-box;
     border-radius: 25px;
-    text-align: center;
+    text-align: left;
+    padding-left: 40px;
     font-family: CookieRun-Regular;
     font-style: normal;
     font-weight: 400;
@@ -312,16 +323,64 @@
     line-height: 16px;
     /* Gray 3 */
     color: #adb5bd;
-}
-
-.searchoption {
-    margin-left: 8px;
+    margin-left: 16px;
+    margin-right: 8px;
 }
 
 .searchoptionstyle {
     margin-left: 10px;
     width: 90px;
     height: 37px;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: 60px center;
+    background-image: url(../../assets/Vector.png);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: justify;
+    font-family: CookieRun-Regular;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+    border-radius: 26px;
+    filter: alpha(opacity=0);
+    min-height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+}
+
+.searchoptionstyle::-ms-expand {
+    display: none;
+}
+
+.searchoption {
+    margin-left: 8px;
+    margin-left: 16px;
+}
+
+.diary_heart {
+    margin-left: 10px;
+    width: 90px;
+    height: 37px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: justify;
+    font-family: CookieRun-Regular;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+    border-radius: 26px;
+}
+
+.diary_new {
+    margin-left: 10px;
+    width: 90px;
+    height: 37px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: justify;
+    font-family: CookieRun-Regular;
     border: 1px solid #ced4da;
     box-sizing: border-box;
     border-radius: 26px;

@@ -3,6 +3,7 @@ import styles from "./DiaryList.module.css";
 import fulllove from "../../assets/fulllove.png";
 import emptylove from "../../assets/emptylove.png";
 import axios from "axios";
+import more from "../../assets/more.png";
 
 const HeartButton = ({ onClick }) => {
   // const HeartButton = ({ like, onClick }) => {
@@ -49,7 +50,7 @@ function formatDate(value) {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
-function DiaryList() {
+function DiaryList(data) {
   const fillHeart = () => {
     return <img src={fulllove} />;
   };
@@ -59,8 +60,31 @@ function DiaryList() {
   let [likenum, setLikenum] = useState(0);
   const [unlikenum, setUnLikenum] = useState(1);
   const [like, setLike] = useState(false);
-  const toggleHeart = ({ like }) => {
+  // const toggleHeart = ({ like }) => {
+  //   if (setLike((like) => !like)) setLikenum(likenum + 1);
+  // };
+
+  // const untoggleHeart = ({ like }) => {
+  //   setLike((like) => like);
+  //   emptyHeart();
+  //   setLikenum(likenum - 1);
+  // };
+
+  const toggleHeart = async (like, id) => {
     if (setLike((like) => !like)) setLikenum(likenum + 1);
+    const dlike = await fetch(
+      "http://3.35.152.195/api/diary/diaryLike?diary_id=" + id,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   const untoggleHeart = ({ like }) => {
@@ -68,6 +92,34 @@ function DiaryList() {
     emptyHeart();
     setLikenum(likenum - 1);
   };
+
+  const [pageCount, setPageCount] = useState(0);
+  const [pages, setPages] = useState([]);
+  const [maxCount, setMaxCount] = useState(0);
+  const getData = async () => {
+    //더보기 버튼 클릭시 호출하면 됨
+    const diary = await fetch(
+      "http://3.35.152.195/api/diary/getLatestDiary?page=" +
+        pageCount +
+        "&size=4",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setPages(data.diaryList);
+        setPageCount(data.totalPages);
+        // console.log(data.diaryList);
+        console.log(data);
+      });
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   const [diarystep, setDiaryStep] = useState(0);
   const diarycontent = [
@@ -88,33 +140,47 @@ function DiaryList() {
   ];
 
   return (
-    <div className={styles.diarylayout}>
-      <div className={styles.writelist_item}>
-        <span className={styles.writenickname}>
-          닉네임 {diaryName[diarystep]}
-        </span>{" "}
-        <br />
-        <div className={styles.diarycontent}>{diarycontent[diarystep]}</div>
-        <div className={styles.heart_layout}>
-          <div className={styles.heart}>
-            {" "}
-            {/* <img
+    <div>
+      <div className={styles.diarylayout}>
+        <div className={styles.writelist_item}>
+          <div className={styles.writenickname}>
+            <span className={styles.writenickname}>
+              닉네임 {diaryName[diarystep]}
+              {/* {diaryList.diary_content} */}
+              {/* {data.diaryList.diary_content} */}
+              {/* {diaryList.diary_content} */}
+            </span>
+          </div>{" "}
+          <br />
+          <span className={styles.diarycontent}>{diarycontent[diarystep]}</span>
+          <div className={styles.heart_layout}>
+            <div className={styles.heart}>
+              {" "}
+              {/* <img
               like={like}
               src={like ? fulllove : emptylove}
               onClick={like ? toggleHeart({ like }) : untoggleHeart({ like })}
             /> */}{" "}
-            <img
-              src={like ? fulllove : emptylove}
-              like={like}
-              // else setLike(like);
-              // setUnLikenum(likenum - 1);
-              onClick={() => {
-                toggleHeart(like);
-              }}
-            />{" "}
-          </div>{" "}
-        </div>
-      </div>{" "}
+              <img
+                src={like ? fulllove : emptylove}
+                like={like}
+                // else setLike(like);
+                // setUnLikenum(likenum - 1);
+                onClick={() => {
+                  toggleHeart(like, 2); //여기 id값에 해당 diary의 id값 넣어줘야해여
+                }}
+              />{" "}
+            </div>{" "}
+          </div>
+        </div>{" "}
+        <div className={styles.morelayout}>
+          {" "}
+          <button className={styles.more}>
+            <p>일기 내용 더보기</p>
+            <img src={more} className={styles.moreimg} />
+          </button>{" "}
+        </div>{" "}
+      </div>
     </div>
   );
 }

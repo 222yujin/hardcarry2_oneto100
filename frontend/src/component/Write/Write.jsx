@@ -14,6 +14,8 @@ import Result from "../Result/Result";
 import Modal from "../../elements/Modal/Modal";
 import shareevent from "../../assets/shareevent.png";
 import clipboard from "../../assets/clipboard.png";
+import border from "../../assets/border.png";
+
 const INITIAL_VALIES = {
   nickname: "",
   rating: 0,
@@ -212,13 +214,13 @@ function WriteForm(props) {
                   {/* <button className="downBtn" onClick={onDownloadBtn}> </button> */}
                   <img
                     src={clipboard}
-                    className={styles.downBtn}
+                    className={styles.diary_save}
                     onClick={onDownloadBtn}
                   />
                 </div>
               </div>
               {submittingError?.message && <div>{submittingError.message}</div>}
-              <hr className={styles.writeliststart} />
+              <img src={border} className={styles.writeliststart} />
             </div>
           </div>
         </div>
@@ -228,26 +230,27 @@ function WriteForm(props) {
         <span className={styles.diarylistheader}>
           {" "}
           백수들의 일기장 훔쳐보기{" "}
-          <img src={search} className={styles.searchpng} />
         </span>
         <div className={styles.search}>
-          <div className={styles.serarch_inputline}>
-            <input
-              className={styles.searchinput}
-              type="search"
-              id="search"
-              placeholder="내용검색"
-            />
-          </div>
-          <div className={styles.searchoptipn}>
-            <select name="search" className={styles.searchoptionstyle}>
-              <option value="최신순" className={styles.searchoptionstyle}>
-                최신순
-              </option>
-              <option value="공감순" className={styles.searchoptionstyle}>
-                공감순
-              </option>
-            </select>
+          <div className={styles.searchlayout}>
+            <div className={styles.serarch_inputline}>
+              <input
+                className={styles.searchinput}
+                type="search"
+                id="search"
+                placeholder="내용검색"
+              />
+            </div>
+            <div className={styles.searchoptipn}>
+              <select name="search" className={styles.searchoptionstyle}>
+                <option value="최신순" className={styles.diary_new}>
+                  최신순
+                </option>
+                <option value="공감순" className={styles.diary_heart}>
+                  공감순
+                </option>
+              </select>{" "}
+            </div>
           </div>
         </div>
       </div>

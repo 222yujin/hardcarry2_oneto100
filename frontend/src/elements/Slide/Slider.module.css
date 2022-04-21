@@ -26,7 +26,20 @@ Slider_layout {
     align-items: center;
 }
 
-.buttoneffect {
+.diary_left {
+    margin: 32px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    list-style: none;
+    background: none;
+}
+
+.diary_right {
     margin: 32px;
     width: 24px;
     height: 24px;

@@ -6,7 +6,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-left: 16px;
 }
 
 .diarycontent {
@@ -19,13 +20,13 @@
 }
 
 .writelist_item {
+    font-family: "NanumSquareRound";
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 358px;
+    width: 400px;
     height: 150px;
-    padding: 20px;
-    background: #f8f9fa;
+    padding: 16px 34px 36px 16px;
     box-shadow: 0px 0px 6px #ced4da;
     border-radius: 16px;
     font-family: "NanumSquareRound";
@@ -51,6 +52,17 @@
 }
 
 .writenickname {
+    padding-top: 16px;
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #343a40;
+}
+
+.writenicknameline {
+    padding-top: 16px;
     font-family: CookieRun-Regular;
     font-style: normal;
     font-weight: 400;
@@ -80,5 +92,34 @@
     display: flex;
     flex-direction: row;
     width: 24px;
-    margin-left: 280px;
+    margin-left: 330px;
+}
+
+.morelayout {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.more {
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #495057;
+    border: none;
+    background: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.moreimg {
+    width: 24px;
 }
