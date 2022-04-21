@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./DiaryList.module.css";
 import fulllove from "../../assets/fulllove.png";
 import emptylove from "../../assets/emptylove.png";
-import axios from "axios";
+
 
 const HeartButton = ({ onClick }) => {
   // const HeartButton = ({ like, onClick }) => {
@@ -59,8 +59,22 @@ function DiaryList() {
   let [likenum, setLikenum] = useState(0);
   const [unlikenum, setUnLikenum] = useState(1);
   const [like, setLike] = useState(false);
-  const toggleHeart = ({ like }) => {
+
+  const toggleHeart = async (like, id) => {
     if (setLike((like) => !like)) setLikenum(likenum + 1);
+    const dlike = await fetch(
+        "http://3.35.152.195/api/diary/diaryLike?diary_id="+id,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+    )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
   };
 
   const untoggleHeart = ({ like }) => {
@@ -68,6 +82,31 @@ function DiaryList() {
     emptyHeart();
     setLikenum(likenum - 1);
   };
+
+  const [pageCount, setPageCount] = useState(0);
+  const [pages, setPages] = useState([]);
+  const [maxCount,setMaxCount]= useState(0);
+  const getData = async () =>{//더보기 버튼 클릭시 호출하면 됨
+    const diary = await fetch(
+        "http://3.35.152.195/api/diary/getLatestDiary?page="+pageCount +"&size=4",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+    )
+        .then((response) => response.json())
+        .then((data) => {
+          setPages(data.diaryList)
+          setPageCount(data.totalPages)
+          console.log(data.diaryList)
+          console.log(data)
+        });
+  }
+  useEffect(() => {
+    getData();
+  }, []);
 
   const [diarystep, setDiaryStep] = useState(0);
   const diarycontent = [
@@ -86,6 +125,7 @@ function DiaryList() {
     "‘광수’",
     "‘철수’",
   ];
+
 
   return (
     <div className={styles.diarylayout}>
@@ -109,7 +149,7 @@ function DiaryList() {
               // else setLike(like);
               // setUnLikenum(likenum - 1);
               onClick={() => {
-                toggleHeart(like);
+                toggleHeart(like,2);//여기 id값에 해당 diary의 id값 넣어줘야해여
               }}
             />{" "}
           </div>{" "}
