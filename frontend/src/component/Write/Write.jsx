@@ -4,7 +4,7 @@ import { saveAs } from "file-saver";
 
 import createReviews from "./api";
 import styles from "./Write.module.css";
-import ShareSNS from "../Share/ShareSNS";
+import SharediarySNS from "../Share/SharediarySNS";
 import Slider from "../../elements/Slide/Slider";
 import submitbutton from "../../assets/diarybutton.png";
 import search from "../../assets/search.png";
@@ -20,8 +20,6 @@ const INITIAL_VALIES = {
   content: "",
   name: "",
   phone: "",
-  choice: false,
-  private: false,
 };
 
 // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
@@ -68,7 +66,7 @@ function WriteForm(props) {
       saveAs(blob, "diary.png");
     });
   };
-
+  console.log(values);
   return (
     <div className={styles.write_layout}>
       <div className={styles.writeheader_layout}>백수의 일기장</div>
@@ -145,7 +143,7 @@ function WriteForm(props) {
                       className={styles.write_privateeradio}
                       name="private"
                       value={values.private}
-                      type="radio"
+                      type="checkbox"
                       onChange={handleInputChange}
                       placeholder="(선택) 연락처 적고 경품 받기"
                     />
@@ -210,7 +208,7 @@ function WriteForm(props) {
                   친구들에게 공유하면 당첨확률 UP{" "}
                 </span>
                 <div className={styles.snsbutton}>
-                  <ShareSNS />{" "}
+                  <SharediarySNS />{" "}
                   {/* <button className="downBtn" onClick={onDownloadBtn}> </button> */}
                   <img
                     src={clipboard}

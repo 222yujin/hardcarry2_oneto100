@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./OnTest.module.css";
 import preview from "../../assets/preview.png";
 import { Link, useNavigate } from "react-router-dom";
-import euiroomlogo from "../../assets/guroeuiroom.png";
-import gurologo from "../../assets/smartguro.png";
+import euiroomlogo from "../../assets/euiroomlogo.png";
+import gurologo from "../../assets/gurologo.png";
 import Progress from "../Progress/Progress";
 
 var select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -34,7 +34,7 @@ export const OnTest = () => {
     "아침에 일어나면 무엇을 하나요?",
     "같이 취업 준비를 하던 친구가 취업했다고 \n 인스타그램에 자랑 글을 올렸다. 나의 반응은?",
     " 계획대로 공부를 해야 하는 날이지만, \n 날씨가 너무 좋다. 나의 선택은?",
-    "2곳의 회사에서 합격 연락을 받았다. \n 나는 어떤 회사를 선태갛게 될까?",
+    "2곳의 회사에서 합격 연락을 받았다. \n 나는 어떤 회사를 선택하게 될까?",
     "만약 100만원이 주어진다면, \n 내가 할 행동은?",
     "나는 리더형? 팔로우형?",
     "어떤 유형의 동료와 더 일하기 싫은가요?",

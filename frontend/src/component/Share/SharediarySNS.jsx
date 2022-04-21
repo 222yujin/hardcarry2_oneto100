@@ -5,7 +5,7 @@ import kakao from "../../assets/kakaoshare.png";
 
 import link from "../../assets/linkshare.png";
 
-const ShareSNS = () => {
+const SharediarySNS = () => {
   const url = window.location.href; //현재 url가져오기
   useEffect(() => {
     initKakao(); //
@@ -87,7 +87,7 @@ const ShareSNS = () => {
   return (
     <div className="sharesnscomponent">
       <div className="kakaoandclipboard">
-        <div className="kakao" id="test_kakao">
+        <div className="kakao" id="diary_kakao">
           <img
             className="shareIcon"
             src={kakao}
@@ -97,10 +97,10 @@ const ShareSNS = () => {
             onClick={shareKakao}
           />
         </div>
-        <div className="clipboard" id="test_link">
+        <div className="clipboard" id="diary_link">
           <img
             src={link}
-            onClick={() => doCopy("http://www.oneto100.shop//result")}
+            onClick={() => doCopy("http://www.oneto100.shop//diary")}
           />
         </div>
       </div>
@@ -108,4 +108,4 @@ const ShareSNS = () => {
   );
 };
 
-export default ShareSNS;
+export default SharediarySNS;
