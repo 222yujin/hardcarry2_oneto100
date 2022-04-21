@@ -101,6 +101,7 @@
     font-size: 12px;
     line-height: 16px;
     color: #495057;
+    margin-bottom: 8px;
 }
 
 .write_choiceradio {
@@ -114,6 +115,7 @@
     border: 1px solid #adb5bd;
     box-sizing: border-box;
     border-radius: 25px;
+    margin-bottom: 6px;
 }
 
 .write_phone {
@@ -123,6 +125,7 @@
     border: 1px solid #adb5bd;
     box-sizing: border-box;
     border-radius: 25px;
+    margin-bottom: 6px;
 }
 
 .write_inform {
@@ -154,6 +157,7 @@
 }
 
 .writesubmitbutton {
+    margin-top: 16px;
     width: 310px;
     height: 41px;
     margin-bottom: 32px;
@@ -173,6 +177,7 @@
 }
 
 .present_header {
+    margin-top: 32px;
     font-family: CookieRun-Regular;
     font-style: normal;
     font-weight: 400;
