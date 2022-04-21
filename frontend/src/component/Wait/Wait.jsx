@@ -14,7 +14,7 @@ const Wait = (props) => {
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch(
-        "http://localhost:5000/api/test/postTestArray",
+        "http://3.35.152.195/api/test/postTestArray",
         {
           method: "POST",
           headers: {
