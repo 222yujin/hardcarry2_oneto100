@@ -25,7 +25,7 @@ const EndingStory = () => {
           <img
             src={Endstorybutton}
             alt="teststart"
-            className={styles.teststart}
+            className={styles.story_room}
           />
         </a>
       </div>

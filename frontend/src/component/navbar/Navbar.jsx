@@ -13,7 +13,7 @@ const Navbar = () => {
       {" "}
       <div className={styles.headerflex}>
         <button
-          className={styles.sidemenubutton}
+          className={styles.view_detail}
           onClick={() => setSideMenuActive(!isSideMenuActive)}
           id="view"
         >
@@ -40,21 +40,21 @@ const Navbar = () => {
           </a>
           <div className={styles.sideflextextscope}>
             <a href="/story" className={styles.activea} type="s">
-              <div className={styles.head1} id="story_detail">
+              <div className={styles.story_detail} id="story_detail">
                 <p>디노스토리</p>
                 {/* <img src={dinostory} alt="디노스토리" className="dinostory" /> */}
               </div>
             </a>{" "}
             <hr className={styles.headline} />
             <a href="/test" className={styles.activea} type="s">
-              <div className={styles.head2} id="test_detail">
+              <div className={styles.test_detail} id="test_detail">
                 <p>백수 삶의 현장</p>{" "}
                 {/* <img src={title2} alt="백수삶의현장" className="twonav" /> */}
               </div>
             </a>
             <hr className={styles.headline} />
             <a href="/write" className={styles.activea} type="s">
-              <div className={styles.head3} id="diary_detail">
+              <div className={styles.diary_detail} id="diary_detail">
                 {" "}
                 <p>백수의 일기장</p>
                 {/* <img src={treenav} alt="백수의일기장" className="treenav" /> */}
@@ -62,7 +62,7 @@ const Navbar = () => {
             </a>{" "}
             <hr className={styles.headline} />
             <a href="/endstory" className={styles.activea} type="s">
-              <div className={styles.head4}>
+              <div className={styles.endstory_detail}>
                 {" "}
                 <p>마스코트 디노</p>
                 {/* <img src={treenav} alt="백수의일기장" className="treenav" /> */}
@@ -80,7 +80,7 @@ const Navbar = () => {
               <img
                 src={dinoinstagram}
                 alt="dinoinstagram"
-                className={styles.dinoinstagram}
+                className={styles.dino_insta}
               />
             </a>
           </div>
@@ -93,7 +93,7 @@ const Navbar = () => {
             >
               <img
                 src={euiruminstagram}
-                className={styles.euiruminstagram}
+                className={styles.youtheroom_insta}
                 alt="dinoinstagram"
               />
             </a>

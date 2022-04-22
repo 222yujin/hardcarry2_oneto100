@@ -13,7 +13,7 @@ const Home = () => {
           <div className={styles.col}>
             <a href="/story">
               {" "}
-              <div className={styles.box} id="story">
+              <div className={styles.story} id="story">
                 <img
                   src={minidino1}
                   alt="minidino1"
@@ -22,7 +22,7 @@ const Home = () => {
               </div>
             </a>{" "}
             <a href="/write">
-              <div className={styles.box} id="diary">
+              <div className={styles.diary} id="diary">
                 <img
                   src={minidino3}
                   alt="minidino3"
@@ -30,7 +30,7 @@ const Home = () => {
                 />
               </div>{" "}
               <a href="/endstory">
-                <div className={styles.box}>
+                <div className={styles.endstory}>
                   <img
                     src={minidino5}
                     alt="minidino3"
@@ -42,7 +42,7 @@ const Home = () => {
           </div>
           <div className={styles.col} id="test">
             <a href="/test">
-              <div className={styles.box}>
+              <div className={styles.test}>
                 <img
                   src={minidino2}
                   alt="minidino4"

@@ -211,7 +211,7 @@ function WriteForm(props) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={styles.issubmit}
+                      className={styles.diary_write}
                       onClick={openModal}
                     >
                       <img

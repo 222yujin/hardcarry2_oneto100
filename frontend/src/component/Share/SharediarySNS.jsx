@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import "./shareSNS.css";
+import "./sharediarySNS.css";
 import kakao from "../../assets/kakaoshare.png";
 
 import link from "../../assets/linkshare.png";
@@ -87,7 +87,7 @@ const SharediarySNS = () => {
   return (
     <div className="sharesnscomponent">
       <div className="kakaoandclipboard">
-        <div className="kakao" id="diary_kakao">
+        <div className="diary_kakao" id="diary_kakao">
           <img
             className="shareIcon"
             src={kakao}
@@ -97,7 +97,11 @@ const SharediarySNS = () => {
             onClick={shareKakao}
           />
         </div>
-        <div className="clipboard" id="diary_link">
+        <div
+          className="diary_link
+"
+          id="diary_link"
+        >
           <img
             src={link}
             onClick={() => doCopy("http://www.oneto100.shop//diary")}

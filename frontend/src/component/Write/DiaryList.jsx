@@ -175,7 +175,7 @@ function DiaryList(data) {
         </div>{" "}
         <div className={styles.morelayout}>
           {" "}
-          <button className={styles.more}>
+          <button className={styles.diary_more}>
             <p>일기 내용 더보기</p>
             <img src={more} className={styles.moreimg} />
           </button>{" "}
