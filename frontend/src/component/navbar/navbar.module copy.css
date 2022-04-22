@@ -65,7 +65,7 @@ img {
     height: 32px;
 }
 
-.view_detail {
+.view {
     display: flex;
     flex-direction: row;
     justify-content: center;
