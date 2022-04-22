@@ -15,6 +15,7 @@ img {
     background-color: #f89cc5;
     position: fixed;
     overflow-x: clip;
+    z-index: 9999;
 }
 
 .navbar .sidemenu {
@@ -149,13 +150,6 @@ a[href="https://instagram.com/youtheroom?igshid=YmMyMTA2M2Y="]:visited,
     margin-bottom: 12px;
 }
 
-.sideinstagramscope {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 18px;
-}
-
 .sideflextextscope {
     display: flex;
     flex-direction: column;
@@ -178,4 +172,16 @@ a[href="https://instagram.com/youtheroom?igshid=YmMyMTA2M2Y="]:visited,
 .dino_insta,
 .youtheroom_insta {
     width: 184px;
+}
+
+.instagram_layout {
+    margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dino_insta {
+    margin-bottom: 16px;
 }

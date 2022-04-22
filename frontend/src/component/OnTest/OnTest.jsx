@@ -83,6 +83,9 @@ export const OnTest = () => {
     }
     select[step] = num;
   };
+
+  console.log(step);
+
   return (
     <div className={styles.Ontest_layout}>
       {time && (
@@ -121,7 +124,20 @@ export const OnTest = () => {
             </div>
           </div>
           <div className={styles.preview_scope}>
-            <button
+            <div>
+              {step !== 0 && (
+                <button
+                  className={styles.previewbutton}
+                  onClick={() => {
+                    previewOnClick();
+                  }}
+                  id="question_down"
+                >
+                  <img src={preview} alt="preview" className={styles.preview} />
+                </button>
+              )}
+            </div>
+            {/* <button
               className={styles.previewbutton}
               onClick={() => {
                 previewOnClick();
@@ -129,7 +145,7 @@ export const OnTest = () => {
               id="question_down"
             >
               <img src={preview} alt="preview" className={styles.preview} />
-            </button>
+            </button> */}
           </div>
           <div className={styles.logo_scope}>
             <div className={styles.euiroomlogo}>

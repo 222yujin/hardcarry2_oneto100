@@ -37,8 +37,6 @@ const Result = (props) => {
   const result = state.result.testResult;
   const like = state.result.resultLike;
   const dislike = state.result.resultDislike;
-  console.log(result);
-  console.log(dislike);
 
   const movieName = [
     " 은밀하게 위대하게",
@@ -126,6 +124,8 @@ const Result = (props) => {
   };
   // console.log(result.type_program_img);
   // console.log(result.type_img);
+
+  console.log(result);
   return (
     <div className={styles.testresult_layout}>
       <div className="test">
@@ -133,11 +133,12 @@ const Result = (props) => {
           <div className={styles.testresultheader}>
             <div className={styles.testresult_title}>
               {" "}
-              <h3> {result.type_from}</h3>
-              <div className={styles.testresult_subtitle}>
-                <h3>{result.type_name}</h3>
-              </div>
+              <span> {result.type_from}</span>{" "}
             </div>
+            <div className={styles.testresult_subtitle}>
+              <span>{result.type_name}</span>
+            </div>
+
             <div className={styles.testresult_scope}>
               <div className={styles.resultdino}>
                 {/* 더미이미지  */}

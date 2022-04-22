@@ -4,6 +4,7 @@
     height: 70%;
     margin: 0 auto;
     overflow-y: auto;
+    z-index: 9999;
 }
 
 .navbar {

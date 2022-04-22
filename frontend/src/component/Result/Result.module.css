@@ -35,7 +35,23 @@
 }
 
 .testresult_title {
-    margin-top: 3rem;
+    margin-top: 120px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    color: #ff7eb8;
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.testresult_subtitle {
+    margin-top: 8px;
     flex-direction: column;
     display: flex;
     justify-content: center;

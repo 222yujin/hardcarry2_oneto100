@@ -53,20 +53,22 @@ const Slider = () => {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 애니메이션을 만듭니다.
   }, [currentSlide]);
   return (
-    <Container>
-      {currentSlide}
-      <SliderContainer ref={slideRef}>
-        <Slide img={img1} />
-        <Slide img={img2} />
-        <Slide img={img3} />
-      </SliderContainer>
-      <Button onClick={prevSlide} className={styles.sliderprebutton}>
-        Previous Slide
-      </Button>
-      <Button onClick={nextSlide} className={styles.slidernextbutton}>
-        Next Slide
-      </Button>
-    </Container>
+    <div className={styles.slider_layout}>
+      <Container>
+        {currentSlide}
+        <SliderContainer ref={slideRef}>
+          <Slide img={img1} />
+          <Slide img={img2} />
+          <Slide img={img3} />
+        </SliderContainer>
+        <Button onClick={prevSlide} className={styles.sliderprebutton}>
+          Previous Slide
+        </Button>
+        <Button onClick={nextSlide} className={styles.slidernextbutton}>
+          Next Slide
+        </Button>
+      </Container>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ import dinoinstagram from "../../assets/dinoinstagram.png";
 import euiruminstagram from "../../assets/euiruminstagram.png";
 import menu from "../../assets/menu.png";
 import header from "../../assets/headertext.png";
-
+import navline from "../../assets/navline.png";
 const Navbar = () => {
   const [isSideMenuActive, setSideMenuActive] = useState(false);
   return (
@@ -45,58 +45,60 @@ const Navbar = () => {
                 {/* <img src={dinostory} alt="디노스토리" className="dinostory" /> */}
               </div>
             </a>{" "}
-            <hr className={styles.headline} />
             <a href="/test" className={styles.activea} type="s">
               <div className={styles.test_detail} id="test_detail">
+                <img src={navline} className={styles.headline} />
                 <p>백수 삶의 현장</p>{" "}
                 {/* <img src={title2} alt="백수삶의현장" className="twonav" /> */}
               </div>
             </a>
-            <hr className={styles.headline} />
             <a href="/write" className={styles.activea} type="s">
               <div className={styles.diary_detail} id="diary_detail">
                 {" "}
+                <img src={navline} className={styles.headline} />{" "}
                 <p>백수의 일기장</p>
                 {/* <img src={treenav} alt="백수의일기장" className="treenav" /> */}
               </div>
             </a>{" "}
-            <hr className={styles.headline} />
             <a href="/endstory" className={styles.activea} type="s">
               <div className={styles.endstory_detail}>
                 {" "}
+                <img src={navline} className={styles.headline} />{" "}
                 <p>마스코트 디노</p>
                 {/* <img src={treenav} alt="백수의일기장" className="treenav" /> */}
               </div>
             </a>
-            <hr className={styles.headline} />
           </div>{" "}
-          <div className={styles.sideinstagramscope} id="dino_insta">
-            <a
-              href="https://www.instagram.com/dino33/"
-              className={styles.activea}
-              type="s"
-              target="_blank"
-            >
-              <img
-                src={dinoinstagram}
-                alt="dinoinstagram"
-                className={styles.dino_insta}
-              />
-            </a>
-          </div>
-          <div className={styles.sideinstagramscope} id="youthroom_insta">
-            <a
-              href={"https://instagram.com/youtheroom?igshid=YmMyMTA2M2Y="}
-              className={styles.activea}
-              type="s"
-              target="_blank"
-            >
-              <img
-                src={euiruminstagram}
-                className={styles.youtheroom_insta}
-                alt="dinoinstagram"
-              />
-            </a>
+          <div className={styles.instagram_layout}>
+            <div className={styles.sideinstagramscope} id="dino_insta">
+              {" "}
+              <a
+                href="https://www.instagram.com/dino33/"
+                className={styles.activea}
+                type="s"
+                target="_blank"
+              >
+                <img
+                  src={dinoinstagram}
+                  alt="dinoinstagram"
+                  className={styles.dino_insta}
+                />
+              </a>
+            </div>
+            <div className={styles.sideinstagramscope} id="youthroom_insta">
+              <a
+                href={"https://instagram.com/youtheroom?igshid=YmMyMTA2M2Y="}
+                className={styles.activea}
+                type="s"
+                target="_blank"
+              >
+                <img
+                  src={euiruminstagram}
+                  className={styles.youtheroom_insta}
+                  alt="dinoinstagram"
+                />
+              </a>
+            </div>
           </div>{" "}
         </div>{" "}
       </div>
