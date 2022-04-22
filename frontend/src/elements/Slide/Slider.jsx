@@ -55,7 +55,7 @@ const Slider = () => {
       {" "}
       <div className={styles.slide_containerlayout}>
         <div className={styles.button_layout}>
-          <Button onClick={prevSlide} className={styles.diary_left}>
+          <Button onClick={prevSlide} className={styles.diary_left} id="diary_left">
             <IoIosArrowBack />
             {/* <img src={beforebutton} alt="beforbutton" />{" "} */}
           </Button>
@@ -70,7 +70,7 @@ const Slider = () => {
             </div>
             <div className={styles.slidenextbutton_layout}> </div>
           </Container>{" "}
-          <Button onClick={nextSlide} className={styles.diary_right}>
+          <Button onClick={nextSlide} className={styles.diary_right} id="diary_right">
             <IoIosArrowForward />
           </Button>
         </div>

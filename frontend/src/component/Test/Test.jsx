@@ -17,10 +17,10 @@ const Test = () => {
           <div className={styles.testdino}>
             <img src={dinotest} alt="dino1" className={styles.testdinoimg} />{" "}
           </div>
-          <div className={styles.test_start} id="test_start">
+          <div className={styles.test_start}>
             <Link to="/ontest">
               {" "}
-              <img
+              <img id="test_start"
                 src={testbutton}
                 alt="testbutton"
                 className={styles.testbuttonimg}

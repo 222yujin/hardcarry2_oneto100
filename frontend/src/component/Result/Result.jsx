@@ -251,6 +251,7 @@ const Result = (props) => {
               <div className={styles.submitline}>
                 <a href="http://www.youtheroom.kr/" target="_blank">
                   <img
+                      id="me_program"
                     src={submit}
                     alt="submitbutton"
                     className={styles.ontestsubmit}

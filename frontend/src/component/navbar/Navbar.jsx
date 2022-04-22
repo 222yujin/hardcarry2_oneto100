@@ -40,23 +40,23 @@ const Navbar = () => {
           </a>
           <div className={styles.sideflextextscope}>
             <a href="/story" className={styles.activea} type="s">
-              <div className={styles.story_detail} id="story_detail">
-                <p>디노스토리</p>
+              <div className={styles.story_detail} >
+                <p id="story_detail">디노스토리</p>
                 {/* <img src={dinostory} alt="디노스토리" className="dinostory" /> */}
               </div>
             </a>{" "}
             <a href="/test" className={styles.activea} type="s">
-              <div className={styles.test_detail} id="test_detail">
+              <div className={styles.test_detail} >
                 <img src={navline} className={styles.headline} />
-                <p>백수 삶의 현장</p>{" "}
+                <p id="test_detail">백수 삶의 현장</p>{" "}
                 {/* <img src={title2} alt="백수삶의현장" className="twonav" /> */}
               </div>
             </a>
             <a href="/write" className={styles.activea} type="s">
-              <div className={styles.diary_detail} id="diary_detail">
+              <div className={styles.diary_detail} >
                 {" "}
                 <img src={navline} className={styles.headline} />{" "}
-                <p>백수의 일기장</p>
+                <p id="diary_detail">백수의 일기장</p>
                 {/* <img src={treenav} alt="백수의일기장" className="treenav" /> */}
               </div>
             </a>{" "}
@@ -64,7 +64,7 @@ const Navbar = () => {
               <div className={styles.endstory_detail}>
                 {" "}
                 <img src={navline} className={styles.headline} />{" "}
-                <p>마스코트 디노</p>
+                <p id={"mascot_dino"}>마스코트 디노</p>
                 {/* <img src={treenav} alt="백수의일기장" className="treenav" /> */}
               </div>
             </a>
