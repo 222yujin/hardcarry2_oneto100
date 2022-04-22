@@ -103,9 +103,9 @@ const SharediarySNS = () => {
 "
           id="diary_link"
         >
-          <img
+          <img id="diary_copy"
             src={link}
-            onClick={() => doCopy("http://www.oneto100.shop//diary")}
+            onClick={() => doCopy("http://www.oneto100.shop/diary")}
           />
         </div>
       </div>
