@@ -87,8 +87,8 @@ const ShareSNS = () => {
   return (
     <div className="sharesnscomponent">
       <div className="kakaoandclipboard">
-        <div className="kakao" id="test_kakao">
-          <img
+        <div className="kakao" >
+          <img id="test_kakao"
             className="shareIcon"
             src={kakao}
             alt="kakaotalk"
