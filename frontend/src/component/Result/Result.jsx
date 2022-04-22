@@ -38,6 +38,7 @@ const Result = (props) => {
   const like = state.result.resultLike;
   const dislike = state.result.resultDislike;
   console.log(result);
+  console.log(dislike);
 
   const movieName = [
     " 은밀하게 위대하게",
@@ -166,12 +167,13 @@ const Result = (props) => {
                     />
                     <div className={styles.goodmate_scopetext}>
                       <p className={styles.goodmatetext}>
-                        {result.type_like}
+                        {result.type_like_sub}{" "}
                         {/* {goodmate_text[resultstep]} */}
                       </p>
                       <p className={styles.goodmatesubtitle}>
                         {/* {goodmate_subtitle[resultstep]} */}
-                        {result.type_like_sub}
+                        {/* {result.type_name} */}
+                        {like.type_name}
                       </p>
                     </div>
                   </div>
@@ -187,11 +189,11 @@ const Result = (props) => {
                     <div className={styles.badmate_scopetext}>
                       <p className={styles.badmatetext}>
                         {/* {badmate_text[resultstep]} */}
-                        {result.type_dislike}
+                        {result.type_dislike_sub}{" "}
                       </p>{" "}
                       <p className={styles.badmatesubtitle}>
                         {/* {badmate_subtitle[resultstep]} */}
-                        {result.type_dislike_sub}
+                        {dislike.type_name}
                       </p>
                     </div>
                   </div>
