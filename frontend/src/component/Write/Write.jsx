@@ -308,10 +308,10 @@ function WriteForm(props) {
               </form>
               <div className={styles.searchoptipn}>
                 <select name="search" className={styles.searchoptionstyle}>
-                  <option value="최신순" className={styles.diary_new}>
+                  <option value="최신순" className={styles.diary_new} id="diary_recent">
                     최신순
                   </option>
-                  <option value="공감순" className={styles.diary_heart}>
+                  <option value="공감순" className={styles.diary_heart} id="diary_heart">
                     공감순
                   </option>
                 </select>{" "}
