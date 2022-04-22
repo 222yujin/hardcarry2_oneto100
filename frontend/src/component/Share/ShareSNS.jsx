@@ -100,7 +100,7 @@ const ShareSNS = () => {
         <div className="clipboard" id="test_link">
           <img
             src={link}
-            onClick={() => doCopy("http://www.oneto100.shop//result")}
+            onClick={() => doCopy("http://www.oneto100.shop//test")}
           />
         </div>
       </div>
