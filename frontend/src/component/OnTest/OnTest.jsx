@@ -124,19 +124,17 @@ export const OnTest = () => {
             </div>
           </div>
           <div className={styles.preview_scope}>
-            <div>
-              {step !== 0 && (
-                <button
-                  className={styles.previewbutton}
-                  onClick={() => {
-                    previewOnClick();
-                  }}
-                  id="question_down"
-                >
-                  <img src={preview} alt="preview" className={styles.preview} />
-                </button>
-              )}
-            </div>
+            {step !== 0 && (
+              <button
+                className={styles.previewbutton}
+                onClick={() => {
+                  previewOnClick();
+                }}
+                id="question_down"
+              >
+                <img src={preview} alt="preview" className={styles.preview} />
+              </button>
+            )}
             {/* <button
               className={styles.previewbutton}
               onClick={() => {
