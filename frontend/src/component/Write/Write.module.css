@@ -57,6 +57,7 @@
 .submitdiaryscope {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -72,7 +73,7 @@
 
 .write_nickname {
     margin-left: 5px;
-    width: 310px;
+    width: 264px;
     height: 32px;
     border: 1px solid #adb5bd;
     box-sizing: border-box;
@@ -109,8 +110,9 @@
 }
 
 .write_name {
-    margin-left: 5px;
-    width: 310px;
+    margin-left: 23px;
+    padding-left: 16px;
+    width: 264px;
     height: 32px;
     border: 1px solid #adb5bd;
     box-sizing: border-box;
@@ -119,8 +121,9 @@
 }
 
 .write_phone {
-    margin-left: 5px;
-    width: 310px;
+    margin-left: 14px;
+    padding-left: 16px;
+    width: 264px;
     height: 32px;
     border: 1px solid #adb5bd;
     box-sizing: border-box;
@@ -129,8 +132,8 @@
 }
 
 .write_inform {
-    margin-top: 8px;
-    margin-right: 80px;
+    margin-top: 8px;    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     font-family: NanumSquareRound;
     font-size: 10px;
@@ -144,11 +147,10 @@
     margin-bottom: 10px;
 }
 
-.write_private {
+.write_private {    justify-content: flex-start;
     font-family: CookieRun-Regular;
     margin-top: 12px;
     margin-bottom: 16px;
-    margin-right: 250px;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
