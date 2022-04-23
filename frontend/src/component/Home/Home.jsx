@@ -5,10 +5,18 @@ import minidino2 from "../../assets/minidino2.png";
 import minidino3 from "../../assets/minidino3.png";
 import minidino4 from "../../assets/minidino4.png";
 import minidino5 from "../../assets/minidino5.png";
+import maintitle from "../../assets/maintitle.png";
+
 const Home = () => {
   return (
     <div className={styles.home_layout}>
       <div className={styles.homeline}>
+        <div>
+          {" "}
+          <div className={styles.footermargin}>
+            <img src={maintitle} className={styles.maintitleimg} />
+          </div>
+        </div>
         <div className={styles.dinoscope}>
           <div className={styles.col}>
             <a href="/story">
@@ -68,7 +76,6 @@ const Home = () => {
             </div>{" "}
           </div>{" "}
         </div>{" "}
-        <p className={styles.footermargin}>디노를 눌러 백수 생활 엿보기</p>
       </div>{" "}
     </div>
   );

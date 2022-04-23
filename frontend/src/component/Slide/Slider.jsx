@@ -13,7 +13,7 @@ const Container = styled.div`
 const Button = styled.button`
   all: unset;
   border: 1px solid coral;
-  padding: 0.5em 2em;
+
   color: coral;
   border-radius: 10px;
   &:hover {
@@ -61,12 +61,18 @@ const Slider = () => {
           <Slide img={img2} />
           <Slide img={img3} />
         </SliderContainer>
-        <Button onClick={prevSlide} className={styles.sliderprebutton}>
-          Previous Slide
-        </Button>
-        <Button onClick={nextSlide} className={styles.slidernextbutton}>
-          Next Slide
-        </Button>
+        <div>
+          <div className={styles.sliderprebutton}>
+            <Button onClick={prevSlide} className={styles.sliderprebutton}>
+              Previous Slide
+            </Button>
+          </div>{" "}
+          <div>
+            <Button onClick={nextSlide} className={styles.slidernextbutton}>
+              Next Slide
+            </Button>
+          </div>
+        </div>
       </Container>
     </div>
   );

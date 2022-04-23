@@ -8,6 +8,16 @@
     justify-content: space-between;
 }
 
+.footermargin {
+    padding-top: 24px;
+    margin-left: 52px;
+    margin-right: 52px;
+    align-items: center;
+    color: #f89cc5;
+    width: 286px;
+    height: 91px;
+}
+
 .homeline {
     background-image: url("../../assets/background.png");
     background-size: 100%;
@@ -36,15 +46,6 @@
 .minidino3,
 .minidino5 {
     margin-top: 90px;
-}
-
-.footermargin {
-    padding-top: 30px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 700;
-    font: NanumSquareRound;
-    color: #f89cc5;
 }
 
 .minidino1,
