@@ -11,9 +11,9 @@ const Home = () => {
   return (
     <div className={styles.home_layout}>
       <div className={styles.homeline}>
-        <div>
-          {" "}
-          <div className={styles.footermargin}>
+        {" "}
+        <div className={styles.Hometitle_layout}>
+          <div className={styles.Hometitleline}>
             <img src={maintitle} className={styles.maintitleimg} />
           </div>
         </div>
@@ -59,11 +59,13 @@ const Home = () => {
               </div>{" "}
             </a>
             <div className={styles.box}>
-              <img
-                src={minidino4}
-                alt="minidino5"
-                className={styles.minidino5}
-              />
+              <div>
+                <img
+                  src={minidino4}
+                  alt="minidino5"
+                  className={styles.minidino5}
+                />
+              </div>
               {/* <a href="/story">
                 <div className={styles.box}>
                   <img
