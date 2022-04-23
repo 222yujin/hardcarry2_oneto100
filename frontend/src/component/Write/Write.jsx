@@ -297,25 +297,35 @@ function WriteForm(props) {
           <div className={styles.searchfuckline}>
             <div className={styles.searchlayout}>
               <form action="" method="GET" className={styles.serarch_inputline}>
-                <input
-                  name="query"
-                  className={styles.searchinput}
-                  type="text"
-                  id="search"
-                  placeholder="내용검색"
-                />{" "}
-                <input type="button" className={styles.fuckbutton} />
+                <div className={styles.searchoptipn}>
+                  <div className={styles.searchfit}>
+                    <input
+                      name="query"
+                      className={styles.searchinput}
+                      type="text"
+                      id="search"
+                      placeholder="내용검색"
+                    />{" "}
+                    <input type="button" className={styles.fuckbutton} />
+                  </div>
+                  <select name="search" className={styles.searchoptionstyle}>
+                    <option
+                      value="최신순"
+                      className={styles.diary_new}
+                      id="diary_recent"
+                    >
+                      최신순
+                    </option>
+                    <option
+                      value="공감순"
+                      className={styles.diary_heart}
+                      id="diary_heart"
+                    >
+                      공감순
+                    </option>
+                  </select>{" "}
+                </div>{" "}
               </form>
-              <div className={styles.searchoptipn}>
-                <select name="search" className={styles.searchoptionstyle}>
-                  <option value="최신순" className={styles.diary_new} id="diary_recent">
-                    최신순
-                  </option>
-                  <option value="공감순" className={styles.diary_heart} id="diary_heart">
-                    공감순
-                  </option>
-                </select>{" "}
-              </div>
             </div>
           </div>
         </div>

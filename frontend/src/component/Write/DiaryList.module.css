@@ -24,8 +24,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 400px;
-    height: 150px;
+    width: 91%;
+    height: 50%;
     padding: 16px 34px 36px 16px;
     box-shadow: 0px 0px 6px #ced4da;
     border-radius: 16px;
@@ -76,8 +76,8 @@
 .heart_layout {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
     font-family: "NanumSquareRound";
     font-style: normal;
     font-weight: 700;
@@ -92,11 +92,12 @@
     display: flex;
     flex-direction: row;
     width: 24px;
-    margin-left: 330px;
+    justify-content: flex-end;
+    align-items: end;
 }
 
 .morelayout {
-    width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,10 +115,7 @@
     border: none;
     background: none;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 30px;
 }
 
 .moreimg {

@@ -4,7 +4,7 @@ import fulllove from "../../assets/fulllove.png";
 import emptylove from "../../assets/emptylove.png";
 import axios from "axios";
 import more from "../../assets/more.png";
-import {resolve} from "chart.js/helpers";
+import { resolve } from "chart.js/helpers";
 
 const HeartButton = ({ onClick }) => {
   // const HeartButton = ({ like, onClick }) => {
@@ -52,7 +52,6 @@ function formatDate(value) {
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-
 function DiaryList(data) {
   const fillHeart = () => {
     return <img src={fulllove} />;
@@ -63,7 +62,6 @@ function DiaryList(data) {
   let [likenum, setLikenum] = useState(0);
   const [unlikenum, setUnLikenum] = useState(1);
   const [like, setLike] = useState(false);
-
 
   const toggleHeart = async (like, id) => {
     if (setLike((like) => !like)) setLikenum(likenum + 1);
@@ -92,67 +90,68 @@ function DiaryList(data) {
   const [maxCount, setMaxCount] = useState(0);
   const [pages, setPages] = useState([]);
 
-  const getData = async(pageCnt)=> {
-     const res =  await fetch(
-          "http://3.35.152.195/api/diary/getLatestDiary?page=" +
-         pageCnt +
-          "&size=4",
-          {
-              method: "GET",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-          }
-      )
-          .then((response) => response.json())
-          .then((data) => {
-              setPages([...pages,...data.diaryList])
-              //setPages(pages=>[...pages,data.diaryList]);
-              setMaxCount(data.totalPages)
-          });
+  const getData = async (pageCnt) => {
+    const res = await fetch(
+      "http://3.35.152.195/api/diary/getLatestDiary?page=" +
+        pageCnt +
+        "&size=4",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setPages([...pages, ...data.diaryList]);
+        //setPages(pages=>[...pages,data.diaryList]);
+        setMaxCount(data.totalPages);
+      });
   };
 
-    useEffect(() => {
-        getData(0);
-    }, []);
+  useEffect(() => {
+    getData(0);
+  }, []);
 
-    function moreDiary() {
-        if (pageCount == maxCount - 1) {
-            alert("더 이상 훔쳐볼 일기가 없어요");
-        } else {
-            setPageCount(pageCount + 1)
-            getData(pageCount + 1);
-        }
+  function moreDiary() {
+    if (pageCount == maxCount - 1) {
+      alert("더 이상 훔쳐볼 일기가 없어요");
+    } else {
+      setPageCount(pageCount + 1);
+      getData(pageCount + 1);
     }
-
+  }
 
   return (
     <div>
       <div className={styles.diarylayout}>
-        {pages.map((diary,index) => (
-            <div className={styles.writelist_item} key={diary.diary_id}>
-              <div className={styles.writenickname}>
-            <span className={styles.writenickname}>
-              닉네임 : {diary.diary_writter}
-            </span>
-              </div>
+        {pages.map((diary, index) => (
+          <div className={styles.writelist_item} key={diary.diary_id}>
+            <div>
               {" "}
-              <br/>
+              <div className={styles.writenickname}>
+                <span className={styles.writenickname}>
+                  닉네임 : {diary.diary_writter}
+                </span>
+              </div>{" "}
+              <br />
               <span className={styles.diarycontent}>{diary.diary_content}</span>
               <div className={styles.heart_layout}>
                 <div className={styles.heart}>
                   <img
-                      id={diary.diary_id}
-                      src={like ? fulllove : emptylove}
-                      like={like}
-                      onClick={() => {
-                        toggleHeart(like, diary.diary_id);
-                      }}
+                    id={diary.diary_id}
+                    src={like ? fulllove : emptylove}
+                    like={like}
+                    onClick={() => {
+                      toggleHeart(like, diary.diary_id);
+                    }}
                   />
-                  +{like?diary.diary_like+1:diary.diary_like}
+                  +{like ? diary.diary_like + 1 : diary.diary_like}
                 </div>
               </div>
-            </div>
+            </div>{" "}
+          </div>
         ))}
         <div className={styles.morelayout}>
           {" "}

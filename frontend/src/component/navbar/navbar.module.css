@@ -95,7 +95,8 @@ img {
     flex-wrap: nowrap;
 }
 
-.div.activea {
+a[type="s"] {
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -103,6 +104,7 @@ a[type="s"]:visited,
 hover,
 active {
     color: #ffffff;
+    text-decoration: none;
 }
 
 
