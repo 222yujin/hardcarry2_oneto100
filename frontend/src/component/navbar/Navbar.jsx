@@ -73,7 +73,7 @@ const Navbar = () => {
             <div className={styles.sideinstagramscope} id="dino_insta">
               {" "}
               <a
-                href="https://www.instagram.com/mohakae2_3/"
+                href="https://www.instagram.com/1dang100_dino"
                 className={styles.activea}
                 type="s"
                 target="_blank"

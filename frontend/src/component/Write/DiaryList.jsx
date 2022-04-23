@@ -106,7 +106,7 @@ function DiaryList(data) {
       )
           .then((response) => response.json())
           .then((data) => {
-              setPages([...data.diaryList])
+              setPages([...pages,...data.diaryList])
               //setPages(pages=>[...pages,data.diaryList]);
               setMaxCount(data.totalPages)
           });
