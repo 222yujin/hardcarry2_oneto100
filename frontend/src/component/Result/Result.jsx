@@ -25,7 +25,7 @@ import program4 from "../../assets/program4.png";
 import program5 from "../../assets/program5.png";
 import program6 from "../../assets/program6.png";
 import clipboard from "../../assets/clipboard.png";
-
+import Slider1 from "../../elements/Slide/Slider1";
 import ShareSNS from "../Share/ShareSNS";
 import { useLocation } from "react-router-dom";
 
@@ -227,14 +227,15 @@ const Result = (props) => {
                 </div>
                 <div className={styles.yourprogram}>
                   <h3 className={styles.programtitle}>
-                    나에게 딱 맞는 백수탈출 프로그램은?{" "}
+                    나에게 딱 맞는 청년이룸 속 공간은?
                   </h3>
                   <div className={styles.programline}>
-                    <img
+                    <Slider1 />
+                    {/* <img
                       src={result.type_program_img}
                       className={styles.programimg}
                       alt="programalt"
-                    />
+                    /> */}
                     {/* 더미데이터                   */}
                     {/* <img
                     src={progam[resultstep]}
@@ -251,7 +252,7 @@ const Result = (props) => {
               <div className={styles.submitline}>
                 <a href="http://www.youtheroom.kr/" target="_blank">
                   <img
-                      id="me_program"
+                    id="me_program"
                     src={submit}
                     alt="submitbutton"
                     className={styles.ontestsubmit}

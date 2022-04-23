@@ -28,7 +28,7 @@ const SliderContainer = styled.div`
   display: flex; //이미지들을 가로로 나열합니다.
 `;
 
-const TOTAL_SLIDES = 2;
+const TOTAL_SLIDES = 3;
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
