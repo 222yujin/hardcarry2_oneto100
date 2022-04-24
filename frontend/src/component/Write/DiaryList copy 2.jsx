@@ -4,7 +4,12 @@ import fulllove from "../../assets/fulllove.png";
 import emptylove from "../../assets/emptylove.png";
 import axios from "axios";
 import more from "../../assets/more.png";
-import SelectLike from "./SelectLike";
+import $ from "jquery";
+import Like from "./Like";
+import { Router, useRoutes } from "react-router-dom";
+
+axios.defaults.withCredentials = true;
+const headers = { withCredentials: true };
 
 function formatDate(value) {
   const date = new Date(value);
@@ -12,6 +17,49 @@ function formatDate(value) {
 }
 
 function DiaryList(data) {
+  var express = require("express");
+  const router = express.Router();
+  const fillHeart = () => {
+    return <img src={fulllove} />;
+  };
+  const emptyHeart = () => {
+    return <img src={emptylove} />;
+  };
+  let [likenum, setLikenum] = useState(0);
+  const [unlikenum, setUnLikenum] = useState(1);
+  const [like, setLike] = useState(false);
+
+  // if (reqs.method === "POST") {
+  // }
+  // router.post("/like", async (req, res) => {
+  //   console.log(req.body);
+  //   const postId = req.body.post_id;
+  //   const memberId = req.body.user_id;
+  //   try {
+  //     const increment = await Post.increment(
+  //       { like: 1 },
+  //       { where: { id: req.body.post_id } }
+  //     );
+  //   } catch (err) {
+  //     console.log(err);
+  //     res.json({ message: false });
+  //   }
+  // });
+
+  // router.post("/dislike", async (req, res) => {
+  //   console.log(req.body);
+
+  //   try {
+  //     const increment = await Post.decrement(
+  //       { like: 1 },
+  //       { where: { id: req.body.post_id } }
+  //     );
+  //   } catch (err) {
+  //     console.log(err);
+  //     res.json({ message: false });
+  //   }
+  // });
+
   const [pageCount, setPageCount] = useState(0);
   const [maxCount, setMaxCount] = useState(0);
   const [pages, setPages] = useState([]);
@@ -63,8 +111,22 @@ function DiaryList(data) {
               </div>{" "}
               <br />
               <span className={styles.diarycontent}>{diary.diary_content}</span>
+              <div className={styles.heart_layout}>
+                <div className={styles.heart}>
+                  {" "}
+                  <Like />
+                  {/* <img
+                    id={diary.diary_id}
+                    src={like ? fulllove : emptylove}
+                    like={like}
+                    onClick={() => {
+                      toggleHeart(like, diary.diary_id);
+                    }}
+                  />
+                  +{like ? diary.diary_like + 1 : diary.diary_like} */}
+                </div>
+              </div>
             </div>{" "}
-            <SelectLike id={diary.diary_id} />
           </div>
         ))}
         <div className={styles.morelayout}>

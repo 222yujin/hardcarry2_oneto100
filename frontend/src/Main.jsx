@@ -20,6 +20,7 @@ import Write from "./component/Write/Write";
 // import ProductListSample from "./component/ProductVote/ProductListSample";
 import EndingStory from "./component/EndStory/EndingStory";
 import Capture from "./component/Share/Capture";
+import Like from "./component/Write/Like";
 const tagManagerArgs = {
   gtmId: "GTM-M2FPFM8",
 };
@@ -47,6 +48,8 @@ function Main() {
           <Route path="/voteresult" element={<ProductVoteResult />} />
           <Route path="/game" element={<Gamepage />} />
           <Route path="/gameresult" element={<GameResult />} /> */}
+          <Route path="/like" element={<Like />} />
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

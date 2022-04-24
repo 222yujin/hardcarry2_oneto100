@@ -4,7 +4,45 @@ import fulllove from "../../assets/fulllove.png";
 import emptylove from "../../assets/emptylove.png";
 import axios from "axios";
 import more from "../../assets/more.png";
-import SelectLike from "./SelectLike";
+
+const HeartButton = ({ onClick }) => {
+  // const HeartButton = ({ like, onClick }) => {
+  const fillHeart = () => {
+    return <img src={fulllove} />;
+  };
+  const emptyHeart = () => {
+    return <img src={emptylove} />;
+  };
+  let [likenum, setLikenum] = useState(0);
+
+  const [like, setLike] = useState(false);
+  const toggleHeart = ({ like, id }) => {
+    setLike((like) => !like);
+    fillHeart();
+  };
+
+  const untoggleHeart = ({ like, id }) => {
+    setLike((like) => like);
+    emptyHeart();
+  };
+  return (
+    <div>
+      <img
+        src={like ? fulllove : emptylove}
+        onClick={like ? toggleHeart : untoggleHeart}
+      />
+      {likenum}{" "}
+      <img
+        src={like ? fulllove : emptylove}
+        like={like}
+        onClick={() => {
+          setLikenum(likenum + 1);
+          setLike(!like);
+        }}
+      />{" "}
+    </div>
+  );
+};
 
 function formatDate(value) {
   const date = new Date(value);
@@ -12,6 +50,39 @@ function formatDate(value) {
 }
 
 function DiaryList(data) {
+  const fillHeart = () => {
+    return <img src={fulllove} />;
+  };
+  const emptyHeart = () => {
+    return <img src={emptylove} />;
+  };
+  let [likenum, setLikenum] = useState(0);
+  const [unlikenum, setUnLikenum] = useState(1);
+  const [like, setLike] = useState(false);
+
+  const toggleHeart = async (like, id) => {
+    if (setLike((like) => !like)) setLikenum(likenum + 1);
+    const dlike = await fetch(
+      "http://3.35.152.195/api/diary/diaryLike?diary_id=" + id,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
+  const untoggleHeart = ({ like }) => {
+    setLike((like) => like);
+    emptyHeart();
+    setLikenum(likenum - 1);
+  };
+
   const [pageCount, setPageCount] = useState(0);
   const [maxCount, setMaxCount] = useState(0);
   const [pages, setPages] = useState([]);
@@ -63,8 +134,20 @@ function DiaryList(data) {
               </div>{" "}
               <br />
               <span className={styles.diarycontent}>{diary.diary_content}</span>
+              <div className={styles.heart_layout}>
+                <div className={styles.heart}>
+                  <img
+                    id={diary.diary_id}
+                    src={like ? fulllove : emptylove}
+                    like={like}
+                    onClick={() => {
+                      toggleHeart(like, diary.diary_id);
+                    }}
+                  />
+                  +{like ? diary.diary_like + 1 : diary.diary_like}
+                </div>
+              </div>
             </div>{" "}
-            <SelectLike id={diary.diary_id} />
           </div>
         ))}
         <div className={styles.morelayout}>
