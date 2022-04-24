@@ -30,7 +30,7 @@ function Main() {
   return (
     <div className="main">
       {" "}
-      <Navbar />
+      <Navbar className="leftsidebar" />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

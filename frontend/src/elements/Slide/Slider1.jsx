@@ -4,14 +4,12 @@ import styled from "styled-components";
 import place1 from "../../assets/p1.png";
 import place2 from "../../assets/p2.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import styles from "./Slider.module.css";
-
+import styles from "./Sliderplace.module.css";
 const Container = styled.div`
-  zwidth: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   overflow: hidden;
 `;
 const Button = styled.button``;
@@ -20,7 +18,7 @@ const SliderContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const TOTAL_SLIDES = 1;
@@ -51,7 +49,7 @@ const Slider1 = () => {
       {" "}
       <div className={styles.slide_containerlayout}>
         <div className={styles.button_layout}>
-          <Button onClick={prevSlide} className={styles.diary_left}>
+          <Button onClick={prevSlide} className={styles.test_left}>
             <IoIosArrowBack id="place1_left" />
             {/* <img src={beforebutton} alt="beforbutton" />{" "} */}
           </Button>
@@ -64,7 +62,7 @@ const Slider1 = () => {
             </div>
             <div className={styles.slidenextbutton_layout}> </div>
           </Container>{" "}
-          <Button onClick={nextSlide} className={styles.diary_right}>
+          <Button onClick={nextSlide} className={styles.test_right}>
             <IoIosArrowForward id="place1_right" />
           </Button>
         </div>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slide from "../../component/Slide/Slide";
 import styled from "styled-components";
-import place10 from "../../assets/p10.png";
-import place11 from "../../assets/p11.png";
-import place12 from "../../assets/p12.png";
-import place13 from "../../assets/p13.png";
+import place18 from "../../assets/p18.png";
+import place19 from "../../assets/p19.png";
+import place20 from "../../assets/p20.png";
+import place21 from "../../assets/p21.png";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styles from "./Sliderplace.module.css";
@@ -60,10 +60,10 @@ const Slider1 = () => {
           <Container>
             <div className={styles.slide_layout}>
               <SliderContainer ref={slideRef}>
-                <Slide img={place10} className={styles.img1} />
-                <Slide img={place11} className={styles.img2} />
-                <Slide img={place12} className={styles.img2} />
-                <Slide img={place13} className={styles.img2} />
+                <Slide img={place18} className={styles.img1} />
+                <Slide img={place19} className={styles.img2} />
+                <Slide img={place20} className={styles.img2} />
+                <Slide img={place21} className={styles.img2} />
               </SliderContainer>{" "}
             </div>
             <div className={styles.slidenextbutton_layout}> </div>

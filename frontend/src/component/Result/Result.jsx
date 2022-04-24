@@ -26,6 +26,12 @@ import program5 from "../../assets/program5.png";
 import program6 from "../../assets/program6.png";
 import clipboard from "../../assets/clipboard.png";
 import Slider1 from "../../elements/Slide/Slider1";
+import Slider2 from "../../elements/Slide/Slider2";
+import Slider3 from "../../elements/Slide/Slider3";
+import Slider4 from "../../elements/Slide/Slider4";
+import Slider5 from "../../elements/Slide/Slider5";
+import Slider6 from "../../elements/Slide/Slider6";
+
 import ShareSNS from "../Share/ShareSNS";
 import { useLocation } from "react-router-dom";
 
@@ -117,6 +123,22 @@ const Result = (props) => {
   const goodmate = [mate1, mate2, mate4, mate5, mate6, mate3];
   const badmate = [mate2, mate3, mate5, mate3, mate2, mate4];
   const progam = [program1, program2, program3, program4, program5, program6];
+  const slide = [
+    <Slider1 />,
+    <Slider2 />,
+    <Slider3 />,
+    <Slider4 />,
+    <Slider5 />,
+    <Slider6 />,
+  ];
+  const golink = [
+    "https://www.spacecloud.kr/space/25781",
+    "https://booking.naver.com/booking/6/bizes/481843/items/3792500",
+    "http://www.youtheroom.kr/sub01/sub01.php#none",
+    "http://www.youtheroom.kr/sub01/sub01.php#none",
+    "https://www.spacecloud.kr/space/25781",
+    "http://www.youtheroom.kr/sub01/sub01.php#none",
+  ];
   const onDownloadBtn = () => {
     domtoimage.toBlob(document.querySelector(".test")).then((blob) => {
       saveAs(blob, "result.png");
@@ -230,7 +252,10 @@ const Result = (props) => {
                     나에게 딱 맞는 청년이룸 속 공간은?
                   </h3>
                   <div className={styles.programline}>
-                    <Slider1 />
+                    <div className={styles.resultinslider}>
+                      {/* {badmate_subtitle[resultstep]} */}
+                      {slide[resultstep]}{" "}
+                    </div>
                     {/* <img
                       src={result.type_program_img}
                       className={styles.programimg}
@@ -245,19 +270,23 @@ const Result = (props) => {
                   </div>
                   <p className={styles.programsubtitle}>
                     {/* {program_subtitle[resultstep]} */}
-                    {result.type_program}
+                    {/* {result.type_program} */}
                   </p>
                 </div>{" "}
               </div>
               <div className={styles.submitline}>
-                <a href="http://www.youtheroom.kr/" target="_blank">
+                <a
+                  href={golink[resultstep]}
+                  className={styles.activea}
+                  target="_blank"
+                >
                   <img
                     id="me_program"
                     src={submit}
                     alt="submitbutton"
                     className={styles.ontestsubmit}
                   />{" "}
-                </a>
+                </a>{" "}
               </div>{" "}
             </div>
           </div>
