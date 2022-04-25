@@ -9,7 +9,7 @@ const postTestResult = async (req, res) => {
     //우선 db에 test결과 넣어줘야함
     const header = res.setHeader('Content-Type', 'application/json');
     const resultArr = req.body.result;
-
+    res.header("Access-Control-Allow-Origin","*")
 
     let gihun = 0, chulsoo = 0, junha = 0, ryuhwan = 0, yongnam = 0, kwangsoo = 0;
 

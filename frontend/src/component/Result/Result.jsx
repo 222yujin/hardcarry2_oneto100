@@ -43,6 +43,9 @@ const Result = (props) => {
   const result = state.result.testResult;
   const like = state.result.resultLike;
   const dislike = state.result.resultDislike;
+  console.log(result);
+  console.log(like);
+  console.log(dislike)
 
   const movieName = [
     " 은밀하게 위대하게",
