@@ -18,16 +18,44 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(500),
       allowNull: false
     },
-    type_program: {
+    type_hashtag1: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    },
+    type_hashtag2: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    },
+    type_space: {
       type: DataTypes.STRING(500),
       allowNull: false
     },
-    type_img: {
-      type: DataTypes.STRING(5000),
+    type_button: {
+      type: DataTypes.STRING(50),
       allowNull: false
     },
-    type_program_img: {
-      type: DataTypes.STRING(5000),
+    type_img: {
+      type: DataTypes.STRING(1000),
+      allowNull: false
+    },
+    type_space_link: {
+      type: DataTypes.STRING(1000),
+      allowNull: false
+    },
+    type_space_img1: {
+      type: DataTypes.STRING(1000),
+      allowNull: false
+    },
+    type_space_img2: {
+      type: DataTypes.STRING(1000),
+      allowNull: false
+    },
+    type_space_img3: {
+      type: DataTypes.STRING(1000),
+      allowNull: false
+    },
+    type_space_img4: {
+      type: DataTypes.STRING(1000),
       allowNull: false
     },
     type_like: {
