@@ -15,7 +15,10 @@ function DiaryList(data) {
   const [pageCount, setPageCount] = useState(0);
   const [maxCount, setMaxCount] = useState(0);
   const [pages, setPages] = useState([]);
-
+  const [likes, setLikes] = useState(0);
+  const onIncrease = () => {
+    setLikes((prevLikes) => prevLikes + 1);
+  };
   const getData = async (pageCnt) => {
     const res = await fetch(
       "http://3.35.152.195/api/diary/getLatestDiary?page=" +
@@ -23,6 +26,7 @@ function DiaryList(data) {
         "&size=4",
       {
         method: "GET",
+
         headers: {
           "Content-Type": "application/json",
         },
@@ -35,7 +39,7 @@ function DiaryList(data) {
         setMaxCount(data.totalPages);
       });
   };
-
+  console.log(data.diaryList);
   useEffect(() => {
     getData(0);
   }, []);
@@ -64,14 +68,14 @@ function DiaryList(data) {
               <br />
               <span className={styles.diarycontent}>{diary.diary_content}</span>
             </div>{" "}
-            <SelectLike id={diary.diary_id} />
+            {/* <SelectLike id={diary.diary_id} /> */}
           </div>
-        ))}
+        ))}{" "}
         <div className={styles.morelayout}>
-          {" "}
+          {/* {data.diaryList.map((diary_id) => ({ diary_id }))} */}
           <button className={styles.diary_more} onClick={moreDiary}>
             <p>일기 내용 더보기</p>
-            <img src={more} className={styles.moreimg} />
+            {/* <img src={more} className={styles.moreimg} /> */}
           </button>{" "}
         </div>{" "}
       </div>
