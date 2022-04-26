@@ -1,7 +1,7 @@
 const SequelizeAuto = require('sequelize-auto');
 const auto = new SequelizeAuto(
     "oneto100",
-    "root",
+    "user",
     "1234",
     {
         host: "3.35.152.195",
