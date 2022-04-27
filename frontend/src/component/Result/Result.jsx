@@ -43,9 +43,10 @@ const Result = (props) => {
   const result = state.result.testResult;
   const like = state.result.resultLike;
   const dislike = state.result.resultDislike;
+  const url = state.result.type_space_link;
   console.log(result);
   console.log(like);
-  console.log(dislike)
+  console.log(dislike);
 
   const movieName = [
     " 은밀하게 위대하게",
@@ -126,14 +127,14 @@ const Result = (props) => {
   const goodmate = [mate1, mate2, mate4, mate5, mate6, mate3];
   const badmate = [mate2, mate3, mate5, mate3, mate2, mate4];
   const progam = [program1, program2, program3, program4, program5, program6];
-  const slide = [
-    <Slider1 />,
-    <Slider2 />,
-    <Slider3 />,
-    <Slider4 />,
-    <Slider5 />,
-    <Slider6 />,
-  ];
+  // const slide = [
+  //   <Slider1 />,
+  //   <Slider2 />,
+  //   <Slider3 />,
+  //   <Slider4 />,
+  //   <Slider5 />,
+  //   <Slider6 />,
+  // ];
   const golink = [
     "https://www.spacecloud.kr/space/25781",
     "https://booking.naver.com/booking/6/bizes/481843/items/3792500",
@@ -257,8 +258,9 @@ const Result = (props) => {
                   <div className={styles.programline}>
                     <div className={styles.resultinslider}>
                       {/* {badmate_subtitle[resultstep]} */}
-                      {slide[resultstep]}{" "}
+                      {/* {slide[resultstep]}{" "} */}
                     </div>
+                    <Slider1 />
                     {/* <img
                       src={result.type_program_img}
                       className={styles.programimg}
@@ -278,7 +280,12 @@ const Result = (props) => {
                 </div>{" "}
               </div>
               <div className={styles.submitline}>
-                <a
+                <a href={url} className={styles.activea} target="_blank">
+                  <button alt="submitbutton" className={styles.ontestsubmit}>
+                    {result.type_button}
+                  </button>
+                </a>{" "}
+                {/* <a
                   href={golink[resultstep]}
                   className={styles.activea}
                   target="_blank"
@@ -289,7 +296,7 @@ const Result = (props) => {
                     alt="submitbutton"
                     className={styles.ontestsubmit}
                   />{" "}
-                </a>{" "}
+                </a>{" "} */}
               </div>{" "}
             </div>
           </div>

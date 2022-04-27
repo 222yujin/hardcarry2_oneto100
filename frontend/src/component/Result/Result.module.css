@@ -239,3 +239,21 @@ active {
     color: #ffffff;
     text-decoration: none;
 }
+
+.ontestsubmit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    height: 41px;
+    /* Point 1 */
+    margin-top: 24px;
+    color: #ffff;
+    background: #ff7eb8;
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: CookieRun-Regular;
+}

@@ -5,6 +5,8 @@ import place1 from "../../assets/p1.png";
 import place2 from "../../assets/p2.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styles from "./Sliderplace.module.css";
+import { useLocation } from "react-router-dom";
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -21,9 +23,11 @@ const SliderContainer = styled.div`
   align-items: flex-start;
 `;
 
-const TOTAL_SLIDES = 1;
+const TOTAL_SLIDES = 3;
 
 const Slider1 = () => {
+  const { state } = useLocation();
+  const result = state.result.testResult;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
   const nextSlide = () => {
@@ -56,8 +60,15 @@ const Slider1 = () => {
           <Container>
             <div className={styles.slide_layout}>
               <SliderContainer ref={slideRef}>
-                <Slide img={place1} className={styles.img1} />
-                <Slide img={place2} className={styles.img2} />
+                <Slide img={result.type_space_img1} className={styles.img1} />
+                <Slide img={result.type_space_img2} className={styles.img2} />
+
+                {result.type_space_img3 !== "null" && (
+                  <Slide img={result.type_space_img3} className={styles.img3} />
+                )}
+                {result.type_space_img4 !== "null" ? (
+                  <Slide img={result.type_space_img4} className={styles.img4} />
+                ) : null}
               </SliderContainer>{" "}
             </div>
             <div className={styles.slidenextbutton_layout}> </div>
@@ -66,7 +77,8 @@ const Slider1 = () => {
             <IoIosArrowForward id="place1_right" />
           </Button>
         </div>
-      </div>
+      </div>{" "}
+      <div className={styles.spacetext}> {result.type_space}</div>
     </div>
   );
 };
