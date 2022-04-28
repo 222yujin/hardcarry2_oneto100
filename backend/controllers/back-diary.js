@@ -96,8 +96,9 @@ const getDiary = async (req, res) => {
     if (keyword != null)  condition = keyword ? {diary_content: {[Op.like]: `%${keyword}%`}} : null;
     else condition=null;
 
+
     if(sort=="latest"){
-        diarydb.findAndCountAll({where: condition},{limit, offset, order: [["diary_date", "DESC"]]})
+        diarydb.findAndCountAll({limit, offset,where: condition, order: [["diary_date", "DESC"]]})
             .then(data => {
                 const response = getPagingData(data, page, limit);
                 res.send(response);
@@ -109,7 +110,7 @@ const getDiary = async (req, res) => {
                 });
             });
     }else if(sort=="popular"){
-        diarydb.findAndCountAll({where: condition},{limit, offset,order: [["diary_like", "DESC"]]})
+        diarydb.findAndCountAll({limit, offset,where: condition,order: [["diary_like", "DESC"]]})
             .then(data => {
                 const response = getPagingData(data, page, limit);
                 res.send(response);
@@ -121,39 +122,6 @@ const getDiary = async (req, res) => {
                 });
             });
     }
-}
-
-const getPopularDiary = async (req, res) => {
-    const { page, size } = req.query;
-    const { limit, offset } = getPagination(page, size);
-    diarydb.findAndCountAll({limit, offset,order: [["diary_like", "DESC"]]})
-        .then(data => {
-            const response = getPagingData(data, page, limit);
-            res.send(response);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving diary."
-            });
-        });
-}
-
-const getSearchDiary = async (req, res) => {
-    const {page, size, keyword} = req.query;
-    let condition = keyword ? {diary_content: {[Op.like]: `%${keyword}%`}} : null;
-    const {limit, offset} = getPagination(page, size);
-    diarydb.findAndCountAll({where: condition, limit, offset})
-        .then(data => {
-            const response = getPagingData(data, page, limit);
-            res.send(response);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving diary."
-            });
-        });
 }
 
 const getPagination = (page, size) => {

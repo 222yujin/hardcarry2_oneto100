@@ -105,10 +105,14 @@ function DiaryList(data) {
 
 
   const getData = async (pageCnt) => {
+      const keyword="";
+      const sort="latest";
     const res = await fetch(
-        "http://3.35.152.195/api/diary/getLatestDiary?page=" +
+        "http://3.35.152.195/api/diary/getDiary?page="+
         pageCnt +
-        "&size=4",
+        "&size=4&sort=" +
+        sort +
+        "&keyword="+keyword,
         {
           method: "GET",
           headers: {
