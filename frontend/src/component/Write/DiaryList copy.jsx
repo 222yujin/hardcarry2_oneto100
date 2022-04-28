@@ -116,8 +116,7 @@ function DiaryList(data) {
       alert("더 이상 훔쳐볼 일기가 없어요");
     } else {
       setPageCount(pageCount + 1);
-      getData(pageCount + 1);
-    }
+      getData(pageCount + 1);    }
   }
 
   return (
