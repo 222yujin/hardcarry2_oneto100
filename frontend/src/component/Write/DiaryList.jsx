@@ -110,9 +110,11 @@ function DiaryList(data) {
     const res = await fetch(
         "http://3.35.152.195/api/diary/getDiary?page="+
         pageCnt +
-        "&size=4&sort=" +
+        "&size=4" +
+        "&sort=" +
         sort +
-        "&keyword="+keyword,
+        "&keyword="+
+        keyword,
         {
           method: "GET",
           headers: {
@@ -124,7 +126,7 @@ function DiaryList(data) {
         .then((data) => {
 
             console.log(data)
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < data.diaryList.length; i++) {
                 const cookie = cookies.get(data.diaryList[i].diary_id);
                 if (cookie == "O") data.diaryList[i].likes = true;
                 else data.diaryList[i].likes = false;

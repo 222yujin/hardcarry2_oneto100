@@ -103,8 +103,8 @@ const postTestResult = async (req, res) => {
 
 const getResult = async (req, res) => {
     const header = res.setHeader('Content-Type', 'application/json');
-    const rid = req.param.id;
-    let testResult = await testdb.findOne({where: {type_id: rid}});
+    const {id} = req.query;
+    let testResult = await testdb.findOne({where: {type_id: id}});
     let resultLike = await testdb.findOne({where: {type_id: testResult.dataValues.type_like}});
     let resultDislike = await testdb.findOne({where: {type_id: testResult.dataValues.type_dislike}});
 
