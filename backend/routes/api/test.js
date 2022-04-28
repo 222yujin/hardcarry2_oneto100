@@ -8,5 +8,6 @@ const testController = require('../../controllers/back-test')
  });
 
 router.post('/postTestArray',testController.postTestResult);
+router.get('/getResult',testController.getResult)
 
 module.exports = router;

@@ -101,4 +101,21 @@ const postTestResult = async (req, res) => {
     });
 }
 
-module.exports = {postTestResult}
+const getResult = async (req, res) => {
+    const header = res.setHeader('Content-Type', 'application/json');
+    const rid = req.param.id;
+    let testResult = await testdb.findOne({where: {type_id: rid}});
+    let resultLike = await testdb.findOne({where: {type_id: testResult.dataValues.type_like}});
+    let resultDislike = await testdb.findOne({where: {type_id: testResult.dataValues.type_dislike}});
+
+    return cwr.createWebResp(res, header, 200, {
+        message: "testing is completed, sending testResult!",
+        testResult: testResult,
+        resultLike: resultLike,
+        resultDislike: resultDislike
+    });
+
+}
+
+
+module.exports = {postTestResult,getResult}

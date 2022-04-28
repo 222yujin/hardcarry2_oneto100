@@ -88,21 +88,39 @@ const diaryLike = async (req, res) => {
     });
 }
 
-const getLatestDiary = async (req, res) => {
+const getDiary = async (req, res) => {
     //한번에 4개씩 불러옴
-    const { page, size } = req.query;
+    const { page, size, sort, keyword} = req.query;
     const { limit, offset } = getPagination(page, size);
-    diarydb.findAndCountAll({limit, offset,order: [["diary_date", "DESC"]]})
-        .then(data => {
-            const response = getPagingData(data, page, limit);
-            res.send(response);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving diary."
+    let condition;
+    if (keyword != null)  condition = keyword ? {diary_content: {[Op.like]: `%${keyword}%`}} : null;
+    else condition=null;
+
+    if(sort=="latest"){
+        diarydb.findAndCountAll({where: condition},{limit, offset, order: [["diary_date", "DESC"]]})
+            .then(data => {
+                const response = getPagingData(data, page, limit);
+                res.send(response);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while retrieving diary."
+                });
             });
-        });
+    }else if(sort=="popular"){
+        diarydb.findAndCountAll({where: condition},{limit, offset,order: [["diary_like", "DESC"]]})
+            .then(data => {
+                const response = getPagingData(data, page, limit);
+                res.send(response);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while retrieving diary."
+                });
+            });
+    }
 }
 
 const getPopularDiary = async (req, res) => {
@@ -169,4 +187,4 @@ function getBrowserInfo(req) {
 }
 
 
-module.exports = {createDiary, diaryLike,getLatestDiary,getPopularDiary,getSearchDiary}
+module.exports = {createDiary, diaryLike,getDiary}
