@@ -9,7 +9,6 @@ router.get('/', function (req, res, next) {
 
 router.post('/createDiary', diaryController.createDiary);
 router.get('/diaryLike', diaryController.diaryLike);
-router.get('/getLatestDiary',diaryController.getLatestDiary);
-router.get('/getPopularDiary',diaryController.getPopularDiary);
-router.get('/getSearchDiary',diaryController.getSearchDiary)
+router.get('/getDiary',diaryController.getDiary);
+
 module.exports = router;
