@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import styles from "./DiaryList.module.css";
 import fulllove from "../../assets/fulllove.png";
 import emptylove from "../../assets/emptylove.png";
-import axios from "axios";
 import more from "../../assets/more.png";
-import { resolve } from "chart.js/helpers";
+import {Cookies} from 'react-cookie'
+
+const cookies = new Cookies();
 
 const HeartButton = ({ onClick }) => {
-  // const HeartButton = ({ like, onClick }) => {
+
   const fillHeart = () => {
     return <img src={fulllove} />;
   };
@@ -67,12 +68,11 @@ function DiaryList(data) {
   const [maxCount, setMaxCount] = useState(0);
   const [pages, setPages] = useState([]);
   const toggleHeart = async (like, id) => {
-    // if (setLike((like) => !like)) setLikenum(likenum + 1);
     const changenum = pages.findIndex(v => v.diary_id === id);
     const changeLike = pages.find(v => v.diary_id === id);
     changeLike.likes=!changeLike.likes;
 
-    const dlike = await fetch(
+    await fetch(
         "http://3.35.152.195/api/diary/diaryLike?diary_id=" + id,
         {
           method: "GET",
@@ -83,10 +83,16 @@ function DiaryList(data) {
     )
         .then((response) => response.json())
         .then((data) => {
-          if(data.data.dlike_use=='X') changeLike.diary_like-=1;
-          else  changeLike.diary_like+=1;
-          pages[changenum]=changeLike;
-          setPages([...pages])
+            console.log(data.data)
+            if(data.data.dlike_use=='X') {
+                changeLike.diary_like -= 1;
+                cookies.set(changeLike.diary_id, "X");
+            }else {
+                changeLike.diary_like += 1;
+                cookies.set(changeLike.diary_id, "O");
+            }
+            pages[changenum]=changeLike;
+            setPages([...pages])
         });
   };
 
@@ -112,13 +118,17 @@ function DiaryList(data) {
     )
         .then((response) => response.json())
         .then((data) => {
-          data.diaryList[0].likes=false;
-          data.diaryList[1].likes=false;
-          data.diaryList[2].likes=false;
-          data.diaryList[3].likes=false;
-          setPages([...pages, ...data.diaryList]);
-          //setPages(pages=>[...pages,data.diaryList]);
-          setMaxCount(data.totalPages);
+
+            console.log(data)
+            for (let i = 0; i < 4; i++) {
+                const cookie = cookies.get(data.diaryList[i].diary_id);
+                if (cookie == "O") data.diaryList[i].likes = true;
+                else data.diaryList[i].likes = false;
+            }
+
+            setPages([...pages, ...data.diaryList]);
+            //setPages(pages=>[...pages,data.diaryList]);
+            setMaxCount(data.totalPages);
         });
   };
 
@@ -159,7 +169,7 @@ function DiaryList(data) {
                             toggleHeart(diary.likes, diary.diary_id);
                           }}
                       />
-                      +{like ? diary.diary_like + 1 : diary.diary_like}
+                      +{diary.diary_like}
                     </div>
                   </div>
                 </div>{" "}
