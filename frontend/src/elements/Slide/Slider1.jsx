@@ -63,12 +63,16 @@ const Slider1 = () => {
                 <Slide img={result.type_space_img1} className={styles.img1} />
                 <Slide img={result.type_space_img2} className={styles.img2} />
 
-                {result.type_space_img3 !== "null" && (
+                {result.type_space_img3 !== "null" ? (
                   <Slide img={result.type_space_img3} className={styles.img3} />
+                ) : (
+                  <Slide img={result.type_space_img1} className={styles.img1} />
                 )}
                 {result.type_space_img4 !== "null" ? (
                   <Slide img={result.type_space_img4} className={styles.img4} />
-                ) : null}
+                ) : (
+                  <Slide img={result.type_space_img2} className={styles.img2} />
+                )}
               </SliderContainer>{" "}
             </div>
             <div className={styles.slidenextbutton_layout}> </div>

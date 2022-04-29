@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
-
-import createReviews from "./api";
 import styles from "./Write.module.css";
 import SharediarySNS from "../Share/SharediarySNS";
 import Slider from "../../elements/Slide/Slider";
 import submitbutton from "../../assets/diarybutton.png";
-import search from "../../assets/search.png";
 import footer from "../../assets/footer.png";
 import DiaryList from "./DiaryList";
-import Result from "../Result/Result";
 import Modal from "../../elements/Modal/Modal";
 import shareevent from "../../assets/shareevent.png";
 import clipboard from "../../assets/clipboard.png";
 import border from "../../assets/border.png";
-import fuck from "../../assets/ffff.png";
 
 const INITIAL_VALIES = {
   nickname: null,
@@ -48,7 +43,7 @@ function WriteForm(props) {
     }
   };
   const openModal = async () => {
-    console.log(values);
+    // console.log(values);
     if (values.choice == true) {
       //이름 연락처 미 입력시
       if (values.name == null || values.phone == null) {
