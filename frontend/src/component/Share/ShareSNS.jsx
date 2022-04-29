@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-
+import { useLocation } from "react-router-dom";
 import "./shareSNS.css";
 import kakao from "../../assets/kakaoshare.png";
 
 import link from "../../assets/linkshare.png";
 
-const ShareSNS = () => {
-  const url = window.location.href; //현재 url가져오기
+const ShareSNS = (state) => {
+  const kakaourl = state.result.result.type_id;
+  // const url = window.location.href; //현재 url가져오기
   useEffect(() => {
     initKakao(); //
   }, []);
@@ -33,30 +34,19 @@ const ShareSNS = () => {
           "#일당백프로젝트 #청년이룸 #구로청년이룸  #디노 #백수 #일기장 #게임 #스토리 ",
         imageUrl: "https://ifh.cc/g/KXnbbS.jpg",
         link: {
-          mobileWebUrl: url,
-          webUrl: url,
+          mobileWebUrl: kakaourl,
+          webUrl: kakaourl,
         },
       },
-      // social: {
-      //   likeCount: 286,
-      //   commentCount: 45,
-      //   sharedCount: 845,
-      // },
+
       buttons: [
         {
           title: "디노와함께 백수탈출",
           link: {
-            mobileWebUrl: url,
-            webUrl: url,
+            mobileWebUrl: kakaourl,
+            webUrl: kakaourl,
           },
         },
-        // {
-        //   title: "앱으로 보기",
-        //   link: {
-        //     mobileWebUrl: url,
-        //     webUrl: url,
-        //   },
-        // },
       ],
     });
   };
