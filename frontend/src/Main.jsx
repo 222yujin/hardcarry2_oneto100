@@ -13,13 +13,7 @@ import Wait from "./component/Wait/Wait";
 import Story from "./component/Story/Story";
 import Write from "./component/Write/Write";
 
-// import Gamepage from "./page/GamePage";
-// import GameResult from "./component/Game/GameResult";
-// import ProductVoteResult from "./component/ProductVote/ProductVoteResult";
-// import ProductVotePage from "./page/ProductVotePage";
-// import ProductListSample from "./component/ProductVote/ProductListSample";
 import EndingStory from "./component/EndStory/EndingStory";
-import Capture from "./component/Share/Capture";
 import Like from "./component/Write/Like";
 import Game from "./component/Game/Game";
 import GameResult from "./component/Game/GameResult";
@@ -45,12 +39,7 @@ function Main() {
 
           <Route path="/story" element={<Story />} />
           <Route path="/endstory" element={<EndingStory />} />
-          {/* <Route path="/write" element={<Write />} />
-          <Route path="/products" element={<ProductVotePage />} />
-          <Route path="/productsample" element={<ProductListSample />} />
-          <Route path="/voteresult" element={<ProductVoteResult />} />
-          <Route path="/game" element={<Gamepage />} />
-          <Route path="/gameresult" element={<GameResult />} /> */}
+
           <Route path="/like" element={<Like />} />
           <Route path="/game" element={<Game />} />
           <Route path="/gameresult" element={<GameResult />} />

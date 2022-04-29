@@ -81,7 +81,7 @@
 }
 
 .game_buttonitem:hover,
-:active {
+.game_buttonitem:active {
     font-family: CookieRun-Regular;
     text-align: center;
     font-style: normal;
@@ -97,6 +97,4 @@
     border-radius: 25px;
     width: 358px;
     height: 88px;
-    margin-top: 9px;
-    margin-bottom: 8px;
 }

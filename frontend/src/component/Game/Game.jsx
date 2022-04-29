@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import gamedino from "../../assets/gamemaindino.png";
 import styles from "./Game.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,17 +6,42 @@ var select = [0, 0];
 var noselect = 1;
 var yesselect = 0;
 
+const INITIAL_VALIES = {
+  buttona: 0,
+  buttonb: 0,
+  total: 0,
+};
+
 const Game = () => {
   const navigate = useNavigate();
-  const [step, setStep] = React.useState(0);
+  const [items, setItems] = useState([]);
+  const [values, setValues] = useState(INITIAL_VALIES);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
+  const [Abuttonnum, setAbuttonnum] = useState(0);
+  const [Bbuttonnum, setBbuttonnum] = useState(0);
+  const [total, setTotal] = useState([]);
 
-  const OnClickGame = (num) => {
-    navigate("/gameresult", { state: { select: select } });
+  const toggleAbutton = async (a, type) => {
+    const changeAbutton = total.find((v) => v.balance_type === type);
+    changeAbutton.types = !changeAbutton.types;
 
-    select[step] = num;
+    await fetch(
+      "http://3.35.152.195/api/balance_type/balanceResult?balance_id=," + type,
+      {
+        method: "GET",
+        headers: {
+          "Conent-Type": "application/json",
+        },
+      }
+    ).then((response) => response.json());
   };
 
-  console.log(step);
+  const OnClickGame = (response) => {
+    navigate("/gameresult", {
+      state: { state: { result: response.response } },
+    });
+  };
 
   return (
     <div className={styles.game_layout}>
