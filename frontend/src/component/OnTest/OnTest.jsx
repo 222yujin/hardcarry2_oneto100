@@ -4,7 +4,6 @@ import preview from "../../assets/preview.png";
 import { Link, useNavigate } from "react-router-dom";
 import euiroomlogo from "../../assets/euiroomlogo.png";
 import gurologo from "../../assets/gurologo.png";
-import Progress from "../Progress/Progress";
 
 var select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var noselect = 1;

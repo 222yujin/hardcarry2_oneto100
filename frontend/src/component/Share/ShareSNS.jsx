@@ -88,7 +88,8 @@ const ShareSNS = () => {
     <div className="sharesnscomponent">
       <div className="kakaoandclipboard">
         <div className="kakao">
-          <img id="test_kakao"
+          <img
+            id="test_kakao"
             className="shareIcon"
             src={kakao}
             alt="kakaotalk"
@@ -97,8 +98,9 @@ const ShareSNS = () => {
             onClick={shareKakao}
           />
         </div>
-        <div className="clipboard" >
-          <img id="test_link"
+        <div className="clipboard">
+          <img
+            id="test_link"
             src={link}
             onClick={() => doCopy("http://www.oneto100.shop/test")}
           />
