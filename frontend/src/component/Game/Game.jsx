@@ -11,7 +11,7 @@ const Game = () => {
   const [step, setStep] = React.useState(0);
 
   const OnClickGame = (num) => {
-    navigate("/wait", { state: { select: select } });
+    navigate("/gameresult", { state: { select: select } });
 
     select[step] = num;
   };
@@ -28,28 +28,33 @@ const Game = () => {
       <div>
         <img className={styles.game_image} src={gamedino} alt="디노캐릭터" />{" "}
       </div>
-      <div className={styles.game_butttonA}>
-        <button
-          className={styles.game_buttonitem}
-          onClick={() => {
-            OnClickGame(yesselect);
-          }}
-          id="game_buttonA"
-        >
-          나를 죽도록 싫어하는 원수와 면접 스터디
-        </button>
-      </div>
-      VS
-      <div className={styles.game_butttonB} id="question_down">
-        <button
-          className={styles.game_buttonitem}
-          onClick={() => {
-            OnClickGame(noselect);
-          }}
-        >
-          {" "}
-          세상에서 제일 친한 친구와 함께 최종 면접
-        </button>
+      <div className={styles.gamebutton_layout}>
+        <div className={styles.game_butttonA}>
+          <button
+            className={styles.game_buttonitem}
+            onClick={() => {
+              OnClickGame(yesselect);
+            }}
+            id="game_buttonA"
+          >
+            나를 죽도록 싫어하는 원수와 <br />
+            면접 스터디
+          </button>
+        </div>
+        VS
+        <div className={styles.game_butttonB} id="question_down">
+          <button
+            className={styles.game_buttonitem}
+            onClick={() => {
+              OnClickGame(noselect);
+            }}
+          >
+            {" "}
+            세상에서 제일 친한 친구와
+            <br />
+            함께 최종 면접
+          </button>
+        </div>
       </div>
     </div>
   );

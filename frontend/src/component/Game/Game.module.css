@@ -41,6 +41,62 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 43px;
 }
 
-.game_butttonA {}
+.gamebutton_layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 66px;
+    height: 225px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    color: #343a40;
+    font-family: CookieRun-Regular;
+    padding-bottom: 60px;
+}
+
+.game_buttonitem {
+    font-family: CookieRun-Regular;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    border: none;
+    background: #ff7eb8;
+    color: #ffffff;
+    padding: 14px 22px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 358px;
+    height: 88px;
+    margin-top: 9px;
+    margin-bottom: 8px;
+}
+
+.game_buttonitem:hover,
+:active {
+    font-family: CookieRun-Regular;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    border: none;
+    background: #ffffff;
+    color: #343a40;
+    padding: 14px 22px;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 358px;
+    height: 88px;
+    margin-top: 9px;
+    margin-bottom: 8px;
+}

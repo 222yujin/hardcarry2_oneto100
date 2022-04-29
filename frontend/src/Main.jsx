@@ -22,6 +22,7 @@ import EndingStory from "./component/EndStory/EndingStory";
 import Capture from "./component/Share/Capture";
 import Like from "./component/Write/Like";
 import Game from "./component/Game/Game";
+import GameResult from "./component/Game/GameResult";
 
 const tagManagerArgs = {
   gtmId: "GTM-M2FPFM8",
@@ -52,7 +53,7 @@ function Main() {
           <Route path="/gameresult" element={<GameResult />} /> */}
           <Route path="/like" element={<Like />} />
           <Route path="/game" element={<Game />} />
-
+          <Route path="/gameresult" element={<GameResult />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
