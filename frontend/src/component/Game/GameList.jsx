@@ -153,24 +153,24 @@ function GameCommentList(data) {
               {" "}
               <div className={styles.writenickname}>
                 <span className={styles.writenickname}>
-                  닉네임 <strong>{balance.game_writter}</strong>
+                  닉네임 <strong>{balance.balance_name}</strong>
                 </span>
               </div>{" "}
               <span className={styles.gamechoicetype}>
-                {/* 나의 선택은? <strong>{balance.gamechoicetypeOne}</strong> */}
+                나의 선택은? <strong>{balance.balance_type}</strong>
               </span>
               <br />
               <span className={styles.diarycontent}>
-                {balance.game_content}
+                {balance.balance_content}
               </span>
               <div className={styles.heart_layout}>
                 <div className={styles.heart}>
                   <img
                     id={balance.balance_id}
                     src={balance.likes ? fulllove : emptylove}
-                    like={balance.likes}
+                    like={balance.balance_like}
                     onClick={() => {
-                      toggleHeart(balance.likes, balance.balance_id);
+                      toggleHeart(balance.balance_like, balance.balance_id);
                     }}
                   />
                   +{balance.balance_like}
