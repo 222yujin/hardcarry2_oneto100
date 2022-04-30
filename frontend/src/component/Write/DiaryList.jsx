@@ -3,50 +3,9 @@ import styles from "./DiaryList.module.css";
 import fulllove from "../../assets/fulllove.png";
 import emptylove from "../../assets/emptylove.png";
 import more from "../../assets/more.png";
-import {Cookies} from 'react-cookie'
+import { Cookies } from "react-cookie";
 
 const cookies = new Cookies();
-
-const HeartButton = ({ onClick }) => {
-
-  const fillHeart = () => {
-    return <img src={fulllove} />;
-  };
-  const emptyHeart = () => {
-    return <img src={emptylove} />;
-  };
-  let [likenum, setLikenum] = useState(0);
-
-  const [like, setLike] = useState(false);
-  const toggleHeart = ({ like }) => {
-    setLike((like) => !like);
-    fillHeart();
-    setLikenum(likenum + 1);
-  };
-
-  const untoggleHeart = ({ like }) => {
-    setLike((like) => like);
-    emptyHeart();
-    setLikenum(likenum - 1);
-  };
-  return (
-      <div>
-        <img
-            src={like ? fulllove : emptylove}
-            onClick={like ? toggleHeart : untoggleHeart}
-        />
-        {likenum}{" "}
-        <img
-            src={like ? fulllove : emptylove}
-            like={like}
-            onClick={() => {
-              setLikenum(likenum + 1);
-              setLike(!like);
-            }}
-        />{" "}
-      </div>
-  );
-};
 
 function formatDate(value) {
   const date = new Date(value);
@@ -68,32 +27,29 @@ function DiaryList(data) {
   const [maxCount, setMaxCount] = useState(0);
   const [pages, setPages] = useState([]);
   const toggleHeart = async (like, id) => {
-    const changenum = pages.findIndex(v => v.diary_id === id);
-    const changeLike = pages.find(v => v.diary_id === id);
-    changeLike.likes=!changeLike.likes;
+    const changenum = pages.findIndex((v) => v.diary_id === id);
+    const changeLike = pages.find((v) => v.diary_id === id);
+    changeLike.likes = !changeLike.likes;
 
-    await fetch(
-        "http://3.35.152.195/api/diary/diaryLike?diary_id=" + id,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+    await fetch("http://3.35.152.195/api/diary/diaryLike?diary_id=" + id, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.data);
+        if (data.data.dlike_use == "X") {
+          changeLike.diary_like -= 1;
+          cookies.set(changeLike.diary_id, "X");
+        } else {
+          changeLike.diary_like += 1;
+          cookies.set(changeLike.diary_id, "O");
         }
-    )
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data.data)
-            if(data.data.dlike_use=='X') {
-                changeLike.diary_like -= 1;
-                cookies.set(changeLike.diary_id, "X");
-            }else {
-                changeLike.diary_like += 1;
-                cookies.set(changeLike.diary_id, "O");
-            }
-            pages[changenum]=changeLike;
-            setPages([...pages])
-        });
+        pages[changenum] = changeLike;
+        setPages([...pages]);
+      });
   };
 
   const untoggleHeart = ({ like }) => {
@@ -102,40 +58,37 @@ function DiaryList(data) {
     setLikenum(likenum - 1);
   };
 
-
-
   const getData = async (pageCnt) => {
-      const keyword="";
-      const sort="latest";
+    const keyword = "";
+    const sort = "latest";
     const res = await fetch(
-        "http://3.35.152.195/api/diary/getDiary?page="+
+      "http://3.35.152.195/api/diary/getDiary?page=" +
         pageCnt +
         "&size=4" +
         "&sort=" +
         sort +
-        "&keyword="+
+        "&keyword=" +
         keyword,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     )
-        .then((response) => response.json())
-        .then((data) => {
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        for (let i = 0; i < data.diaryList.length; i++) {
+          const cookie = cookies.get(data.diaryList[i].diary_id);
+          if (cookie == "O") data.diaryList[i].likes = true;
+          else data.diaryList[i].likes = false;
+        }
 
-            console.log(data)
-            for (let i = 0; i < data.diaryList.length; i++) {
-                const cookie = cookies.get(data.diaryList[i].diary_id);
-                if (cookie == "O") data.diaryList[i].likes = true;
-                else data.diaryList[i].likes = false;
-            }
-
-            setPages([...pages, ...data.diaryList]);
-            //setPages(pages=>[...pages,data.diaryList]);
-            setMaxCount(data.totalPages);
-        });
+        setPages([...pages, ...data.diaryList]);
+        //setPages(pages=>[...pages,data.diaryList]);
+        setMaxCount(data.totalPages);
+      });
   };
 
   useEffect(() => {
@@ -152,44 +105,44 @@ function DiaryList(data) {
   }
 
   return (
-      <div>
-        <div className={styles.diarylayout}>
-          {pages.map((diary, index) => (
-              <div className={styles.writelist_item} key={diary.diary_id}>
-                <div>
-                  {" "}
-                  <div className={styles.writenickname}>
+    <div>
+      <div className={styles.diarylayout}>
+        {pages.map((diary, index) => (
+          <div className={styles.writelist_item} key={diary.diary_id}>
+            <div>
+              {" "}
+              <div className={styles.writenickname}>
                 <span className={styles.writenickname}>
                   닉네임 : <strong>{diary.diary_writter}</strong>
                 </span>
-                  </div>{" "}
-                  <br />
-                  <span className={styles.diarycontent}>{diary.diary_content}</span>
-                  <div className={styles.heart_layout}>
-                    <div className={styles.heart}>
-                      <img
-                          id={diary.diary_id}
-                          src={diary.likes ? fulllove : emptylove}
-                          like={diary.likes}
-                          onClick={() => {
-                            toggleHeart(diary.likes, diary.diary_id);
-                          }}
-                      />
-                      +{diary.diary_like}
-                    </div>
-                  </div>
-                </div>{" "}
+              </div>{" "}
+              <br />
+              <span className={styles.diarycontent}>{diary.diary_content}</span>
+              <div className={styles.heart_layout}>
+                <div className={styles.heart}>
+                  <img
+                    id={diary.diary_id}
+                    src={diary.likes ? fulllove : emptylove}
+                    like={diary.likes}
+                    onClick={() => {
+                      toggleHeart(diary.likes, diary.diary_id);
+                    }}
+                  />
+                  +{diary.diary_like}
+                </div>
               </div>
-          ))}
-          <div className={styles.morelayout}>
-            {" "}
-            <button className={styles.diary_more} onClick={moreDiary}>
-              <p>일기 내용 더보기</p>
-              <img src={more} className={styles.moreimg} />
-            </button>{" "}
-          </div>{" "}
-        </div>
+            </div>{" "}
+          </div>
+        ))}
+        <div className={styles.morelayout}>
+          {" "}
+          <button className={styles.diary_more} onClick={moreDiary}>
+            <p>일기 내용 더보기</p>
+            <img src={more} className={styles.moreimg} />
+          </button>{" "}
+        </div>{" "}
       </div>
+    </div>
   );
 }
 
