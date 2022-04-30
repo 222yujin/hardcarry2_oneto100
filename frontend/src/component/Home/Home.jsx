@@ -59,12 +59,14 @@ const Home = () => {
               </div>{" "}
             </a>
             <div className={styles.box}>
-              <div>
-                <img
-                  src={minidino4}
-                  alt="minidino5"
-                  className={styles.minidino5}
-                />
+              <div className={styles.col} id="game">
+                <a href="/game">
+                  <img
+                    src={minidino4}
+                    alt="minidino5"
+                    className={styles.minidino5}
+                  />
+                </a>
               </div>
               {/* <a href="/story">
                 <div className={styles.box}>
