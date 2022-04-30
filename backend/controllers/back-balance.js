@@ -24,6 +24,7 @@ const selectBalance = async (req, res) => {
 const balanceResult = async (req, res) => {
     const header = res.setHeader('Content-Type', 'application/json');
     const result = await bcountdb.findAll();
+
     const total = result[0].balance_selected + result[1].balance_selected;
     const cntA = result[0].balance_selected;
     const cntB = result[1].balance_selected;
@@ -73,7 +74,7 @@ const replyLike = async (req, res) => {
     const browser = getBrowserInfo(userAgent);
     const balance_id = req.query.balance_id;
     let balance_name = req.cookies.balance_name;
-    if (balance_name == undefined) dlike_name = null;
+    if (balance_name == undefined) balance_name = null;
 
     blikedb.findOrCreate({
         where: {blike_name: balance_name, blike_ip: ip, blike_browser: browser, balance_id: balance_id},
@@ -92,11 +93,11 @@ const replyLike = async (req, res) => {
         if (status == false) {//false면 값 반전-> 원래 있었다는 뜻임
             if (use === "O") {//좋아요가 눌러져있었으면?
                 blikedb.update({blike_use: "X"}, {where: {blike_id: bId}});
-                use='X';
+                use = 'X';
                 balancedb.decrement({balance_like: 1}, {where: {balance_id: balance_id}});
             } else {
                 blikedb.update({blike_use: 'O'}, {where: {blike_id: bId}});
-                use='O';
+                use = 'O';
                 balancedb.increment({balance_like: 1}, {where: {balance_id: balance_id}});
             }
         } else {
@@ -113,53 +114,35 @@ const replyLike = async (req, res) => {
             'like or dislike failed', e.message || e);
     });
 }
-const getLatestReply = async (req, res) => {
-    const { page, size } = req.query;
-    const { limit, offset } = getPagination(page, size);
-    balancedb.findAndCountAll({limit, offset,order: [["balance_date", "DESC"]]})
-        .then(data => {
-            const response = getPagingData(data, page, limit);
-            res.send(response);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving balance reply."
-            });
-        });
-}
-
-const getPopularReply = async (req, res) => {
-    const { page, size } = req.query;
-    const { limit, offset } = getPagination(page, size);
-    balancedb.findAndCountAll({limit, offset,order: [["balance_like", "DESC"]]})
-        .then(data => {
-            const response = getPagingData(data, page, limit);
-            res.send(response);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving balance reply."
-            });
-        });
-}
-
-const getSearchReply = async (req, res) => {
-    const {page, size, keyword} = req.query;
-    let condition = keyword ? {balance_content: {[Op.like]: `%${keyword}%`}} : null;
+const getReply = async (req, res) => {
+    const {page, size, sort, keyword} = req.query;
     const {limit, offset} = getPagination(page, size);
-    balancedb.findAndCountAll({where: condition, limit, offset})
-        .then(data => {
-            const response = getPagingData(data, page, limit);
-            res.send(response);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving  balance reply."
+    let condition = keyword ? {balance_content: {[Op.like]: `%${keyword}%`}} : null;
+    if (sort == "latest") {
+        balancedb.findAndCountAll({limit, offset,where: condition, order: [["balance_date", "DESC"]]})
+            .then(data => {
+                const response = getPagingData(data, page, limit);
+                res.send(response);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while retrieving balance reply."
+                });
             });
-        });
+    } else if(sort=="popular") {
+        balancedb.findAndCountAll({limit, offset,where: condition,order: [["balance_like", "DESC"]]})
+            .then(data => {
+                const response = getPagingData(data, page, limit);
+                res.send(response);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while retrieving balance reply."
+                });
+            });
+    }
 }
 
 const getPagination = (page, size) => {
@@ -192,4 +175,4 @@ function getBrowserInfo(req) {
     }
 }
 
-module.exports = {selectBalance, balanceResult, createReply, replyLike,getLatestReply,getPopularReply,getSearchReply}
+module.exports = {selectBalance, balanceResult, createReply, replyLike, getReply}
