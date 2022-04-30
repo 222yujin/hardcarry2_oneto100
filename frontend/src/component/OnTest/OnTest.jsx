@@ -10,7 +10,6 @@ var noselect = 1;
 var yesselect = 0;
 
 export const OnTest = () => {
-  console.log(select);
   const navigate = useNavigate();
 
   //   const history = useHistory();
