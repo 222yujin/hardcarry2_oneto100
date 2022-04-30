@@ -71,7 +71,7 @@ function GameCommentList(data) {
     const changeLike = pages.find((v) => v.diary_id === id);
     changeLike.likes = !changeLike.likes;
 
-    await fetch("http://3.35.152.195/api/reply/replyLike?balance_id=" + id, {
+    await fetch("http://3.35.152.195/api/balance/replyLike?balance_id=" + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ function GameCommentList(data) {
     const keyword = "";
     const sort = "latest";
     const res = await fetch(
-      "3.35.152.195/balance/getReply?page=" +
+      "http://3.35.152.195/api/balance/getReply?page= " +
         pageCnt +
         "&size=4" +
         "&sort=" +
