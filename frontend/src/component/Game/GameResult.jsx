@@ -37,13 +37,13 @@ const GameResult = (props) => {
 50% {
 width : 40%;
 background:#ffc958; 
-//  width: ${rateA} /2 ;
+ width: ${rateA} /2 ;
  
 }
  100% {
         width: 75% ;
 background:#ff5aa4;
-//  width: ${rateA} background:#ff5aa4;
+ width: ${rateA} background:#ff5aa4;
       }
 `;
 
@@ -55,7 +55,7 @@ background:#ff5aa4;
       }
 50% {
 width : 40%;
-//  width: ${rateB} /2 %;
+ width: ${rateB} /2 %;
 background:#ffc958;
  
 
@@ -63,7 +63,7 @@ background:#ffc958;
  100% {
         width: 75% ;
 background:#ff5aa4;
-//  width: ${rateB} background:#ff5aa4;
+ width: ${rateB} background:#ff5aa4;
       }
 `;
   const ChoiceContainer = styled.div`
@@ -83,7 +83,7 @@ background:#ff5aa4;
     border-radius: 24px;
     width: 75%;
     height: 100%;
-    // width: {rateA}%
+    width: {rateA}%
     margin-bottom: 8px;
     box-sizing: border-box;
     :hover {
@@ -98,9 +98,9 @@ background:#ff5aa4;
     all: unset;
     background: #868e96;
     border-radius: 24px;
-    width: 195px;
-    // width: {rateB}%
-    height: 32px;
+    width: 80%;
+    width: {rateB}%;
+    height: 100%;
     margin-bottom: 8px;
     box-sizing: border-box;
     :hover {
@@ -165,7 +165,7 @@ background:#ff5aa4;
             <ChoiceContainer>
               <ChoiceA>
                 <span className={styles.barA}>
-                  {/* <span> {rateA}</span> */}
+                  <span> {rateA}</span>
                 </span>{" "}
               </ChoiceA>
               A
@@ -174,7 +174,7 @@ background:#ff5aa4;
             <ChoiceContainer>
               <ChoiceB>
                 <span className={styles.barB}>
-                  {/* <span>{rateB}</span> */}
+                  <span>{rateB}</span>
                 </span>
               </ChoiceB>
               B
