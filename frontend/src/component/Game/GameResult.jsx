@@ -28,44 +28,7 @@ const GameResult = (props) => {
   console.log(rateA);
   console.log(rateB);
   console.log(state.balance_type);
-  const barAIn = keyframes`
- 0% {
-        width: 0; 
-        background: #868e96;
 
-      }
-50% {
-width : 40%;
-background:#ffc958; 
- width: ${rateA} /2 ;
- 
-}
- 100% {
-        width: 75% ;
-background:#ff5aa4;
- width: ${rateA} background:#ff5aa4;
-      }
-`;
-
-  const barBIn = keyframes`
- 0% {
-        width: 0; 
-        background: #868e96;
-
-      }
-50% {
-width : 40%;
- width: ${rateB} /2 %;
-background:#ffc958;
- 
-
-}
- 100% {
-        width: 75% ;
-background:#ff5aa4;
- width: ${rateB} background:#ff5aa4;
-      }
-`;
   const ChoiceContainer = styled.div`
     width: 100%;
     display: flex;
@@ -91,7 +54,7 @@ background:#ff5aa4;
       background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
       border-radius: 24px;
     }
-    animation: ${barAIn} 3s 0s linear;
+ 
   `;
 
   const ChoiceB = styled.div`
@@ -108,7 +71,7 @@ background:#ff5aa4;
       background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
       border-radius: 24px;
     }
-    animation: ${barBIn} 3s 0s linear;
+ 
   `;
 
   const fetchItems = async () => {
