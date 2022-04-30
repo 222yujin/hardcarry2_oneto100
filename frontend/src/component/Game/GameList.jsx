@@ -102,7 +102,7 @@ function GameCommentList(data) {
     const keyword = "";
     const sort = "latest";
     const res = await fetch(
-      "http://3.35.152.195/api/reply/getLatestReply?page=" +
+      "3.35.152.195/balance/getReply?page=" +
         pageCnt +
         "&size=4" +
         "&sort=" +

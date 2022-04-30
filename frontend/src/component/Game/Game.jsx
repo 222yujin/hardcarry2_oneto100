@@ -1,48 +1,56 @@
 import React, { useEffect, useState } from "react";
 import gamedino from "../../assets/gamemaindino.png";
 import styles from "./Game.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 var select = [0, 0];
 var noselect = 1;
 var yesselect = 0;
 
-const INITIAL_VALIES = {
-  buttona: 0,
-  buttonb: 0,
-  total: 0,
-};
-
-const Game = () => {
+const Game = (props, balance_type) => {
   const navigate = useNavigate();
+  const { state } = useLocation(props);
   const [items, setItems] = useState([]);
-  const [values, setValues] = useState(INITIAL_VALIES);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
-  const [Abuttonnum, setAbuttonnum] = useState(0);
-  const [Bbuttonnum, setBbuttonnum] = useState(0);
-  const [total, setTotal] = useState([]);
 
-  const toggleAbutton = async (a, type) => {
-    const changeAbutton = total.find((v) => v.balance_type === type);
-    changeAbutton.types = !changeAbutton.types;
-
-    await fetch(
-      "http://3.35.152.195/api/balance_type/balanceResult?balance_id=," + type,
-      {
-        method: "GET",
-        headers: {
-          "Conent-Type": "application/json",
-        },
+  useEffect(() => {
+    const fetchItems = async () => {
+      const response = await fetch(
+        "3.35.152.195/api/balance/selectBalance?balance_type=," + balance_type,
+        {
+          method: "GET",
+          headers: {
+            "Conent-Type": "application/json",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setTimeout(() => {
+            navigate("/gameresult", { state: { result: data.data } });
+          }, 4000).then((data) => {
+            console.log(data.data);
+          });
+        });
+      const responseData = await response.json();
+      const loadedItems = [];
+      for (const key in responseData) {
+        loadedItems.push({
+          id: key,
+        });
       }
-    ).then((response) => response.json());
-  };
-
-  const OnClickGame = (response) => {
-    navigate("/gameresult", {
-      state: { state: { result: response.response } },
+      setItems(loadedItems);
+      setIsLoading(false);
+    };
+    fetchItems().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
     });
+  }, []);
+  const onClick = () => {
+    setTimeout(4000);
+    navigate("/gameresult", { state: { select: select } });
   };
-
   return (
     <div className={styles.game_layout}>
       <div className={styles.game_title}>백런스게임</div>
@@ -53,12 +61,13 @@ const Game = () => {
       <div>
         <img className={styles.game_image} src={gamedino} alt="디노캐릭터" />{" "}
       </div>
+
       <div className={styles.gamebutton_layout}>
         <div className={styles.game_butttonA}>
           <button
             className={styles.game_buttonitem}
             onClick={() => {
-              OnClickGame(yesselect);
+              onClick(yesselect);
             }}
             id="game_buttonA"
           >
@@ -71,7 +80,7 @@ const Game = () => {
           <button
             className={styles.game_buttonitem}
             onClick={() => {
-              OnClickGame(noselect);
+              onClick(noselect);
             }}
           >
             {" "}
@@ -79,7 +88,7 @@ const Game = () => {
             <br />
             함께 최종 면접
           </button>
-        </div>
+        </div>{" "}
       </div>
     </div>
   );

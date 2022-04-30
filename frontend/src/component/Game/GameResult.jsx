@@ -1,36 +1,42 @@
 import React, { useState } from "react";
 import styles from "./GameResult.module.css";
-import SharediarySNS from "../Share/SharediarySNS";
+import SharegameSNS from "../Share/SharegameSNS";
 import clipboard from "../../assets/clipboard.png";
 import { saveAs } from "file-saver";
 import domtoimage from "dom-to-image";
 import GameCommentList from "./GameList";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 const INITIAL_VALIES = {
   nickname: null,
   content: null,
 };
 const GameResult = (props) => {
-  const navigate = useNavigate();
+  const [resulttime, setResultTime] = React.useState(false);
+  const { state } = useLocation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState(null);
   const [values, setValues] = useState(INITIAL_VALIES);
   console.log(values);
+  const total = state.total;
+  const rateA = state.rateA;
+  const rateB = state.rateB;
+
+  console.log(total);
+  console.log(rateA);
+  console.log(rateB);
+  console.log(state.balance_type);
   const fetchItems = async () => {
-    const responsse = await fetch(
-      "http://3.315.152.195/api/reply/createReply",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          game_writter: values.nickname,
-          game_content: values.content,
-        }),
-      }
-    )
+    const response = await fetch("3.35.152.195/api/balance/createReply", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        game_writter: values.nickname,
+        game_content: values.content,
+      }),
+    })
       .then((response) => response.json())
       .then((response) => console.log(response));
   };
@@ -60,6 +66,10 @@ const GameResult = (props) => {
     <div className={styles.gameresult_layout}>
       {" "}
       <div className="card">
+        {/* {result.total} */}
+        <h1> {state.balance_type}</h1>
+        <h1> {state.balance_id}</h1>
+        <h1>{state.balanceResult}</h1>
         <div className={styles.game_title}>백런스게임</div>
         <div className={styles.game_subtitle}>
           백수라면 참을 수 없는 게임
@@ -67,14 +77,21 @@ const GameResult = (props) => {
         </div>
         <div className={styles.gameresult_line}>
           <div className={styles.bar_layout}>
-            <div className={styles.barA}></div>A
-            <div className={styles.barB}></div>B
+            <div className={styles.barA}>
+              {" "}
+              <div> {rateA}</div>
+            </div>
+            A
+            <div className={styles.barB}>
+              <div>{rateB}</div>
+            </div>
+            B
           </div>
         </div>{" "}
         <div className={styles.shareSNS}>
           <span className={styles.SNS_header}>친구에게 공유하기</span>
           <div className={styles.snsbutton}>
-            <SharediarySNS />{" "}
+            <SharegameSNS />{" "}
             {/* <button className="downBtn" onClick={onDownloadBtn}> </button> */}
             <img
               src={clipboard}
