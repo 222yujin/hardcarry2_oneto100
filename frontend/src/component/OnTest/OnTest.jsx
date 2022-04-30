@@ -82,8 +82,6 @@ export const OnTest = () => {
     select[step] = num;
   };
 
-  console.log(step);
-
   return (
     <div className={styles.Ontest_layout}>
       {time && (
@@ -133,19 +131,10 @@ export const OnTest = () => {
                 <img src={preview} alt="preview" className={styles.preview} />
               </button>
             )}
-            {/* <button
-              className={styles.previewbutton}
-              onClick={() => {
-                previewOnClick();
-              }}
-              id="question_down"
-            >
-              <img src={preview} alt="preview" className={styles.preview} />
-            </button> */}
           </div>
           <div className={styles.logo_scope}>
             <div className={styles.euiroomlogo}>
-              <a href="http://www.youtheroom.kr/">
+              <a href="http://www.youtheroom.kr/" target="_blank">
                 {" "}
                 <img
                   src={euiroomlogo}
@@ -155,7 +144,7 @@ export const OnTest = () => {
               </a>
             </div>
             <div className={styles.gurologo}>
-              <a href="https://www.guro.go.kr/www/index.do">
+              <a href="https://www.guro.go.kr/www/index.do" target="_blank">
                 {" "}
                 <img
                   src={gurologo}
