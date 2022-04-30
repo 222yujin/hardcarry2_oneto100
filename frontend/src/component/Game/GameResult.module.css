@@ -45,14 +45,7 @@
 }
 
 .barA,
-.barB {
-    width: 314px;
-    height: 32px;
-    border: 1px solid #868e96;
-    box-sizing: border-box;
-    border-radius: 24px;
-    margin-bottom: 8px;
-}
+.barB {}
 
 .submitgamescope {
     display: flex;

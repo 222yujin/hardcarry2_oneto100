@@ -1,31 +1,116 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./GameResult.module.css";
 import SharegameSNS from "../Share/SharegameSNS";
 import clipboard from "../../assets/clipboard.png";
 import { saveAs } from "file-saver";
 import domtoimage from "dom-to-image";
 import GameCommentList from "./GameList";
-import { useEffect } from "react";
+
 import { useNavigate, useLocation } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
+
 const INITIAL_VALIES = {
   nickname: null,
   content: null,
 };
+
 const GameResult = (props) => {
-  const [resulttime, setResultTime] = React.useState(false);
   const { state } = useLocation();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submittingError, setSubmittingError] = useState(null);
+
   const [values, setValues] = useState(INITIAL_VALIES);
   console.log(values);
   const total = state.total;
   const rateA = state.rateA;
   const rateB = state.rateB;
+  const TOTAL = state.total;
 
   console.log(total);
   console.log(rateA);
   console.log(rateB);
   console.log(state.balance_type);
+  const barAIn = keyframes`
+ 0% {
+        width: 0; 
+        background: #868e96;
+
+      }
+50% {
+width : 40%;
+background:#ffc958; 
+//  width: ${rateA} /2 ;
+ 
+}
+ 100% {
+        width: 75% ;
+background:#ff5aa4;
+//  width: ${rateA} background:#ff5aa4;
+      }
+`;
+
+  const barBIn = keyframes`
+ 0% {
+        width: 0; 
+        background: #868e96;
+
+      }
+50% {
+width : 40%;
+//  width: ${rateB} /2 %;
+background:#ffc958;
+ 
+
+}
+ 100% {
+        width: 75% ;
+background:#ff5aa4;
+//  width: ${rateB} background:#ff5aa4;
+      }
+`;
+  const ChoiceContainer = styled.div`
+    width: 100%;
+    display: flex;
+    width: 314px;
+    height: 32px;
+    border: 1px solid #868e96;
+    box-sizing: border-box;
+    border-radius: 24px;
+    margin-bottom: 8px;
+  `;
+
+  const ChoiceA = styled.div`
+    all: unset;
+    background: #868e96;
+    border-radius: 24px;
+    width: 75%;
+    height: 100%;
+    // width: {rateA}%
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    :hover {
+      transition: all 0.3s ease-in-out;
+      background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
+      border-radius: 24px;
+    }
+    animation: ${barAIn} 3s 0s linear;
+  `;
+
+  const ChoiceB = styled.div`
+    all: unset;
+    background: #868e96;
+    border-radius: 24px;
+    width: 195px;
+    // width: {rateB}%
+    height: 32px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    :hover {
+      transition: all 0.3s ease-in-out;
+      background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
+      border-radius: 24px;
+    }
+    animation: ${barBIn} 3s 0s linear;
+  `;
+
   const fetchItems = async () => {
     const response = await fetch("3.35.152.195/api/balance/createReply", {
       method: "POST",
@@ -62,9 +147,9 @@ const GameResult = (props) => {
       saveAs(blob, "diary.png");
     });
   };
+
   return (
     <div className={styles.gameresult_layout}>
-      {" "}
       <div className="card">
         {/* {result.total} */}
         <h1> {state.balance_type}</h1>
@@ -77,14 +162,23 @@ const GameResult = (props) => {
         </div>
         <div className={styles.gameresult_line}>
           <div className={styles.bar_layout}>
-            <div className={styles.barA}>
-              {" "}
-              <div> {rateA}</div>
-            </div>
+            <ChoiceContainer>
+              <ChoiceA>
+                <span className={styles.barA}>
+                  {/* <span> {rateA}</span> */}
+                </span>{" "}
+              </ChoiceA>
+              A
+            </ChoiceContainer>
             A
-            <div className={styles.barB}>
-              <div>{rateB}</div>
-            </div>
+            <ChoiceContainer>
+              <ChoiceB>
+                <span className={styles.barB}>
+                  {/* <span>{rateB}</span> */}
+                </span>
+              </ChoiceB>
+              B
+            </ChoiceContainer>{" "}
             B
           </div>
         </div>{" "}
