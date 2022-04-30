@@ -1,17 +1,12 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import "./shareSNS.css";
+
+import "./sharediarySNS.css";
 import kakao from "../../assets/kakaoshare.png";
 
 import link from "../../assets/linkshare.png";
 
-const ShareSNS = (state) => {
-  const kakaourl = window.location.state.result.result.type_id;
-  useEffect(() => {
-    window.localStorage.setItem(JSON.stringify(state.result.result.type_id));
-  }, [state.result.result.type_id]);
-
-  // const url = window.location.href; //현재 url가져오기
+const SharediarySNS = () => {
+  const url = window.location.href; //현재 url가져오기
   useEffect(() => {
     initKakao(); //
   }, []);
@@ -38,19 +33,30 @@ const ShareSNS = (state) => {
           "#일당백프로젝트 #청년이룸 #구로청년이룸  #디노 #백수 #일기장 #게임 #스토리 ",
         imageUrl: "https://ifh.cc/g/KXnbbS.jpg",
         link: {
-          mobileWebUrl: "http://3.35.152.195/api/test/getResult?id=gihun",
-          webUrl: kakaourl,
+          mobileWebUrl: url,
+          webUrl: url,
         },
       },
-
+      // social: {
+      //   likeCount: 286,
+      //   commentCount: 45,
+      //   sharedCount: 845,
+      // },
       buttons: [
         {
           title: "디노와함께 백수탈출",
           link: {
-            mobileWebUrl: kakaourl,
-            webUrl: kakaourl,
+            mobileWebUrl: url,
+            webUrl: url,
           },
         },
+        // {
+        //   title: "앱으로 보기",
+        //   link: {
+        //     mobileWebUrl: url,
+        //     webUrl: url,
+        //   },
+        // },
       ],
     });
   };
@@ -81,9 +87,9 @@ const ShareSNS = (state) => {
   return (
     <div className="sharesnscomponent">
       <div className="kakaoandclipboard">
-        <div className="kakao">
+        <div className="diary_kakao">
           <img
-            id="test_kakao"
+            id="diary_kakao"
             className="shareIcon"
             src={kakao}
             alt="kakaotalk"
@@ -92,11 +98,15 @@ const ShareSNS = (state) => {
             onClick={shareKakao}
           />
         </div>
-        <div className="clipboard">
+        <div
+          className="diary_link
+"
+          id="diary_link"
+        >
           <img
-            id="test_link"
+            id="diary_copy"
             src={link}
-            onClick={(state) => doCopy(state.result.result.type_id)}
+            onClick={() => doCopy("http://www.oneto100.shop/diary/game")}
           />
         </div>
       </div>
@@ -104,4 +114,4 @@ const ShareSNS = (state) => {
   );
 };
 
-export default ShareSNS;
+export default SharediarySNS;
