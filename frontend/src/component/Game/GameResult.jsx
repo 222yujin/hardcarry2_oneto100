@@ -14,20 +14,26 @@ const INITIAL_VALIES = {
   content: null,
 };
 
-const GameResult = (props) => {
+const GameResult = (back_balance, props) => {
+  const [counter, setCounter] = React.useState(props.balance_type);
   const { state } = useLocation();
 
   const [values, setValues] = useState(INITIAL_VALIES);
-  console.log(values);
-  const total = state.total;
-  const rateA = state.rateA;
-  const rateB = state.rateB;
-  const TOTAL = state.total;
 
-  console.log(total);
-  console.log(rateA);
-  console.log(rateB);
+  const cntA = state.select === 0;
+  const cntB = state.select === 1;
+  const total = cntA + cntB;
+  const result = state.result;
+
+  const TOTAL = state.total;
+  console.log(state.select);
+
   console.log(state.balance_type);
+  console.log(result);
+  // console.log(total);
+  // console.log(rateA);
+  // console.log(rateB);
+  // console.log(state.balance_type);
 
   const ChoiceContainer = styled.div`
     width: 100%;
@@ -115,9 +121,20 @@ const GameResult = (props) => {
     <div className={styles.gameresult_layout}>
       <div className="card">
         {/* {result.total} */}
-        <h1> {state.balance_type}</h1>
-        <h1> {state.balance_id}</h1>
-        <h1>{state.balanceResult}</h1>
+        <h1>
+          {((cntA === 0 + cntB) == 1) === total ? null : (
+            <div>total : {cntA + cntB}</div>
+          )}
+        </h1>{" "}
+        <h1> {counter}</h1>
+        {/* <h1> {cntA === 0 ? <div>결과 a:{cntA}</div> : null}</h1>
+        <h1> {cntB == 1 ? <div>결과b: {cntB}</div> : null}</h1> */}
+        <h1>
+          {" "}
+          {state.select === 0 ? <div>결과a2: {state.select}</div> : null}
+        </h1>
+        <h1> {state.select == 1 ? <div>결과b2: {state.select}</div> : null}</h1>{" "}
+        {props.counter}
         <div className={styles.game_title}>백런스게임</div>
         <div className={styles.game_subtitle}>
           백수라면 참을 수 없는 게임
@@ -127,9 +144,7 @@ const GameResult = (props) => {
           <div className={styles.bar_layout}>
             <ChoiceContainer>
               <ChoiceA>
-                <span className={styles.barA}>
-                  <span> {rateA}</span>
-                </span>{" "}
+                <span className={styles.barA}></span>{" "}
               </ChoiceA>
               A
             </ChoiceContainer>
@@ -137,7 +152,7 @@ const GameResult = (props) => {
             <ChoiceContainer>
               <ChoiceB>
                 <span className={styles.barB}>
-                  <span>{rateB}</span>
+                  {/* <span>{rateB}</span> */}
                 </span>
               </ChoiceB>
               B

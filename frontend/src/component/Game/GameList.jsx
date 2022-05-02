@@ -102,7 +102,7 @@ function GameCommentList(data) {
     const keyword = "";
     const sort = "latest";
     const res = await fetch(
-      "http://3.35.152.195/api/balance/getReply?page= " +
+      "http://3.35.152.195/balance/getReply?page= " +
         pageCnt +
         "&size=4" +
         "&sort=" +
@@ -147,33 +147,36 @@ function GameCommentList(data) {
   return (
     <div>
       <div className={styles.diarylayout}>
-        {pages.map((balance, index) => (
-          <div className={styles.writelist_item} key={balance.balance_id}>
+        {pages.map((createReply, index) => (
+          <div className={styles.writelist_item} key={createReply.balance_id}>
             <div>
               {" "}
               <div className={styles.writenickname}>
                 <span className={styles.writenickname}>
-                  닉네임 <strong>{balance.balance_name}</strong>
+                  닉네임 <strong>{createReply.balance_name}</strong>
                 </span>
               </div>{" "}
               <span className={styles.gamechoicetype}>
-                나의 선택은? <strong>{balance.balance_type}</strong>
+                나의 선택은? <strong>{createReply.balance_type}</strong>
               </span>
               <br />
               <span className={styles.diarycontent}>
-                {balance.balance_content}
+                {createReply.balance_content}
               </span>
               <div className={styles.heart_layout}>
                 <div className={styles.heart}>
                   <img
-                    id={balance.balance_id}
-                    src={balance.likes ? fulllove : emptylove}
-                    like={balance.balance_like}
+                    id={createReply.balance_id}
+                    src={createReply.likes ? fulllove : emptylove}
+                    like={createReply.balance_like}
                     onClick={() => {
-                      toggleHeart(balance.balance_like, balance.balance_id);
+                      toggleHeart(
+                        createReply.balance_like,
+                        createReply.balance_id
+                      );
                     }}
                   />
-                  +{balance.balance_like}
+                  +{createReply.balance_like}
                 </div>
               </div>
             </div>{" "}
