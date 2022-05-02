@@ -82,10 +82,10 @@ function GameCommentList(data) {
         console.log(data.data);
         if (data.data.blike_use == "X") {
           changeLike.balance_like -= 1;
-          cookies.set(changeLike.dalance_id, "X");
+          cookies.set(changeLike.balance_id, "X");
         } else {
           changeLike.balance_like += 1;
-          cookies.set(changeLike.dalance_id, "O");
+          cookies.set(changeLike.balance_id, "O");
         }
         pages[changenum] = changeLike;
         setPages([...pages]);

@@ -15,25 +15,24 @@ const INITIAL_VALIES = {
 };
 
 const GameResult = (back_balance, props) => {
-  const [counter, setCounter] = React.useState(props.balance_type);
-  const { state } = useLocation();
+  useEffect(async()=>{
+    await fetch("http://3.35.152.195/api/balance/balanceResult", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data.data);
+          setResults(data.data);
+        });
+  });
+
 
   const [values, setValues] = useState(INITIAL_VALIES);
+  const [result,setResults] = useState([])
 
-  const cntA = state.select === 0;
-  const cntB = state.select === 1;
-  const total = cntA + cntB;
-  const result = state.result;
-
-  const TOTAL = state.total;
-  console.log(state.select);
-
-  console.log(state.balance_type);
-  console.log(result);
-  // console.log(total);
-  // console.log(rateA);
-  // console.log(rateB);
-  // console.log(state.balance_type);
 
   const ChoiceContainer = styled.div`
     width: 100%;
@@ -120,21 +119,6 @@ const GameResult = (back_balance, props) => {
   return (
     <div className={styles.gameresult_layout}>
       <div className="card">
-        {/* {result.total} */}
-        <h1>
-          {((cntA === 0 + cntB) == 1) === total ? null : (
-            <div>total : {cntA + cntB}</div>
-          )}
-        </h1>{" "}
-        <h1> {counter}</h1>
-        {/* <h1> {cntA === 0 ? <div>결과 a:{cntA}</div> : null}</h1>
-        <h1> {cntB == 1 ? <div>결과b: {cntB}</div> : null}</h1> */}
-        <h1>
-          {" "}
-          {state.select === 0 ? <div>결과a2: {state.select}</div> : null}
-        </h1>
-        <h1> {state.select == 1 ? <div>결과b2: {state.select}</div> : null}</h1>{" "}
-        {props.counter}
         <div className={styles.game_title}>백런스게임</div>
         <div className={styles.game_subtitle}>
           백수라면 참을 수 없는 게임
@@ -146,18 +130,17 @@ const GameResult = (back_balance, props) => {
               <ChoiceA>
                 <span className={styles.barA}></span>{" "}
               </ChoiceA>
-              A
+              {result.rateA}
             </ChoiceContainer>
-            A
+            A : {result.cntA} / {result.total}
             <ChoiceContainer>
               <ChoiceB>
                 <span className={styles.barB}>
-                  {/* <span>{rateB}</span> */}
                 </span>
               </ChoiceB>
-              B
+              {result.rateB}
             </ChoiceContainer>{" "}
-            B
+            B : {result.cntB} / {result.total}
           </div>
         </div>{" "}
         <div className={styles.shareSNS}>
