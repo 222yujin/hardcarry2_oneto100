@@ -30,7 +30,7 @@ const SharediarySNS = () => {
       content: {
         title: "일당백프로젝트",
         description:
-          "#일당백프로젝트 #청년이룸 #구로청년이룸  #디노 #백수 #일기장 #게임 #스토리 ",
+          "#일당백프로젝트 #백런스게임 #게임 #백수커뮤니티 #청년이룸 #구로청년이룸  #디노 #백수 #일기장 #게임 #스토리 ",
         imageUrl: "https://ifh.cc/g/KXnbbS.jpg",
         link: {
           mobileWebUrl: url,
@@ -44,7 +44,7 @@ const SharediarySNS = () => {
       // },
       buttons: [
         {
-          title: "디노와함께 백수탈출",
+          title: "백수라면 참을수 없는 게임, GO GO!",
           link: {
             mobileWebUrl: url,
             webUrl: url,

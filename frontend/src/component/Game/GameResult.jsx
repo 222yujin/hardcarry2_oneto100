@@ -9,43 +9,18 @@ import GameCommentList from "./GameList";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
-const INITIAL_VALIES = {
-  nickname: null,
-  content: null,
-};
+const ChoiceContainer = styled.div`
+  width: 100%;
+  display: flex;
+  width: 314px;
+  height: 32px;
+  border: 1px solid #868e96;
+  box-sizing: border-box;
+  border-radius: 24px;
+  margin-bottom: 8px;
+`;
 
-const GameResult = (back_balance, props) => {
-  useEffect(async()=>{
-    await fetch("http://3.35.152.195/api/balance/balanceResult", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data.data);
-          setResults(data.data);
-        });
-  });
-
-
-  const [values, setValues] = useState(INITIAL_VALIES);
-  const [result,setResults] = useState([])
-
-
-  const ChoiceContainer = styled.div`
-    width: 100%;
-    display: flex;
-    width: 314px;
-    height: 32px;
-    border: 1px solid #868e96;
-    box-sizing: border-box;
-    border-radius: 24px;
-    margin-bottom: 8px;
-  `;
-
-  const ChoiceA = styled.div`
+const ChoiceA = styled.div`
     all: unset;
     background: #868e96;
     border-radius: 24px;
@@ -62,7 +37,7 @@ const GameResult = (back_balance, props) => {
  
   `;
 
-  const ChoiceB = styled.div`
+const ChoiceB = styled.div`
     all: unset;
     background: #868e96;
     border-radius: 24px;
@@ -78,6 +53,29 @@ const GameResult = (back_balance, props) => {
     }
  
   `;
+const INITIAL_VALIES = {
+  nickname: null,
+  content: null,
+};
+
+const GameResult = (back_balance, props) => {
+  // console.log(data.data);
+
+  useEffect(async () => {
+    await fetch("http://3.35.152.195/api/balance/balanceResult", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setResults(data.data);
+      });
+  });
+
+  const [values, setValues] = useState(INITIAL_VALIES);
+  const [result, setResults] = useState([]);
 
   const fetchItems = async () => {
     const response = await fetch("3.35.152.195/api/balance/createReply", {
@@ -135,8 +133,7 @@ const GameResult = (back_balance, props) => {
             A : {result.cntA} / {result.total}
             <ChoiceContainer>
               <ChoiceB>
-                <span className={styles.barB}>
-                </span>
+                <span className={styles.barB}></span>
               </ChoiceB>
               {result.rateB}
             </ChoiceContainer>{" "}
