@@ -164,9 +164,9 @@ function GameCommentList(data) {
                 {createReply.balance_content}
               </span>
               <div className={styles.heart_layout}>
-                <div className={styles.heart}>
+                <div id="game_heart" className={styles.heart}>
                   <img
-                    id={createReply.balance_id}
+                    id="game_heart"
                     src={createReply.likes ? fulllove : emptylove}
                     like={createReply.balance_like}
                     onClick={() => {
@@ -186,7 +186,7 @@ function GameCommentList(data) {
           {" "}
           <button className={styles.diary_more} onClick={moreBalance}>
             <p> 댓글 더보기</p>
-            <img src={more} className={styles.moreimg} />
+            <img src={more} className={styles.moreimg} id="game_more" />
           </button>{" "}
         </div>{" "}
       </div>

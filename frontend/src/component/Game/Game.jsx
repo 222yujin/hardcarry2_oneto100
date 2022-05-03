@@ -5,27 +5,27 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
 
 const Game = (props, balance_type) => {
-    const cookies = new Cookies();
+  const cookies = new Cookies();
   const navigate = useNavigate();
 
   const onClick = async (balance_type) => {
     const response = await fetch(
-        "http://3.35.152.195/api/balance/selectBalance?balance_type=" + balance_type,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+      "http://3.35.152.195/api/balance/selectBalance?balance_type=" +
+        balance_type,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     )
-        .then((response) => response.json())
-        .then((data) => {
-            cookies.set("balance_id",balance_type);
-        });
+      .then((response) => response.json())
+      .then((data) => {
+        cookies.set("balance_id", balance_type);
+      });
 
     navigate("/gameresult");
   };
-
 
   return (
     <div className={styles.game_layout}>
@@ -43,9 +43,9 @@ const Game = (props, balance_type) => {
           <button
             className={styles.game_buttonitem}
             onClick={() => {
-              onClick('A');
+              onClick("A");
             }}
-            id="game_buttonA"
+            id="game_a"
           >
             {/* {selectbalance.balance_type} */}
             나를 죽도록 싫어하는 원수와 <br />
@@ -53,11 +53,11 @@ const Game = (props, balance_type) => {
           </button>
         </div>
         VS
-        <div className={styles.game_butttonB} id="question_down">
+        <div className={styles.game_butttonB} id="game_b">
           <button
             className={styles.game_buttonitem}
             onClick={(counter) => {
-              onClick('B');
+              onClick("B");
             }}
           >
             {" "}

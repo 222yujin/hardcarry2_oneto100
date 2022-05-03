@@ -149,6 +149,7 @@ const GameResult = (back_balance, props) => {
               src={clipboard}
               className={styles.game_save}
               onClick={onDownloadBtn}
+              id="game_save"
             />
           </div>
         </div>
@@ -178,6 +179,7 @@ const GameResult = (back_balance, props) => {
             <button
               className={styles.gamecommentsubmitbutton}
               onClick={handleSubmit}
+              id="game_write"
             >
               입력
             </button>

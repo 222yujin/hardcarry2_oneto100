@@ -89,7 +89,7 @@ const SharediarySNS = () => {
       <div className="kakaoandclipboard">
         <div className="diary_kakao">
           <img
-            id="diary_kakao"
+            id="game_kakao"
             className="shareIcon"
             src={kakao}
             alt="kakaotalk"
@@ -98,13 +98,9 @@ const SharediarySNS = () => {
             onClick={shareKakao}
           />
         </div>
-        <div
-          className="diary_link
-"
-          id="diary_link"
-        >
+        <div className="gme_link" id="game_link">
           <img
-            id="diary_copy"
+            id="game_link"
             src={link}
             onClick={() => doCopy("http://www.oneto100.shop/diary/game")}
           />
