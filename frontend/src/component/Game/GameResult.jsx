@@ -7,7 +7,6 @@ import domtoimage from "dom-to-image";
 import GameCommentList from "./GameList";
 import { Cookies } from "react-cookie";
 
-
 import { useNavigate, useLocation } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
@@ -57,6 +56,7 @@ const ChoiceB = styled.div`
   `;
 
 const GameResult = (back_balance, props) => {
+  const navigate = useNavigate();
   const cookies = new Cookies();
   const INITIAL_VALIES = {
     nickname: null,
@@ -79,27 +79,30 @@ const GameResult = (back_balance, props) => {
   const [values, setValues] = useState(INITIAL_VALIES);
   const [result, setResults] = useState([]);
 
-  const fetchItems = async () => {
-    if(values.nickname==null || values.content==null){
-      alert("닉네임과 내용을 모두 채워주세요!")
+  const fetchItems = async (pages) => {
+    if (values.nickname == null || values.content == null) {
+      alert("닉네임과 내용을 모두 채워주세요!");
       return;
     }
-    const response = await fetch("http://3.35.152.195/api/balance/createReply", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        balance_name: values.nickname,
-        balance_content: values.content,
-        balance_type : cookies.get("balance_type")
-      }),
-    })
+    const response = await fetch(
+      "http://3.35.152.195/api/balance/createReply",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          balance_name: values.nickname,
+          balance_content: values.content,
+          balance_type: cookies.get("balance_type"),
+        }),
+      }
+    )
       .then((response) => response.json())
-      .then((response) =>
-          console.log(response)
-          //modal창 오픈이라던가 기능 주고
-          // 방금 쓴 글 포함하게 리렌더링하기
+      .then(
+        (response) => console.log(response)
+        //modal창 오픈이라던가 기능 주고
+        // 방금 쓴 글 포함하게 리렌더링하기
       );
   };
 
@@ -122,12 +125,13 @@ const GameResult = (back_balance, props) => {
   };
   const onDownloadBtn = () => {
     domtoimage.toBlob(document.querySelector(".card")).then((blob) => {
-      saveAs(blob, "diary.png");
+      saveAs(blob, "gameresult.png");
     });
   };
 
   return (
     <div className={styles.gameresult_layout}>
+      {" "}
       <div className="card">
         <div className={styles.game_title}>백런스게임</div>
         <div className={styles.game_subtitle}>
@@ -142,15 +146,16 @@ const GameResult = (back_balance, props) => {
               </ChoiceA>
               {result.rateA}
             </ChoiceContainer>
-            A : 나를 죽도록 싫어하는 원수와 면접 스터디 ({result.cntA} / {result.total})
-
+            A : 나를 죽도록 싫어하는 원수와 면접 스터디 ({result.cntA} /{" "}
+            {result.total})
             <ChoiceContainer>
               <ChoiceB>
                 <span className={styles.barB}></span>
               </ChoiceB>
               {result.rateB}
             </ChoiceContainer>{" "}
-            B : 세상에서 제일 친한 친구와 함께 최종 면접 ({result.cntB} / {result.total})
+            B : 세상에서 제일 친한 친구와 함께 최종 면접 ({result.cntB} /{" "}
+            {result.total})
           </div>
         </div>{" "}
         <div className={styles.shareSNS}>

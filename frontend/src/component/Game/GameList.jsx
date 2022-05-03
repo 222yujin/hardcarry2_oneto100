@@ -52,7 +52,7 @@ function formatDate(value) {
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-function GameCommentList(data) {
+function GameCommentList(data, { onClick }) {
   const fillHeart = () => {
     return <img src={fulllove} />;
   };
@@ -102,33 +102,34 @@ function GameCommentList(data) {
     const keyword = "";
     const sort = "latest";
     await fetch(
-        "http://3.35.152.195/api/balance/getReply?page= " +
+      "http://3.35.152.195/api/balance/getReply?page= " +
         pageCnt +
         "&size=4" +
         "&sort=" +
         sort +
         "&keyword=" +
         keyword,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     )
-        .then((response) => response.json())
-        .then((data) => {
-          for (let i = 0; i < data.diaryList.length; i++) {
-            const cookie = cookies.get(data.diaryList[i].balance_id);
-            if (cookie == "O") data.diaryList[i].likes = true;
-            else data.diaryList[i].likes = false;
-          }
-          setPages([...pages, ...data.diaryList]);
-          setMaxCount(data.totalPages);
-          console.log(data.diaryList)
-        }).catch((err) => {
-          console.log(err)
-        });
+      .then((response) => response.json())
+      .then((data) => {
+        for (let i = 0; i < data.diaryList.length; i++) {
+          const cookie = cookies.get(data.diaryList[i].balance_id);
+          if (cookie == "O") data.diaryList[i].likes = true;
+          else data.diaryList[i].likes = false;
+        }
+        setPages([...pages, ...data.diaryList]);
+        setMaxCount(data.totalPages);
+        console.log(data.diaryList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
@@ -146,7 +147,7 @@ function GameCommentList(data) {
 
   return (
     <div>
-      <div className={styles.diarylayout}>
+      <div className={styles.gamelayout}>
         {pages.map((createReply, index) => (
           <div className={styles.writelist_item} key={createReply.balance_id}>
             <div>
