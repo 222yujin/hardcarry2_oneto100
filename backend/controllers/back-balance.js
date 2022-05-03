@@ -45,7 +45,9 @@ const createReply = async (req, res) => {
     const userAgent = req.get('User-Agent');
     const browser = getBrowserInfo(userAgent);
     const reply = req.body;
-    const balance_type = req.cookies.balance_type;
+    let balance_type = req.cookies.balance_type;
+    if(balance_type==undefined || balance_type==null)
+        balance_type=reply.balance_type;
 
     await balancedb.create({
         balance_content: reply.balance_content,
