@@ -10,6 +10,20 @@ import { Cookies } from "react-cookie";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
+const Total = styled.div`
+  font-family: CookieRun-Regular;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
+
 const ChoiceContainer = styled.div`
   width: 100%;
   display: flex;
@@ -30,14 +44,19 @@ const ChoiceA = styled.div`
     width: {rateA}%
     margin-bottom: 8px;
     box-sizing: border-box;
-    :hover {
-      transition: all 0.3s ease-in-out;
-      background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
-      border-radius: 24px;
-    }
- 
   `;
-
+const ChoiceAON = styled.div`
+ all: unset;
+    border-radius: 24px;
+    width: 75%;
+    height: 100%;
+    width: {rateA}%
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
+    transition: all 0.3s ease-in-out;
+    
+`;
 const ChoiceB = styled.div`
     all: unset;
     background: #868e96;
@@ -47,12 +66,20 @@ const ChoiceB = styled.div`
     height: 100%;
     margin-bottom: 8px;
     box-sizing: border-box;
-    :hover {
-      transition: all 0.3s ease-in-out;
-      background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
-      border-radius: 24px;
-    }
+  
+  `;
+
+const ChoiceBON = styled.div`
+    all: unset;
  
+    border-radius: 24px;
+    width: 80%;
+    width: {rateB}%;
+    height: 100%;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+     background: linear-gradient(135deg, #ff5aa4 0%, #ffc958 100%);
+    transition: all 0.3s ease-in-out;
   `;
 
 const GameResult = (back_balance, props) => {
@@ -75,9 +102,14 @@ const GameResult = (back_balance, props) => {
         setResults(data.data);
       });
   });
-
+  const { state } = useLocation();
   const [values, setValues] = useState(INITIAL_VALIES);
   const [result, setResults] = useState([]);
+  const [counter, setCounter] = React.useState(props.balance_type);
+
+  const cntA = state.select === 0;
+  const cntB = state.select === 1;
+  const total = cntA + cntB;
 
   const fetchItems = async (pages) => {
     if (values.nickname == null || values.content == null) {
@@ -131,7 +163,7 @@ const GameResult = (back_balance, props) => {
 
   return (
     <div className={styles.gameresult_layout}>
-      {" "}
+      {props.counter}
       <div className="card">
         <div className={styles.game_title}>백런스게임</div>
         <div className={styles.game_subtitle}>
@@ -141,21 +173,43 @@ const GameResult = (back_balance, props) => {
         <div className={styles.gameresult_line}>
           <div className={styles.bar_layout}>
             <ChoiceContainer>
-              <ChoiceA>
-                <span className={styles.barA}></span>{" "}
-              </ChoiceA>
+              {state.select === 0 ? (
+                <ChoiceAON>
+                  <span className={styles.barA}></span>{" "}
+                </ChoiceAON>
+              ) : (
+                <ChoiceA>
+                  <span className={styles.barA}></span>{" "}
+                </ChoiceA>
+              )}
+
               {result.rateA}
             </ChoiceContainer>
-            A : 나를 죽도록 싫어하는 원수와 면접 스터디 ({result.cntA} /{" "}
-            {result.total})
+            {state.select === 0 ? (
+              <Total>
+                <div>A : 나를 죽도록 싫어하는 원수와 면접 스터디</div>- 당신과{" "}
+                {result.total}명이 같은 선택을 했습니다.
+              </Total>
+            ) : null}
             <ChoiceContainer>
-              <ChoiceB>
+              {state.select === 1 ? (
+                <ChoiceBON>
+                  <span className={styles.barB}></span>{" "}
+                </ChoiceBON>
+              ) : (
+                <ChoiceB>
+                  <span className={styles.barB}></span>{" "}
+                </ChoiceB>
+              )}
+              {/* <ChoiceB>
                 <span className={styles.barB}></span>
               </ChoiceB>
-              {result.rateB}
+              {result.rateB} */}
             </ChoiceContainer>{" "}
-            B : 세상에서 제일 친한 친구와 함께 최종 면접 ({result.cntB} /{" "}
-            {result.total})
+            B : 세상에서 제일 친한 친구와 함께 최종 면접
+            {state.select === 1 ? (
+              <Total>- 당신과 {result.total}명이 같은 선택을 했습니다. </Total>
+            ) : null}
           </div>
         </div>{" "}
         <div className={styles.shareSNS}>
