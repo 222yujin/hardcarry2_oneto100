@@ -104,8 +104,6 @@ function WriteForm(props) {
     formData.append("private", values.private);
     formData.append("rating", values.rating);
     formData.append("choice", values.choice);
-    //await createReviews(formData);
-    //setValues(INITIAL_VALIES);
   };
   const onDownloadBtn = () => {
     domtoimage.toBlob(document.querySelector(".card")).then((blob) => {

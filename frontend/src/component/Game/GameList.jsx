@@ -67,8 +67,8 @@ function GameCommentList(data) {
   const [maxCount, setMaxCount] = useState(0);
   const [pages, setPages] = useState([]);
   const toggleHeart = async (like, id) => {
-    const changenum = pages.findIndex((v) => v.diary_id === id);
-    const changeLike = pages.find((v) => v.diary_id === id);
+    const changenum = pages.findIndex((v) => v.balance_id === id);
+    const changeLike = pages.find((v) => v.balance_id === id);
     changeLike.likes = !changeLike.likes;
 
     await fetch("http://3.35.152.195/api/balance/replyLike?balance_id=" + id, {
@@ -101,34 +101,34 @@ function GameCommentList(data) {
   const getData = async (pageCnt) => {
     const keyword = "";
     const sort = "latest";
-    const res = await fetch(
-      "http://3.35.152.195/balance/getReply?page= " +
+    await fetch(
+        "http://3.35.152.195/api/balance/getReply?page= " +
         pageCnt +
         "&size=4" +
         "&sort=" +
         sort +
         "&keyword=" +
         keyword,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        for (let i = 0; i < data.balanceList.length; i++) {
-          const cookie = cookies.get(data.balanceList[i].balance_id);
-          if (cookie == "O") data.balanceList[i].likes = true;
-          else data.balanceList[i].likes = false;
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-
-        setPages([...pages, ...data.balanceList]);
-        //setPages(pages=>[...pages,data.diaryList]);
-        setMaxCount(data.totalPages);
-      });
+    )
+        .then((response) => response.json())
+        .then((data) => {
+          for (let i = 0; i < data.diaryList.length; i++) {
+            const cookie = cookies.get(data.diaryList[i].balance_id);
+            if (cookie == "O") data.diaryList[i].likes = true;
+            else data.diaryList[i].likes = false;
+          }
+          setPages([...pages, ...data.diaryList]);
+          setMaxCount(data.totalPages);
+          console.log(data.diaryList)
+        }).catch((err) => {
+          console.log(err)
+        });
   };
 
   useEffect(() => {

@@ -5,6 +5,8 @@ import clipboard from "../../assets/clipboard.png";
 import { saveAs } from "file-saver";
 import domtoimage from "dom-to-image";
 import GameCommentList from "./GameList";
+import { Cookies } from "react-cookie";
+
 
 import { useNavigate, useLocation } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
@@ -53,13 +55,13 @@ const ChoiceB = styled.div`
     }
  
   `;
-const INITIAL_VALIES = {
-  nickname: null,
-  content: null,
-};
 
 const GameResult = (back_balance, props) => {
-  // console.log(data.data);
+  const cookies = new Cookies();
+  const INITIAL_VALIES = {
+    nickname: null,
+    content: null,
+  };
 
   useEffect(async () => {
     await fetch("http://3.35.152.195/api/balance/balanceResult", {
@@ -78,35 +80,45 @@ const GameResult = (back_balance, props) => {
   const [result, setResults] = useState([]);
 
   const fetchItems = async () => {
-    const response = await fetch("3.35.152.195/api/balance/createReply", {
+    if(values.nickname==null || values.content==null){
+      alert("닉네임과 내용을 모두 채워주세요!")
+      return;
+    }
+    const response = await fetch("http://3.35.152.195/api/balance/createReply", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        game_writter: values.nickname,
-        game_content: values.content,
+        balance_name: values.nickname,
+        balance_content: values.content,
+        balance_type : cookies.get("balance_type")
       }),
     })
       .then((response) => response.json())
-      .then((response) => console.log(response));
+      .then((response) =>
+          console.log(response)
+          //modal창 오픈이라던가 기능 주고
+          // 방금 쓴 글 포함하게 리렌더링하기
+      );
   };
 
-  const handleChange = (nickname, value) => {
+  const handleChange = (name, value) => {
     setValues((prevValues) => ({
       ...prevValues,
-      [nickname]: value,
+      [name]: value,
     }));
   };
   async function handleInputChange(e) {
-    const { nickname, value } = e.target;
-    handleChange(nickname, value);
+    const { name, value } = e.target;
+    handleChange(name, value);
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("content", values.content);
     formData.append("nickname", values.nickname);
+    fetchItems();
   };
   const onDownloadBtn = () => {
     domtoimage.toBlob(document.querySelector(".card")).then((blob) => {
@@ -130,14 +142,15 @@ const GameResult = (back_balance, props) => {
               </ChoiceA>
               {result.rateA}
             </ChoiceContainer>
-            A : {result.cntA} / {result.total}
+            A : 나를 죽도록 싫어하는 원수와 면접 스터디 ({result.cntA} / {result.total})
+
             <ChoiceContainer>
               <ChoiceB>
                 <span className={styles.barB}></span>
               </ChoiceB>
               {result.rateB}
             </ChoiceContainer>{" "}
-            B : {result.cntB} / {result.total}
+            B : 세상에서 제일 친한 친구와 함께 최종 면접 ({result.cntB} / {result.total})
           </div>
         </div>{" "}
         <div className={styles.shareSNS}>
