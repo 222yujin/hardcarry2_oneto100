@@ -142,3 +142,53 @@
     margin-left: 20px;
     width: 48px;
 }
+
+ 
+
+.footer {
+    width: 162px;
+}
+
+.modallayout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modaltitle {
+    font-family: CookieRun-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 46px;
+    text-align: center;
+    color: #343a40;
+}
+
+
+.submit_button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gamecommentsubmitbutton {
+    border: none;
+    background: none;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ color: #ff7eb8;
+}

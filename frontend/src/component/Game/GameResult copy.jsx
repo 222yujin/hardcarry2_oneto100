@@ -265,23 +265,23 @@ const GameResult = (back_balance, props) => {
               onClick={handleSubmit}
               id="game_write"
             >
-         
-    <GameModal
+              입력
+            </button>
+            <GameModal
               open={GamemodalOpen}
               close={closeModal}
-              header="백런스게임"
+              header="백수의 일기장"
               className={styles.modallayout}
             >
               <div className={styles.modalline}>
-                <h3 className={styles.modaltitle}>백런스 의견 작성이 
-<br/>완료 되었습니다.</h3>
+                <h1 className={styles.modaltitle}>참 잘했어요!</h1>
                 <main> {props.children} </main>
                 <img src={footer} className={styles.footer} />
-                
+                <p className={props.finisheddiary}>
+                  일기장 작성이 완료 되었습니다.
+                </p>
               </div>
             </GameModal>
-            </button>
-        
           </div>{" "}
         </form>
       </div>

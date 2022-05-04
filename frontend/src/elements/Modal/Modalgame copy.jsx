@@ -20,10 +20,10 @@ function Modalgame(props) {
         입 력
       </button>
 
-      <Modal open={modalOpen} close={closeModal} header="백런스게임">
-        
+      <Modal open={modalOpen} close={closeModal} header="백수의 일기장">
+        <h1>참 잘했어요!</h1>
         <main> {props.children} </main>
-     
+        <p>일기장 작성이 완료 되었습니다.</p>
       </Modal>
     </React.Fragment>
   );
