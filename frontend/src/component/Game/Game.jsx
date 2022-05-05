@@ -35,6 +35,7 @@ const Game = (props, balance_type) => {
 
   const onNumberClick = (balance_type) => {
     setCounter(counter + 1);
+      cookies.set("balance_type", balance_type);
     navigate("/gameresult", { state: { select: balance_type } });
   };
   useEffect(() => {

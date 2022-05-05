@@ -137,7 +137,6 @@ const GameResult = (back_balance, props) => {
       .then((response) => response.json())
       .then((data) => {
         setGameModalOpen(true);
-        //방금 쓴 거 보이게 해야함
       });
   };
 
@@ -200,7 +199,7 @@ const GameResult = (back_balance, props) => {
             {state.select === 0 ? (
               <Total>
                 <div>A : 나를 죽도록 싫어하는 원수와 면접 스터디</div>- 당신과{" "}
-                {result.total}명이 같은 선택을 했습니다.
+                {result.cntA -1 }명이 같은 선택을 했습니다.
               </Total>
             ) : null}
             <ChoiceContainer>
@@ -220,7 +219,7 @@ const GameResult = (back_balance, props) => {
             </ChoiceContainer>{" "}
             B : 세상에서 제일 친한 친구와 함께 최종 면접
             {state.select === 1 ? (
-              <Total>- 당신과 {result.total}명이 같은 선택을 했습니다. </Total>
+              <Total>- 당신과 {result.cntB -1 }명이 같은 선택을 했습니다. </Total>
             ) : null}
           </div>
         </div>{" "}
